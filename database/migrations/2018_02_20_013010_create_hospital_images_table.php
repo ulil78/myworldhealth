@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCitiesTable extends Migration
+class CreateHospitalImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('hospital_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('country_id')->unsigned();
-            $table->integer('country_id')->refernces('id')->on('countries');
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description');
+            $table->integer('hospital_id')->unsigned();
+            $table->integer('hospital_id')->refrences('id')->on('hospitals');
+            $table->string('path')->default('images/hospital');
+            $table->string('filename')->default('noimages.png');
+            $table->string('description');
             $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('hospital_images');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountriesTable extends Migration
+class CreateHospitalCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('hospital_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('slug');
-            $table->string('path')->default('images/flag');
-            $table->string('filename')->default('noimages.png');
-            $table->enum('status', ['true', 'false'])->default('true');
+            $table->integer('hospital_id')->unsigned();
+            $table->integer('four_category_id')->unsigned();
+            $table->float('price', 8, 2);
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateCountriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('hospital_categories');
     }
 }

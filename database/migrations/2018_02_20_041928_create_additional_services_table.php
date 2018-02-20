@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCitiesTable extends Migration
+class CreateAdditionalServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('additional_services', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('country_id')->unsigned();
-            $table->integer('country_id')->refernces('id')->on('countries');
+            $table->integer('hospital_program_id')->unsigned();
+            $table->integer('hospital_program_id')->preferences('id')->on('hospital_programs');
             $table->string('name');
-            $table->string('slug');
-            $table->text('description');
-            $table->enum('status', ['true', 'false'])->default('true');
+            $table->float('price', 8, 2);
+            $table->text('description');           
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('additional_services');
     }
 }

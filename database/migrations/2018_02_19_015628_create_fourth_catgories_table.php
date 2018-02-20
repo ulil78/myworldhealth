@@ -17,8 +17,6 @@ class CreateFourthCatgoriesTable extends Migration
             $table->increments('id');
             $table->integer('thrid_category_id')->unsigned();
             $table->integer('thrid_category_id')->refrences('id')->on('thrid_catgories');
-            $table->integer('city_id')->unsigned();
-            $table->integer('hospital_id')->unsigned();
             $table->string('name');
             $table->string('slug');
             $table->text('description');
