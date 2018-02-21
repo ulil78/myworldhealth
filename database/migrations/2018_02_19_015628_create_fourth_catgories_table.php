@@ -16,7 +16,7 @@ class CreateFourthCatgoriesTable extends Migration
         Schema::create('fouth_catgories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thrid_category_id')->unsigned();
-            $table->integer('thrid_category_id')->refrences('id')->on('thrid_catgories');
+            $table->foreign('thrid_category_id')->references('id')->on('thrid_catgories');
             $table->string('name');
             $table->string('slug');
             $table->text('description');

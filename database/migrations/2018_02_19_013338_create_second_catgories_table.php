@@ -16,7 +16,7 @@ class CreateSecondCatgoriesTable extends Migration
         Schema::create('second_catgories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('first_category_id')->unsigned();
-            $table->integer('first_category_id')->refrences('id')->on('first_catgories');
+            $table->foreign('first_category_id')->references('id')->on('first_catgories');            
             $table->string('name');
             $table->string('slug');
             $table->text('description');

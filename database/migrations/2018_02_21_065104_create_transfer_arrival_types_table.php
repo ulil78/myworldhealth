@@ -16,7 +16,7 @@ class CreateTransferArrivalTypesTable extends Migration
         Schema::create('transfer_arrival_types', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('transfer_arrival_id')->unsigned();
-            $table->integer('transfer_arrival_id')->refrences('id')->on('transfer_arrivals');
+            $table->foreign('transfer_arrival_id')->references('id')->on('transfer_arrivals');
             $table->string('name');
             $table->float('price', 8, 2);
             $table->timestamps();

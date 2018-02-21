@@ -25,7 +25,7 @@ class CreateHospitalsTable extends Migration
             $table->string('email');
             $table->text('description');
             $table->text('accommodation');
-            $tabe->string('map');
+            $table->string('map');
             $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();
         });

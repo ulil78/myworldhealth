@@ -16,7 +16,7 @@ class CreateTransferReturnsTable extends Migration
         Schema::create('transfer_returns', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('hospital_program_id')->unsigned();
-            $table->integer('hospital_program_id')->refrences('id')->on('hospital_programs');
+            $table->foreign('hospital_program_id')->references('id')->on('hospital_programs');
             $table->string('name');
             $table->timestamps();
         });

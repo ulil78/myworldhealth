@@ -16,7 +16,7 @@ class CreateTransferReturnTypesTable extends Migration
         Schema::create('transfer_return_types', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('transfer_return_id')->unsigned();
-            $table->integer('transfer_return_id')->refrences('id')->on('transfer_returns');
+            $table->foreign('transfer_return_id')->references('id')->on('transfer_returns');
             $table->string('name');
             $table->float('price', 8, 2);
             $table->timestamps();

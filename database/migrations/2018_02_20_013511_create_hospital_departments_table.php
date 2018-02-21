@@ -16,7 +16,7 @@ class CreateHospitalDepartmentsTable extends Migration
         Schema::create('hospital_departments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('hospital_id')->unsigned();
-            $table->integer('hospital_id')->refrences('id')->on('hospitals');
+            $table->foreign('hospital_id')->references('id')->on('hospitals');
             $table->string('name');
             $table->string('slug');
             $table->text('description');

@@ -16,7 +16,7 @@ class CreateThridCatgoriesTable extends Migration
         Schema::create('thrid_catgories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('second_category_id')->unsigned();
-            $table->integer('second_category_id')->refrences('id')->on('second_catgories');
+            $table->foreign('second_category_id')->references('id')->on('second_catgories');
             $table->string('name');
             $table->string('slug');
             $table->text('description');

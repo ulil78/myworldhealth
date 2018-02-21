@@ -16,10 +16,10 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('hospital_id')->unsigned();
-            $table->integer('hospital_id')->refrences('id')->on('hospitals');
+            $table->foreign('hospital_id')->references('id')->on('hospitals');
             $table->integer('user_id')->unsigned();
             $table->text('description');
-            $table->integer('star');        
+            $table->integer('star');
             $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class CreateHospitalImagesTable extends Migration
         Schema::create('hospital_images', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('hospital_id')->unsigned();
-            $table->integer('hospital_id')->refrences('id')->on('hospitals');
+            $table->foreign('hospital_id')->references('id')->on('hospitals');
             $table->string('path')->default('images/hospital');
             $table->string('filename')->default('noimages.png');
             $table->string('description');
