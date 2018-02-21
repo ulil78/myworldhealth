@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdditionalServicesTable extends Migration
+class CreateWhyBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAdditionalServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('additional_services', function (Blueprint $table) {
+        Schema::create('why_bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->float('price', 8, 2);
-            $table->text('description');
+            $table->sting('title');
+            $table->text('descrtion');
+            $table->string('path')->default('images/general');
+            $table->string('filename')->default('noimages.png');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateAdditionalServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('additional_services');
+        Schema::dropIfExists('why_bookings');
     }
 }

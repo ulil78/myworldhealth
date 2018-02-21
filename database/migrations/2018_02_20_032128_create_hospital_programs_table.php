@@ -23,6 +23,7 @@ class CreateHospitalProgramsTable extends Migration
             $table->string('description');
             $table->float('price', 8, 2);
             $table->integer('duration')->default('1');
+            $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();
         });
     }
