@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Marchant;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class RoleController extends Controller
+class PreperenceController extends Controller
 {
     /**
      * Display a listing of the resource.
