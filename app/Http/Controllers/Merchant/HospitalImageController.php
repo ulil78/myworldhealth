@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Marchant;
+namespace App\Http\Controllers\Merchant;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HowItWorkController extends Controller
+class HospitalImageController extends Controller
 {
     /**
      * Display a listing of the resource.

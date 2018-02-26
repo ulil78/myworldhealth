@@ -17,4 +17,33 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+
+// Route for Frontend hire
+
+Route::prefix('admin')->group(function() {
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+    Route::group(['namespace' => 'Backend', 'middleware' => 'admin'], function (){
+
+        //Route for Backend Hire
+        Route::get('/', 'AdminController@index')->name('admin.dashboard');
+
+
+    });
+});
+
+
+Route::prefix('merchant')->group(function() {
+    Route::get('/login', 'Auth\MerchantLoginController@showLoginForm')->name('merchant.login');
+    Route::post('/login', 'Auth\MerchantLoginController@login')->name('merchant.login.submit');
+
+    Route::group(['namespace' => 'Merchant', 'middleware' => 'merchant'], function (){
+
+        //Route For Merchant Hire
+        Route::get('/', 'MerchantController@index')->name('merchant.dashboard');
+
+
+    });
+});
