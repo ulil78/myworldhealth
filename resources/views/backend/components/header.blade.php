@@ -211,10 +211,17 @@
                                 <a href="page_user_profile_1.html">
                                     <i class="icon-user"></i> My Profile </a>
                             </li>
-                            
+
                             <li>
-                                <a href="page_user_login_1.html">
-                                    <i class="icon-key"></i> Log Out </a>
+                              <a href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                  <i class="icon-key"></i> Logout
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
                             </li>
                         </ul>
                     </li>
