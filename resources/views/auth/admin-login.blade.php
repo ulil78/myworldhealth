@@ -6,7 +6,7 @@
         <div class="col-md-12">
           <div class="col-md-6">
             <div class="panel panel-default" style="padding: 20px;">
-              <img src="{{asset('images/logo.png')}}" /><br /><br />
+              <img src="{{asset('images/logo.png')}}" height="90" /><br /><br />
               <h3>Welcome at Platform MyWorldHealth.com</h3>
               <hr>
               <small><i>copyright &copy; myworldhealth.com - 2018</i></small>
