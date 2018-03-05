@@ -27,6 +27,10 @@
         <link href="{{asset('assets/global/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/jqvmap/jqvmap/jqvmap.css')}}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
+        <!-- begin datatables -->
+        <link href="{{asset('assets/global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
+        <!-- end datatables -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{asset('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
         <link href="{{asset('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
@@ -43,11 +47,17 @@
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
 
         @include('backend/components/header')
-        @yield('main-content')
-        @include('backend/components/footer')
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {{-- @include('components/sidebar') --}}
+
+          @include('backend/components/sidebar')
+          @yield('main-content')
+          @include('backend/components/footer')
 
 
-
+        </div>
+        <!-- END CONTAINER -->
 
             <!--[if lt IE 9]>
            <script src="../assets/global/plugins/respond.min.js"></script>
@@ -104,6 +114,13 @@
             <script src="{{asset('assets/layouts/layout2/scripts/demo.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
             <!-- END THEME LAYOUT SCRIPTS -->
+            <!-- BEGIN PAGE LEVEL SCRIPTS  -->
+             <script src="{{asset('assets/pages/scripts/table-datatables-buttons.min.js')}}" type="text/javascript"></script>
+             <!-- END PAGE LEVEL SCRIPTS -->
+              <!-- BEGIN PAGE LEVEL PLUGINS -->
+             <script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
+             <script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
+             <script src="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
     </body>
 
 </html>

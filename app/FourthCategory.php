@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FourCategory extends Model
+class FourthCategoryControllerCategory extends Model
 {
-      protected $table='four_categories';
+      protected $table='fourth_categories';
       protected $fillable = ['name', 'thrid_category_id'];
 
       public function thrid_category()

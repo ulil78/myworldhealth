@@ -94,22 +94,22 @@
                         </a>
                         <ul class="sub-menu">
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="{{url('admin/first-categories')}}" class="nav-link ">
                                   <span class="title">First Catgeories</span>
                               </a>
                           </li>
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="{{url('admin/second-categories')}}" class="nav-link ">
                                   <span class="title">Second Catgeories</span>
                               </a>
                           </li>
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="{{url('admin/thrid-categories')}}" class="nav-link ">
                                   <span class="title">Thrid Catgeories</span>
                               </a>
                           </li>
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="{{url('admin/fourth-categories')}}" class="nav-link ">
                                   <span class="title">Fourth Catgeories</span>
                               </a>
                           </li>

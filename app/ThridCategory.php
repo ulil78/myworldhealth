@@ -16,6 +16,6 @@ class ThridCategory extends Model
 
     public function four_categories()
     {
-      return $this->hasMany('App\FourCategory');
+      return $this->hasMany('App\FourthCategory');
     }
 }
