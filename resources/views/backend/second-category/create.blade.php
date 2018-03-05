@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Edit First Category</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Add Second Category</div>
                             <div class="tools"></div>
                         </div>
                         <div class="portlet-body">
@@ -25,29 +25,28 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/first-categories/'.$category->id) }}" method="POST"  enctype="multipart/form-data">
+                            <form action="{{ url('/admin/second-categories/') }}" method="POST"  enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                                <input type="hidden" name="_method" value="PUT">
-                                
+                                <div class="form-group">
+                                    <label for="first_category_id">First Category</label>
+                                    <select name="first_category_id" class="form-control">
+                                        <option> --- Select First Category --- </option>
+                                        @foreach ($firsts as $first)
+                                            <option value="{{$first->id}}">{{$first->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                  <div class="form-group">
                                      <label for="name">Name</label>
-                                     <input type="text" class="form-control" id="name" name="name" value="{{$category->name}}">
+                                     <input type="text" class="form-control" id="name" name="name">
                                  </div>
                                  <div class="form-group">
                                      <label for="description">Description</label>
-                                     <textarea class="form-control" name="description" id="description">{!! $category->description !!}</textarea>
+                                     <textarea class="form-control" name="description" id="description"></textarea>
                                  </div>
 
-                                 <div class="form-group">
-                                     <label for="status">Status</label>
-                                     <select class="form-control" name="status" id="status">
-                                          <option value="{{$category->status}}">{{$category->status}}</option>
-                                          <option value="true">True</option>
-                                          <option value="false">False</option>
-                                     </select>
-                                 </div>
-                                 <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/first-categories') }}" class="btn btn-warning">Cancel</a>
+                                 <button type="submit" class="btn btn-primary">Save</button>
+                                 <a href="{{ url('/admin/second-categories') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

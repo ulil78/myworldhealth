@@ -13,7 +13,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>First Categories</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Second Categories</div>
                             <div class="tools"></div>
                         </div>
                         <div class="portlet-body">
@@ -21,9 +21,10 @@
             						       <thead>
             							          <tr>
                                       <th>No.</th>
+                                      <th>First Category</th>
                       								<th>Name</th>
                                       <th>Status</th>
-                                      <th> <a href="{{url('admin/first-categories/create')}}" class="btn btn-primary">Add Category</a> </th>
+                                      <th> <a href="{{url('admin/second-categories/create')}}" class="btn btn-primary">Add Category</a> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,6 +32,12 @@
                     							   @foreach ($categories as $item)
                     							   <tr>
                                         <td>{{$n++}}</td>
+                                        <td>
+                                          @php
+                                            $first = \App\FirstCategory::where('id', $item->first_category_id)->value('name');
+                                          @endphp
+                                          {{$first}}
+                                        </td>
                         								<td>{{$item->name}}</td>
 
                                         <td>
@@ -40,14 +47,16 @@
                                             <label class="label label-danger">False</label>
                                         @endif
                                         </td>
+
                                         <td>
-                        									  <a href="{{ url('/admin/first-categories/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
-                                            <form action="{{ url('admin/first-categories/'.$item->id) }}" method="POST">
+                        									  <a href="{{ url('/admin/second-categories/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
+                                            <form action="{{ url('admin/second-categories/'.$item->id) }}" method="POST">
                                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                                 <input type="hidden" name="_method" value="DELETE" />
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">DELETE</button>
                                             </form>
                                         </td>
+                                        
                                       </tr>
                                       @endforeach
                                 </tbody>

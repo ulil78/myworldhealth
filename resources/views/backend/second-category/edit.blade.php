@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Edit First Category</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Edit Second Category</div>
                             <div class="tools"></div>
                         </div>
                         <div class="portlet-body">
@@ -25,10 +25,23 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/first-categories/'.$category->id) }}" method="POST"  enctype="multipart/form-data">
+                            <form action="{{ url('/admin/second-categories/'.$category->id) }}" method="POST"  enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                 <input type="hidden" name="_method" value="PUT">
-                                
+                                <div class="form-group">
+                                    <label for="first_category_id">First Category</label>
+                                    <select name="first_category_id" class="form-control">
+                                        <option value="{{$category->first_category_id}}">
+                                          @php
+                                            $first = \App\FirstCategory::where('id', $category->first_category_id)->value('name');
+                                          @endphp
+                                          {{$first}}
+                                        </option>
+                                        @foreach ($firsts as $first)
+                                            <option value="{{$first->id}}">{{$first->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                  <div class="form-group">
                                      <label for="name">Name</label>
                                      <input type="text" class="form-control" id="name" name="name" value="{{$category->name}}">
@@ -47,7 +60,7 @@
                                      </select>
                                  </div>
                                  <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/first-categories') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/admin/second-categories') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>
