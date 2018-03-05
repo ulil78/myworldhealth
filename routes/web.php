@@ -32,6 +32,12 @@ Route::prefix('admin')->group(function() {
 
         Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
+        //Categories
+        Route::resource('first-categories', 'FirstCategoryController');
+        Route::resource('second-categories', 'SecondCategoryController');
+        Route::resource('thrid-categories', 'ThridCategoryController');
+        Route::resource('fourth-categories', 'FourthCategoryController');
+
 
     });
 });

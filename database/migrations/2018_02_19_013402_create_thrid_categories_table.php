@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFourthCatgoriesTable extends Migration
+class CreateThridCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateFourthCatgoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fourth_catgories', function (Blueprint $table) {
+        Schema::create('thrid_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('thrid_category_id')->unsigned();
-            $table->foreign('thrid_category_id')->references('id')->on('thrid_catgories');
+            $table->integer('second_category_id')->unsigned();
+            $table->foreign('second_category_id')->references('id')->on('second_categories');
             $table->string('name');
             $table->string('slug');
             $table->text('description');
@@ -32,6 +32,6 @@ class CreateFourthCatgoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fourth_catgories');
+        Schema::dropIfExists('thrid_categories');
     }
 }
