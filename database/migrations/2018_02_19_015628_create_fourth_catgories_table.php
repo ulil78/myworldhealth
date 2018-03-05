@@ -13,7 +13,7 @@ class CreateFourthCatgoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fouth_catgories', function (Blueprint $table) {
+        Schema::create('fourth_catgories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thrid_category_id')->unsigned();
             $table->foreign('thrid_category_id')->references('id')->on('thrid_catgories');
@@ -32,6 +32,6 @@ class CreateFourthCatgoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fouth_catgories');
+        Schema::dropIfExists('fourth_catgories');
     }
 }
