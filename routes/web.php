@@ -41,6 +41,10 @@ Route::prefix('admin')->group(function() {
         Route::post('select-first-cat', ['as'=>'select-first-cat','uses'=>'AjaxController@selectFirstCat']);
         Route::post('select-second-cat', ['as'=>'select-second-cat','uses'=>'AjaxController@selectSecondCat']);
 
+        //location
+        Route::resource('countries', 'CountryController');
+        Route::resource('cities', 'CityController');
+
 
     });
 });

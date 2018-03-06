@@ -123,7 +123,7 @@
                         </a>
                         <ul class="sub-menu">
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="{{url('admin/countries')}}" class="nav-link ">
                                   <span class="title">Countries</span>
                               </a>
                           </li>
