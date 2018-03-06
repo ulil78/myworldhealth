@@ -24,7 +24,7 @@
                       								<th>Name</th>
                                       <th>Flag</th>
                                       <th>Status</th>
-                                      <th> <a href="{{url('admin/countries/create')}}" class="btn btn-primary">Add Category</a> </th>
+                                      <th> <a href="{{url('admin/countries/create')}}" class="btn btn-primary">Add Country</a> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
