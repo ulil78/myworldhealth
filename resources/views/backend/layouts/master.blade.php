@@ -84,6 +84,22 @@
                         });
                     });
 
+
+                    $("select[name='second_category_id']").change(function(){
+                          var second_category_id = $(this).val();
+                          var token = $("input[name='_token']").val();
+                          $.ajax({
+                              url: "<?php echo route('select-second-cat') ?>",
+                              method: 'POST',
+                              data: {second_category_id:second_category_id, _token:token},
+                              success: function(data) {
+                                console.log('success');
+                                $("select[name='thrid_category_id'").html('');
+                                $("select[name='thrid_category_id'").html(data.options);
+                              }
+                          });
+                      });
+
               </script>
 
              <!-- end select category -->
