@@ -38,6 +38,9 @@ Route::prefix('admin')->group(function() {
         Route::resource('thrid-categories', 'ThridCategoryController');
         Route::resource('fourth-categories', 'FourthCategoryController');
 
+        Route::post('select-first-cat', ['as'=>'select-first-cat','uses'=>'AjaxController@selectFirstCat']);
+        Route::post('select-second-cat', ['as'=>'select-second-cat','uses'=>'AjaxController@selectSecondCat']);
+
 
     });
 });

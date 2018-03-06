@@ -14,6 +14,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
+
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
@@ -65,6 +66,28 @@
            <![endif]-->
             <!-- BEGIN CORE PLUGINS -->
             <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+            <!-- Begin select Category -->
+             <script type="text/javascript">
+
+                  $("select[name='first_category_id']").change(function(){
+                        var first_category_id = $(this).val();
+                        var token = $("input[name='_token']").val();
+                        $.ajax({
+                            url: "<?php echo route('select-first-cat') ?>",
+                            method: 'POST',
+                            data: {first_category_id:first_category_id, _token:token},
+                            success: function(data) {
+                              console.log('success');
+                              $("select[name='second_category_id'").html('');
+                              $("select[name='second_category_id'").html(data.options);
+                            }
+                        });
+                    });
+
+              </script>
+
+             <!-- end select category -->
+
             <script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
@@ -121,6 +144,9 @@
              <script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+
+
+
     </body>
 
 </html>
