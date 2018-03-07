@@ -135,7 +135,7 @@
                         </ul>
                     </li>
                     <li class="nav-item  ">
-                        <a href="ui_buttons.html" class="nav-link ">
+                        <a href="{{url('admin/preferences')}}" class="nav-link ">
                             <span class="title">Preferences</span>
                         </a>
                     </li>

@@ -27,7 +27,14 @@ class AjaxController extends Controller
         }
     }
 
-
+    public function selectCountry(Request $request)
+    {
+        if($request->ajax()){
+            $cities= DB::table('cities')->where('country_id',$request->country_id)->get();
+            $data = view('backend/preference/country-select',compact('cities'))->render();
+            return response()->json(['options'=>$data]);
+        }
+    }
 
 
 
