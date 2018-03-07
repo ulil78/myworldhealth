@@ -123,31 +123,21 @@
                         </a>
                         <ul class="sub-menu">
                           <li class="nav-item  ">
-<<<<<<< HEAD
                               <a href="ui_buttons.html" class="nav-link ">
-=======
                               <a href="{{url('admin/countries')}}" class="nav-link ">
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
                                   <span class="title">Countries</span>
                               </a>
                           </li>
                           <li class="nav-item  ">
-<<<<<<< HEAD
                               <a href="ui_buttons.html" class="nav-link ">
-=======
                               <a href="{{url('admin/cities')}}" class="nav-link ">
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
                                   <span class="title">Cities</span>
                               </a>
                           </li>
                         </ul>
                     </li>
                     <li class="nav-item  ">
-<<<<<<< HEAD
-                        <a href="ui_buttons.html" class="nav-link ">
-=======
                         <a href="{{url('admin/preferences')}}" class="nav-link ">
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
                             <span class="title">Preferences</span>
                         </a>
                     </li>
