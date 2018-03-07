@@ -8,6 +8,7 @@
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
+<<<<<<< HEAD
 |Route::get('/', function () {
     return view('welcome');
 });
@@ -20,6 +21,15 @@ Route::get('/detail', 'FrontController@detail')->name('detail');
 Route::get('/booked', 'FrontController@booked')->name('booked');
 Route::get('/getbooked', 'FrontController@getbooked')->name('getbooked');
 Route::get('/processbooked', 'FrontController@processbooked')->name('processbooked');
+=======
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+>>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -43,6 +53,19 @@ Route::prefix('admin')->group(function() {
         Route::resource('thrid-categories', 'ThridCategoryController');
         Route::resource('fourth-categories', 'FourthCategoryController');
 
+<<<<<<< HEAD
+=======
+        Route::post('select-first-cat', ['as'=>'select-first-cat','uses'=>'AjaxController@selectFirstCat']);
+        Route::post('select-second-cat', ['as'=>'select-second-cat','uses'=>'AjaxController@selectSecondCat']);
+
+        //location
+        Route::resource('countries', 'CountryController');
+        Route::resource('cities', 'CityController');
+
+        Route::resource('preferences', 'PreferenceController');
+        Route::post('select-country', ['as'=>'select-country','uses'=>'AjaxController@selectCountry']);
+
+>>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
 
     });
 });

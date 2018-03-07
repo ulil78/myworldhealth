@@ -14,6 +14,10 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
@@ -65,6 +69,63 @@
            <![endif]-->
             <!-- BEGIN CORE PLUGINS -->
             <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+            <!-- Begin select Category -->
+             <script type="text/javascript">
+
+                  $("select[name='first_category_id']").change(function(){
+                        var first_category_id = $(this).val();
+                        var token = $("input[name='_token']").val();
+                        $.ajax({
+                            url: "<?php echo route('select-first-cat') ?>",
+                            method: 'POST',
+                            data: {first_category_id:first_category_id, _token:token},
+                            success: function(data) {
+                              console.log('success');
+                              $("select[name='second_category_id'").html('');
+                              $("select[name='second_category_id'").html(data.options);
+                            }
+                        });
+                    });
+
+
+                    $("select[name='second_category_id']").change(function(){
+                          var second_category_id = $(this).val();
+                          var token = $("input[name='_token']").val();
+                          $.ajax({
+                              url: "<?php echo route('select-second-cat') ?>",
+                              method: 'POST',
+                              data: {second_category_id:second_category_id, _token:token},
+                              success: function(data) {
+                                console.log('success');
+                                $("select[name='thrid_category_id'").html('');
+                                $("select[name='thrid_category_id'").html(data.options);
+                              }
+                          });
+                      });
+
+                      //select country
+                      $("select[name='country_id']").change(function(){
+                            var country_id = $(this).val();
+                            var token = $("input[name='_token']").val();
+                            $.ajax({
+                                url: "<?php echo route('select-country') ?>",
+                                method: 'POST',
+                                data: {country_id:country_id, _token:token},
+                                success: function(data) {
+                                  console.log('success');
+                                  $("select[name='city_id'").html('');
+                                  $("select[name='city_id'").html(data.options);
+                                }
+                            });
+                        });
+
+              </script>
+
+             <!-- end select category -->
+
+>>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
             <script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
@@ -121,6 +182,12 @@
              <script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
     </body>
 
 </html>
