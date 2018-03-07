@@ -132,5 +132,4 @@ class CityController extends Controller
 
         return redirect('admin/cities');
     }
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
 }

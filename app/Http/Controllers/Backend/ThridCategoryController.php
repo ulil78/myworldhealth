@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
 use App\ThridCategory;
 use Carbon\Carbon;
-
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,7 +19,6 @@ class ThridCategoryController extends Controller
         $categories = ThridCategory::orderBy('name')->get();
         return view('backend/thrid-category/index')->with('categories', $categories)
                                                     ->with('page_title', 'Thrid Catgories | Admin Center - MyWorldHealth.Com');
-
     }
 
     /**
@@ -34,7 +31,6 @@ class ThridCategoryController extends Controller
         $firsts = \App\FirstCategory::orderBy('name')->get();
         return view('backend/thrid-category/create')->with('firsts', $firsts)
                                                      ->with('page_title', 'Add Thrid Catgories | Admin Center - MyWorldHealth.Com');
-
     }
 
     /**
@@ -43,57 +39,6 @@ class ThridCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-=======
      public function store(Request $request)
      {
          $rules = array(
@@ -188,5 +133,4 @@ class ThridCategoryController extends Controller
 
          return redirect('admin/thrid-categories');
      }
-
 }

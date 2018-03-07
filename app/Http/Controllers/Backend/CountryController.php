@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
 use App\Country;
 use Carbon\Carbon;
 
@@ -29,8 +28,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-
-        return view('backend/country/create')->with('page_title', 'Add Countries | Admin Center - MyWorldHealth.Com'
+        return view('backend/country/create')->with('page_title', 'Add Countries | Admin Center - MyWorldHealth.Com');
     }
 
     /**
@@ -41,7 +39,6 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-
           $rules = array(
                      'name'             => 'required',
                      'picture'           => 'required'
@@ -60,7 +57,8 @@ class CountryController extends Controller
          $country->filename             = $filename;
          $country->save();
 
-         return redirect('admin/countries')
+         return redirect('admin/countries');
+
     }
 
     /**
@@ -82,10 +80,9 @@ class CountryController extends Controller
      */
     public function edit($id)
     {
-
         $country  = Country::find($id);
         return view('backend/country/edit')->with('country', $country)
-                                          ->with('page_title', 'Edit Country | Admin Center - MyWorldHealth.Com'
+                                          ->with('page_title', 'Edit Country | Admin Center - MyWorldHealth.Com');
     }
 
     /**
@@ -97,7 +94,6 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-
           $rules = array(
                      'name'             => 'required',
           );
@@ -122,6 +118,8 @@ class CountryController extends Controller
          $country->save();
 
          return redirect('admin/countries');
+
+
     }
 
     /**
@@ -132,10 +130,9 @@ class CountryController extends Controller
      */
     public function destroy($id)
     {
-
         $country = Country::find($id);
         $country->delete();
 
-        return redirect('admin/countries'
+        return redirect('admin/countries');
     }
 }
