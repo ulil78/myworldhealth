@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-<<<<<<< HEAD
-=======
+
 use App\ThridCategory;
 use Carbon\Carbon;
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
+
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,13 +18,10 @@ class ThridCategoryController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        //
-=======
         $categories = ThridCategory::orderBy('name')->get();
         return view('backend/thrid-category/index')->with('categories', $categories)
                                                     ->with('page_title', 'Thrid Catgories | Admin Center - MyWorldHealth.Com');
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
+
     }
 
     /**
@@ -35,13 +31,10 @@ class ThridCategoryController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        //
-=======
         $firsts = \App\FirstCategory::orderBy('name')->get();
         return view('backend/thrid-category/create')->with('firsts', $firsts)
                                                      ->with('page_title', 'Add Thrid Catgories | Admin Center - MyWorldHealth.Com');
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
+
     }
 
     /**
@@ -50,7 +43,7 @@ class ThridCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
+    
     public function store(Request $request)
     {
         //
@@ -195,5 +188,5 @@ class ThridCategoryController extends Controller
 
          return redirect('admin/thrid-categories');
      }
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
+
 }

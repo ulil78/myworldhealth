@@ -14,10 +14,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
-<<<<<<< HEAD
-=======
 
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
@@ -69,8 +66,7 @@
            <![endif]-->
             <!-- BEGIN CORE PLUGINS -->
             <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
+
             <!-- Begin select Category -->
              <script type="text/javascript">
 
@@ -125,7 +121,6 @@
 
              <!-- end select category -->
 
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
             <script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
@@ -182,12 +177,6 @@
              <script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
     </body>
 
 </html>

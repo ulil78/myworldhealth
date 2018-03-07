@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-<<<<<<< HEAD
-=======
+
 use App\FourthCategory;
 use Carbon\Carbon;
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,13 +17,10 @@ class FourthCategoryController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        //
-=======
+
         $categories = FourthCategory::orderBy('name')->get();
         return view('backend/fourth-category/index')->with('categories', $categories)
                                                     ->with('page_title', 'Fourth Catgories | Admin Center - MyWorldHealth.Com');
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
     }
 
     /**
@@ -35,13 +30,10 @@ class FourthCategoryController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        //
-=======
+
         $firsts = \App\FirstCategory::orderBy('name')->get();
         return view('backend/fourth-category/create')->with('firsts', $firsts)
                                                      ->with('page_title', 'Add Fourth Catgories | Admin Center - MyWorldHealth.Com');
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
     }
 
     /**
@@ -50,7 +42,6 @@ class FourthCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function store(Request $request)
     {
         //
@@ -195,5 +186,4 @@ class FourthCategoryController extends Controller
 
          return redirect('admin/fourth-categories');
      }
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
 }

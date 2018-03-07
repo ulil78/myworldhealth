@@ -1,20 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-<<<<<<< HEAD
-=======
 use App\City;
 use Carbon\Carbon;
->>>>>>> 335ec19faa67341f8332e47d9289ac838f7d8e8f
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CityController extends Controller
 {
-<<<<<<< HEAD
-    //
-=======
     /**
      * Display a listing of the resource.
      *
