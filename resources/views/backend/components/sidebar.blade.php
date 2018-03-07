@@ -128,7 +128,7 @@
                               </a>
                           </li>
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="{{url('admin/cities')}}" class="nav-link ">
                                   <span class="title">Cities</span>
                               </a>
                           </li>
