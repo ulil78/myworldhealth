@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Add Thrid Category</div>
+                            <div class="caption">Add Thrid Category</div>
                             <div class="tools"></div>
                         </div>
                         <div class="portlet-body">
@@ -52,8 +52,8 @@
                                      <textarea class="form-control" name="description" id="description"></textarea>
                                  </div>
 
-                                 <button type="submit" class="btn btn-primary">Save</button>
-                                 <a href="{{ url('/admin/thrid-categories') }}" class="btn btn-warning">Cancel</a>
+                                 <button type="submit" class="btn btn-success">Save</button>
+                                 <a href="{{ url('/admin/thrid-categories') }}" class="btn btn-danger">Cancel</a>
                             </form>
 
                         </div>

@@ -11,7 +11,7 @@
             <div class="row p-4">
                 <div class="col-md-4 col-12">
                     <legend>Our Partners</legend>
-                    <p class="lead">Our hospital and travel partner all around the world</p>
+                    <p class="lead text-secondary">Our hospital and travel partner all around the world</p>
                     <p>We are partnering with various hospital and medical clinic across the world to give you the best Healty care & Treatment</p>
                 </div>
                 <div class="col-md-8 col-12">
@@ -127,6 +127,24 @@
                 <div class="col-md-8 col-12">
                     <legend class="text-dark">Licensed Hospitals</legend>
                     <p class="text-dark">Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="row p-4">
+                <div class="col-md-12 col-12 text-center">
+                    <i class="ion-ios-chatboxes-outline d-flex justify-content-center" style="font-size: 60px;"></i>
+                    <h5 class="text-center text-dark">Do you still have questions? Please contact us!</h5>
+                    <br class="my-br">
+                    <p class="text-center">We will assist you in selecting the best medical treatment to suit your needs. <br>
+                    Medical Service Booking Health ™ will choose the appropriate clinic and a specialist according to your medical condition.</p>
+                    <h4>+49 228 972 723 20</h4>
+                    <br class="my-br">
+                    <p>Bonn, Singapore</p>
                 </div>
             </div>
         </div>

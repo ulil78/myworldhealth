@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light nav_metallic">
   <a href="#menu-toggle" id="menu-toggle"><i class="ion-ios-keypad" style="font-size: 30px;color: #ffc326"></i></a>
   <a class="navbar-brand ml-5 text-light align-center" href="#">
-    <img class="img-fluid" src="{{url('img/logomwh.png')}}" width="120px" height="120px" class="rounded float-left" alt="...">
+    <img class="img-fluid" src="{{url('img/mwh_logo.png')}}" width="120px" height="120px" class="rounded float-left" alt="...">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,28 +15,28 @@
           <div class="px-0 container">
               <div class="row">
                   <div class="col-md-4">
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
-                      <a class="dropdown-item text-secondary" href="#">Something else here</a>
-                      <a class="dropdown-item text-secondary" href="#">Or a link</a>
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Or a link</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
                   </div>
                   <div class="col-md-4">
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
-                      <a class="dropdown-item text-secondary" href="#">Something else here</a>
-                      <a class="dropdown-item text-secondary" href="#">Or a link</a>
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Or a link</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
                   </div>
                 <div class="col-md-4">
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
-                      <a class="dropdown-item text-secondary" href="#">Something else here</a>
-                      <a class="dropdown-item text-secondary" href="#">Or a link</a>
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Or a link</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
                   </div>
               </div>
           </div>
@@ -73,28 +73,28 @@
           <div class="px-0 container">
               <div class="row">
                   <div class="col-md-4">
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
-                      <a class="dropdown-item text-secondary" href="#">Something else here</a>
-                      <a class="dropdown-item text-secondary" href="#">Or a link</a>
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Or a link</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
                   </div>
                   <div class="col-md-4">
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
-                      <a class="dropdown-item text-secondary" href="#">Something else here</a>
-                      <a class="dropdown-item text-secondary" href="#">Or a link</a>
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Or a link</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
                   </div>
                 <div class="col-md-4">
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
-                      <a class="dropdown-item text-secondary" href="#">Something else here</a>
-                      <a class="dropdown-item text-secondary" href="#">Or a link</a>
-                      <a class="dropdown-item text-secondary" href="#">Action</a>
-                      <a class="dropdown-item text-secondary" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Or a link</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
                   </div>
               </div>
           </div>

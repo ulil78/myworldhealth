@@ -11,7 +11,7 @@ class MerchantLoginController extends Controller
     }
     public function showLoginForm()
     {
-      return view('auth.merchant-login');
+      return view('auth.merchant-login-new');
     }
     public function login(Request $request)
     {
