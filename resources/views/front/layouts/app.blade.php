@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'MyWorldHealth') }}</title>
 
     <!-- Styles -->
     @include('front.partials.assets.css')
@@ -29,36 +29,10 @@
                 @yield('detail-jumbotron')
                 <div class="container">
                     @yield('content')
-                    <!-- Footer -->
-                    @include('front.partials.footer')
                 </div>
-
+                <!-- Footer -->
+                @include('front.partials.footer')
             </div>
-            <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
-                <div class="navbar-toggler animate">
-                    <span class="menu-icon"></span>
-                </div>
-                <ul class="navbar-menu animate">
-                    <li>
-                        <a href="#about-us" class="animate">
-                            <span class="desc animate"> Who We Are </span>
-                            <span class="ion-ios-help-outline" style="font-size: 20px;"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#blog" class="animate">
-                            <span class="desc animate"> What We Say </span>
-                            <span class="glyphicon glyphicon-info-sign"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact-us" class="animate">
-                            <span class="desc animate"> How To Reach Us </span>
-                            <span class="glyphicon glyphicon-comment"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
         
     </div>

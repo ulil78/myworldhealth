@@ -90,7 +90,7 @@
                 <ul class="sub-menu">
                     <li class="nav-item  ">
                         <a href="#" class="nav-link ">
-                            <span class="title">Catgories</span>
+                            <span class="title">Categories</span>
                         </a>
                         <ul class="sub-menu">
                           <li class="nav-item  ">
