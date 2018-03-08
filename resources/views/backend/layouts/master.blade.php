@@ -41,6 +41,7 @@
         <link href="{{asset('assets/layouts/layout2/css/themes/blue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{asset('assets/layouts/layout2/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+        <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css" />
 
         <!-- begin tinymce -->
          <script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>

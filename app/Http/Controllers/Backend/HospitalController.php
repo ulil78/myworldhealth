@@ -92,9 +92,13 @@ class HospitalController extends Controller
          $hospital = Hospital::find($id);
          $countries = \App\Country::orderBy('name')->get();
          $merchants = \App\Merchant::orderBy('name')->get();
+         $images = \App\HospitalImage::where('hospital_id', $id)->orderBy('id', 'desc')->get();
+         $image_count = \App\HospitalImage::where('hospital_id', $id)->count();
          return view('backend/hospital/edit')->with('countries', $countries)
                                              ->with('merchants', $merchants)
                                              ->with('hospital', $hospital)
+                                             ->with('images', $images)
+                                             ->with('image_count', $image_count)
                                              ->with('page_title', 'Edit Hospital| Admin Center - MyWorldHealth.Com');
      }
 
@@ -157,5 +161,38 @@ class HospitalController extends Controller
          $hospital->delete();
 
          return redirect('admin/hospitals');
+     }
+
+     public function postImage(Request $request)
+     {
+         $rules = array(
+
+                    'description'       => 'required',
+                    'picture'           => 'required'
+            );
+
+        $this->validate($request, $rules);
+
+         $id = $request->post('hospital_id');
+
+         $upload_path =  'images/hospital/';
+         $filename = date('ymdhis') . '_' . $request->file('picture')->getClientOriginalName();
+         $request->file('picture')->move('images/hospital/', $filename);
+
+         $image = new \App\HospitalImage;
+         $image->hospital_id   = $id;
+         $image->path          = $upload_path;
+         $image->filename      = $filename;
+         $image->description   = $request->post('description');
+         $image->save();
+
+         return redirect('admin/hospitals/' .$id. '/edit');
+
+     }
+
+     public function getRemoveImage($id, $hospital)
+     {
+          \DB::table('hospital_images')->where('id', $id)->delete();
+          return redirect('admin/hospitals/' .$hospital. '/edit');
      }
 }
