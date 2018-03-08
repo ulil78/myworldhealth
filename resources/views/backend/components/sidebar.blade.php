@@ -29,22 +29,22 @@
                 </a>
                 <ul class="sub-menu">
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Booking New</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Paid</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Confirm</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Finish</span>
                       </a>
                   </li>
@@ -59,22 +59,22 @@
                 </a>
                 <ul class="sub-menu">
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Banners</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Sliders</span>
                       </a>
                   </li>
                     <li class="nav-item  ">
-                        <a href="table_static_basic.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Voucher</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="table_static_responsive.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Discount</span>
                         </a>
                     </li>
@@ -89,7 +89,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="ui_colors.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Catgories</span>
                         </a>
                         <ul class="sub-menu">
@@ -123,13 +123,13 @@
                         </a>
                         <ul class="sub-menu">
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="#" class="nav-link ">
                               <a href="{{url('admin/countries')}}" class="nav-link ">
                                   <span class="title">Countries</span>
                               </a>
                           </li>
                           <li class="nav-item  ">
-                              <a href="ui_buttons.html" class="nav-link ">
+                              <a href="#" class="nav-link ">
                               <a href="{{url('admin/cities')}}" class="nav-link ">
                                   <span class="title">Cities</span>
                               </a>
@@ -153,12 +153,12 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="ui_colors.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Hospitals</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="ui_buttons.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Hospital Images</span>
                         </a>
                     </li>
@@ -168,12 +168,12 @@
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="ui_buttons.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Hospital Programs</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="ui_buttons.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Additional Services</span>
                         </a>
                     </li>
@@ -187,12 +187,12 @@
                 </a>
                 <ul class="sub-menu">
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Patient Data</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="table_static_basic.html" class="nav-link ">
+                      <a href="#" class="nav-link ">
                           <span class="title">Patient Transaction</span>
                       </a>
                   </li>
@@ -259,17 +259,17 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="page_cookie_consent_1.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Users</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="page_cookie_consent_2.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Admin</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="page_system_coming_soon.html" class="nav-link " target="_blank">
+                        <a href="#" class="nav-link " target="_blank">
                             <span class="title">Merchant</span>
                         </a>
                     </li>
