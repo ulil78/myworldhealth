@@ -118,7 +118,7 @@
                     </li>
 
                     <li class="nav-item  ">
-                        <a href="ui_general.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Location</span>
                         </a>
                         <ul class="sub-menu">
@@ -163,7 +163,7 @@
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="ui_general.html" class="nav-link ">
+                        <a href="#" class="nav-link ">
                             <span class="title">Hospital Departments</span>
                         </a>
                     </li>
