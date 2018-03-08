@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 
 
-class PreferncesTableSeeder extends Seeder
+class PreferencesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
