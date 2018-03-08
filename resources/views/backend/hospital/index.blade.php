@@ -21,9 +21,9 @@
             						       <thead>
             							          <tr>
                                       <th>No.</th>
-                                      <th>Name</th>
                                       <th>Country</th>
                                       <th>City</th>
+                                      <th>Name</th>
                       								<th>PIC</th>
                                       <th>Phone</th>
                                       <th>Status</th>

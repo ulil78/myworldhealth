@@ -41,6 +41,41 @@
         <link href="{{asset('assets/layouts/layout2/css/themes/blue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{asset('assets/layouts/layout2/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+
+        <!-- begin tinymce -->
+         <script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
+           <script type="text/javascript">
+
+              tinymce.init({
+                selector: "textarea",
+
+                    // ===========================================
+                    // INCLUDE THE PLUGIN
+                    // ===========================================
+
+                    plugins: [
+                      "advlist autolink lists link image charmap print preview anchor",
+                      "searchreplace visualblocks code fullscreen",
+                      "insertdatetime media table contextmenu paste jbimages"
+                    ],
+
+                    // ===========================================
+                    // PUT PLUGIN'S BUTTON on the toolbar
+                    // ===========================================
+
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+
+                    // ===========================================
+                    // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+                    // ===========================================
+
+                    relative_urls: false
+
+                  });
+
+          </script>
+          <!-- /TinyMCE -->
+
         <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <!-- END HEAD -->
