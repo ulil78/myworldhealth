@@ -28,4 +28,9 @@ class Merchant extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function hospitals()
+    {
+      return $this->hasMany('App\Hospital');
+    }
 }

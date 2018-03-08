@@ -15,4 +15,9 @@ class Hospital extends Model
     {
       return $this->hasMany('App\HospitalImage');
     }
+
+    public function merchant()
+    {
+        return $this->belongsTo('App\Merchant');
+    }
 }

@@ -153,7 +153,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/hospitals')}}" class="nav-link ">
                             <span class="title">Hospitals</span>
                         </a>
                     </li>

@@ -55,6 +55,9 @@ Route::prefix('admin')->group(function() {
         Route::resource('preferences', 'PreferenceController');
         Route::post('select-country', ['as'=>'select-country','uses'=>'AjaxController@selectCountry']);
 
+        //hospitals
+        Route::resource('hospitals', 'HospitalController');
+
 
     });
 });
