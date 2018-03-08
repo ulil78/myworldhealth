@@ -122,14 +122,12 @@
                             <span class="title">Location</span>
                         </a>
                         <ul class="sub-menu">
-                          <li class="nav-item  ">
-                              <a href="#" class="nav-link ">
+                          <li class="nav-item">
                               <a href="{{url('admin/countries')}}" class="nav-link ">
                                   <span class="title">Countries</span>
                               </a>
                           </li>
-                          <li class="nav-item  ">
-                              <a href="#" class="nav-link ">
+                          <li class="nav-item">
                               <a href="{{url('admin/cities')}}" class="nav-link ">
                                   <span class="title">Cities</span>
                               </a>
