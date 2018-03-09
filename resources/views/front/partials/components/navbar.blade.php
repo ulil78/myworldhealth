@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light nav_metallic">
   <a href="#menu-toggle" id="menu-toggle"><i class="ion-ios-keypad" style="font-size: 30px;color: #ffc326"></i></a>
-  <a class="navbar-brand ml-5 text-light align-center" href="#">
-    <img class="img-fluid" src="{{url('img/mwh_logo.png')}}" width="220px" height="220px" class="rounded float-left" alt="...">
+  <a class="navbar-brand ml-3 text-light align-center" href="#">
+    <img class="img-fluid" src="{{url('img/mwh_logo.png')}}" width="200px" height="200px" class="rounded float-left" alt="...">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
