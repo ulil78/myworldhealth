@@ -25,6 +25,8 @@
                                       <th>Department</th>
                                       <th>Category</th>
                                       <th>Name</th>
+                                      <th>Price ($)</th>
+                                      <th>Discount (%)</th>
                       								<th>Notices</th>
                                       <th>Status</th>
                                       <th>Action</th>
@@ -58,6 +60,8 @@
                                             {{$category}}
                                         </td>
                                         <td>{{$item->name}}</td>
+                                        <td>{{money_format('%.2n', $item->price) }}</td>
+                                        <td>{{money_format('%.2n', $item->discount) }}</td>
                                         <td>{!! $item->notices !!}</td>
                                         <td>
                                         @if($item->status == 'true')

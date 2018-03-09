@@ -59,6 +59,14 @@
                                     <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}" disabled>
                                 </div>
                                 <div class="form-group">
+                                    <label for="price">Price ($)</label>
+                                    <input type="text" class="form-control" id="price" name="price" value="{{money_format('%.2n', $program->price) }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="discount">Discount (%)</label>
+                                    <input type="text" class="form-control" id="discount" name="discount" value="{{money_format('%.2n', $program->discount) }}" disabled>
+                                </div>
+                                <div class="form-group">
                                     <label for="notices">Notices</label>
                                     <textarea class="form-control" name="notices" id="notes">{!! $program->notices !!}</textarea>
                                 </div>
