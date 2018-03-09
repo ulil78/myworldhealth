@@ -13,12 +13,73 @@
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
         <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
             <li class="nav-item start active open">
-                <a href="javascript:;" class="nav-link nav-toggle">
+                <a href="{{url('admin')}}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
                     <span class="selected"></span>
                     <span class="arrow open"></span>
                 </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-puzzle"></i>
+                    <span class="title">Setup</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="#" class="nav-link ">
+                            <span class="title">Categories</span>
+                        </a>
+                        <ul class="sub-menu">
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/first-categories')}}" class="nav-link ">
+                                  <span class="title">First Catgeories</span>
+                              </a>
+                          </li>
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/second-categories')}}" class="nav-link ">
+                                  <span class="title">Second Catgeories</span>
+                              </a>
+                          </li>
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/thrid-categories')}}" class="nav-link ">
+                                  <span class="title">Thrid Catgeories</span>
+                              </a>
+                          </li>
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/fourth-categories')}}" class="nav-link ">
+                                  <span class="title">Fourth Catgeories</span>
+                              </a>
+                          </li>
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item  ">
+                        <a href="#" class="nav-link ">
+                            <span class="title">Location</span>
+                        </a>
+                        <ul class="sub-menu">
+                          <li class="nav-item">
+                              <a href="{{url('admin/countries')}}" class="nav-link ">
+                                  <span class="title">Countries</span>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{url('admin/cities')}}" class="nav-link ">
+                                  <span class="title">Cities</span>
+                              </a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="{{url('admin/preferences')}}" class="nav-link ">
+                            <span class="title">Preferences</span>
+                        </a>
+                    </li>
+
+                </ul>
             </li>
 
             <li class="nav-item  ">
@@ -81,67 +142,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-puzzle"></i>
-                    <span class="title">Setup</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <span class="title">Categories</span>
-                        </a>
-                        <ul class="sub-menu">
-                          <li class="nav-item  ">
-                              <a href="{{url('admin/first-categories')}}" class="nav-link ">
-                                  <span class="title">First Catgeories</span>
-                              </a>
-                          </li>
-                          <li class="nav-item  ">
-                              <a href="{{url('admin/second-categories')}}" class="nav-link ">
-                                  <span class="title">Second Catgeories</span>
-                              </a>
-                          </li>
-                          <li class="nav-item  ">
-                              <a href="{{url('admin/thrid-categories')}}" class="nav-link ">
-                                  <span class="title">Thrid Catgeories</span>
-                              </a>
-                          </li>
-                          <li class="nav-item  ">
-                              <a href="{{url('admin/fourth-categories')}}" class="nav-link ">
-                                  <span class="title">Fourth Catgeories</span>
-                              </a>
-                          </li>
-                        </ul>
 
-                    </li>
-
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <span class="title">Location</span>
-                        </a>
-                        <ul class="sub-menu">
-                          <li class="nav-item">
-                              <a href="{{url('admin/countries')}}" class="nav-link ">
-                                  <span class="title">Countries</span>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="{{url('admin/cities')}}" class="nav-link ">
-                                  <span class="title">Cities</span>
-                              </a>
-                          </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="{{url('admin/preferences')}}" class="nav-link ">
-                            <span class="title">Preferences</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
 
             <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
