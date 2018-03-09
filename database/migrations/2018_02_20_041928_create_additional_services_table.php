@@ -15,9 +15,13 @@ class CreateAdditionalServicesTable extends Migration
     {
         Schema::create('additional_services', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('hospital_program_id')->unsigned();
+            $table->foreign('hospital_program_id')->references('id')->on('hospital_programs');
             $table->string('name');
             $table->float('price', 8, 2);
             $table->text('description');
+            $table->enum('status', ['true', 'false', 'banned'])->default('true');
+            $table->text('notices')->nullable();
             $table->timestamps();
         });
     }
