@@ -18,7 +18,7 @@
                         </div> --}}
                         <div class="portlet-body">
                           <div class="panel">
-                            <a href="{{url('admin/fourth-categories/create')}}" class="btn btn-success">Add Category</a>    
+                            <a href="{{url('admin/fourth-categories/create')}}" class="btn btn-success">Add Category</a>
                           </div>
                           <div class="panel-body">
                 						 <table class="table table-striped table-bordered table-hover" id="sample_2">
@@ -29,6 +29,7 @@
                                           <th>Second Category</th>
                                           <th>Thrid Category</th>
                           								<th>Name</th>
+                                          <th>Commission Fee</th>
                                           <th>Status</th>
                                           <th> </th>
                                         </tr>
@@ -66,7 +67,7 @@
                                               {{$thrid}}
                                             </td>
                             								<td>{{$item->name}}</td>
-
+                                            <td>{{money_format('%.2n', $item->commission_fee) }}</td>
                                             <td>
                                             @if($item->status == 'true')
                                                 <label class="label label-success">True</label>

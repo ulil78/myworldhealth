@@ -76,6 +76,10 @@
                                      <input type="text" class="form-control" id="name" name="name" value="{{$category->name}}">
                                  </div>
                                  <div class="form-group">
+                                     <label for="commission_fee">Commision Fee</label>
+                                     <input type="text" class="form-control" id="commission_fee" name="commission_fee" step="any" value="{{$category->commission_fee}}">
+                                 </div>
+                                 <div class="form-group">
                                      <label for="description">Description</label>
                                      <textarea class="form-control" name="description" id="description">{!! $category->description !!}</textarea>
                                  </div>

@@ -41,7 +41,8 @@ class FourthCategoryController extends Controller
          $rules = array(
                     'name'                  => 'required',
                     'thrid_category_id'     => 'required',
-                    'description'           => 'required'
+                    'description'           => 'required',
+                    'commission_fee'        => 'required'
 
 
             );
@@ -50,6 +51,7 @@ class FourthCategoryController extends Controller
 
         $category                       = new FourthCategory;
         $category->name                 = $request->get('name');
+        $category->commission_fee       = $request->get('commission_fee');
         $category->thrid_category_id    = $request->get('thrid_category_id');
         $category->slug                 = str_slug($request->get('name'), '-');
         $category->description          = $request->get('description');
@@ -96,7 +98,8 @@ class FourthCategoryController extends Controller
          $rules = array(
                   'name'                  => 'required',
                   'thrid_category_id'     => 'required',
-                  'description'           => 'required'
+                  'description'           => 'required',
+                  'commission_fee'        => 'required'
 
           );
 
@@ -109,6 +112,7 @@ class FourthCategoryController extends Controller
           $category->thrid_category_id    = $request->get('thrid_category_id');
           $category->name                 = $request->get('name');
           $category->slug                 = str_slug($request->get('name'), '-');
+          $category->commission_fee       = $request->get('commission_fee');
           $category->description          = $request->get('description');
           $category->status               = $request->get('status');
           $category->updated_at           = Carbon::now();
