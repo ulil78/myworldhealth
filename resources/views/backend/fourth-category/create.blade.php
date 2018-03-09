@@ -42,7 +42,7 @@
 
                                     </select>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="thrid_category_id">Thrid Category</label>
                                     <select name="thrid_category_id" class="form-control">
@@ -53,6 +53,10 @@
                                  <div class="form-group">
                                      <label for="name">Name</label>
                                      <input type="text" class="form-control" id="name" name="name">
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="commission_fee">Commision Fee</label>
+                                     <input type="text" class="form-control" id="commission_fee" name="commission_fee" step="any">
                                  </div>
                                  <div class="form-group">
                                      <label for="description">Description</label>

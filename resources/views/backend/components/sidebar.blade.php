@@ -13,74 +13,13 @@
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
         <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
             <li class="nav-item start active open">
-                <a href="javascript:;" class="nav-link nav-toggle">
+                <a href="{{url('admin')}}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
                     <span class="selected"></span>
                     <span class="arrow open"></span>
                 </a>
             </li>
-
-            <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-basket"></i>
-                    <span class="title">Booking Order</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                  <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
-                          <span class="title">Booking New</span>
-                      </a>
-                  </li>
-                  <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
-                          <span class="title">Paid</span>
-                      </a>
-                  </li>
-                  <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
-                          <span class="title">Confirm</span>
-                      </a>
-                  </li>
-                  <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
-                          <span class="title">Finish</span>
-                      </a>
-                  </li>
-                </ul>
-            </li>
-
-            <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-trophy"></i>
-                    <span class="title">Promo</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                  <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
-                          <span class="title">Banners</span>
-                      </a>
-                  </li>
-                  <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
-                          <span class="title">Sliders</span>
-                      </a>
-                  </li>
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <span class="title">Voucher</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <span class="title">Discount</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
@@ -145,6 +84,68 @@
 
             <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-basket"></i>
+                    <span class="title">Booking Order</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                  <li class="nav-item  ">
+                      <a href="#" class="nav-link ">
+                          <span class="title">Booking New</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="#" class="nav-link ">
+                          <span class="title">Paid</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="#" class="nav-link ">
+                          <span class="title">Confirm</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="#" class="nav-link ">
+                          <span class="title">Finish</span>
+                      </a>
+                  </li>
+                </ul>
+            </li>
+
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-trophy"></i>
+                    <span class="title">Promo</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                  <li class="nav-item  ">
+                      <a href="#" class="nav-link ">
+                          <span class="title">Banners</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="#" class="nav-link ">
+                          <span class="title">Sliders</span>
+                      </a>
+                  </li>
+                    <li class="nav-item  ">
+                        <a href="#" class="nav-link ">
+                            <span class="title">Voucher</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="#" class="nav-link ">
+                            <span class="title">Discount</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-list"></i>
                     <span class="title">Hospital</span>
                     <span class="arrow"></span>
@@ -156,22 +157,17 @@
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <span class="title">Hospital Images</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/hospital-departments')}}" class="nav-link ">
                             <span class="title">Hospital Departments</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/hospital-programs')}}" class="nav-link ">
                             <span class="title">Hospital Programs</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/additional-services')}}" class="nav-link ">
                             <span class="title">Additional Services</span>
                         </a>
                     </li>

@@ -59,6 +59,9 @@ Route::prefix('admin')->group(function() {
         Route::resource('hospitals', 'HospitalController');
         Route::post('add-image', 'HospitalController@postImage');
         Route::get('remove-image/{id}/{hospital}', 'HospitalController@getRemoveImage');
+        Route::resource('hospital-departments', 'DepartmentController');
+        Route::resource('hospital-programs', 'ProgramController');
+        Route::resource('additional-services', 'AddServiceController');
 
 
     });
