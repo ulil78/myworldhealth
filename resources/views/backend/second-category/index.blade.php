@@ -26,10 +26,10 @@
               						       <thead>
               							          <tr>
                                         <th>No.</th>
-                                        <th>First Category</th>
+                                        <th>Category</th>
                         								<th>Name</th>
                                         <th>Status</th>
-                                        <th></th>
+                                        <th>Option</th>
                                       </tr>
                                   </thead>
                                   <tbody>
@@ -41,7 +41,7 @@
                                             @php
                                               $first = \App\FirstCategory::where('id', $item->first_category_id)->value('name');
                                             @endphp
-                                            {{$first}}
+                                            <b><small>First</small></b> - {{$first}}
                                           </td>
                           								<td>{{$item->name}}</td>
 
@@ -52,14 +52,36 @@
                                               <label class="label label-danger">False</label>
                                           @endif
                                           </td>
-
                                           <td>
-                          									  <a href="{{ url('/admin/second-categories/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
-                                              <form action="{{ url('admin/second-categories/'.$item->id) }}" method="POST">
-                                                  <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                                                  <input type="hidden" name="_method" value="DELETE" />
-                                                  <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">DELETE</button>
-                                              </form>
+                                            <!-- Action button -->
+                                            <div class="btn-group">
+                                              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Action <span class="caret"></span>
+                                              </button>
+                                              <ul class="dropdown-menu">
+                                                <li>
+                                                  <a href="{{ url('/admin/second-categories/'.$item->id.'/edit') }}">Edit</a>
+                                                </li>
+                                                <form id="delete-form-{{$item->id}}" 
+                                                    method="post" 
+                                                    action="{{url('admin/second-categories/'.$item->id) }}"
+                                                    style="display: none;">
+                                                    {{csrf_field()}}
+                                                    {{method_field('DELETE')}}
+                                                </form>
+                                                <li>
+                                                  <a class="dropdown-item" href="" onclick="
+                                                    if(confirm('Are You Sure?')) {
+                                                      event.preventDefault();
+                                                      document.getElementById('delete-form-{{$item->id}}').submit();
+                                                    } else {
+                                                      event.preventDefault();
+                                                    }
+                                                  ">
+                                                  Delete</a>
+                                                </li>
+                                              </ul>
+                                            </div>
                                           </td>
                                           
                                         </tr>
