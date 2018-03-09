@@ -21,15 +21,14 @@
                             <a href="{{url('admin/thrid-categories/create')}}" class="btn btn-success">Add Category</a>   
                           </div>
                           <div class="panel-body">
-                						 <table class="table table-striped table-bordered table-hover" id="sample_2">
+                						 <table class="table table-hover" id="sample_2">
                 						       <thead>
                 							          <tr>
                                           <th>No.</th>
-                                          <th>First Category</th>
-                                          <th>Second Category</th>
+                                          <th>Category</th>
                           								<th>Name</th>
                                           <th>Status</th>
-                                          <th> </th>
+                                          <th>Option</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,13 +44,11 @@
                                                               ->where('second_categories.id', $item->second_category_id)
                                                               ->first();
                                               @endphp
-                                              {{$first->first_category_name}}
-                                            </td>
-                                            <td>
                                               @php
                                                 $second = \App\SecondCategory::where('id', $item->second_category_id)->value('name');
                                               @endphp
-                                              {{$second}}
+                                              <b><small>First</small></b> - {{$first->first_category_name}} <br>
+                                              <b><small>Second</small></b> - {{$second}}
                                             </td>
                             								<td>{{$item->name}}</td>
 
@@ -64,12 +61,35 @@
                                             </td>
 
                                             <td>
-                            									  <a href="{{ url('/admin/thrid-categories/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
-                                                <form action="{{ url('admin/thrid-categories/'.$item->id) }}" method="POST">
-                                                    <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                                                    <input type="hidden" name="_method" value="DELETE" />
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">DELETE</button>
+                                            <!-- Action button -->
+                                            <div class="btn-group">
+                                              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Action <span class="caret"></span>
+                                              </button>
+                                              <ul class="dropdown-menu">
+                                                <li>
+                                                  <a href="{{ url('/admin/thrid-categories/'.$item->id.'/edit') }}">Edit</a>
+                                                </li>
+                                                <form id="delete-form-{{$item->id}}" 
+                                                    method="post" 
+                                                    action="{{url('admin/thrid-categories/'.$item->id) }}"
+                                                    style="display: none;">
+                                                    {{csrf_field()}}
+                                                    {{method_field('DELETE')}}
                                                 </form>
+                                                <li>
+                                                  <a class="dropdown-item" href="" onclick="
+                                                    if(confirm('Are You Sure?')) {
+                                                      event.preventDefault();
+                                                      document.getElementById('delete-form-{{$item->id}}').submit();
+                                                    } else {
+                                                      event.preventDefault();
+                                                    }
+                                                  ">
+                                                  Delete</a>
+                                                </li>
+                                              </ul>
+                                            </div>
                                             </td>
 
                                           </tr>

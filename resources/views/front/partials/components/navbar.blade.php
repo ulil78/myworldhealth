@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light nav_metallic">
   <a href="#menu-toggle" id="menu-toggle"><i class="ion-ios-keypad" style="font-size: 30px;color: #ffc326"></i></a>
   <a class="navbar-brand ml-5 text-light align-center" href="#">
-    <img class="img-fluid" src="{{url('img/mwh_logo.png')}}" width="120px" height="120px" class="rounded float-left" alt="...">
+    <img class="img-fluid" src="{{url('img/mwh_logo.png')}}" width="220px" height="220px" class="rounded float-left" alt="...">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-left">
       <li class="nav-item active">
         <a class="nav-link text-light" href="#">
-            (021) 555 12345 <span class="sr-only">(current)</span></a>
+            <small>(021) 555 12345</small> <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
