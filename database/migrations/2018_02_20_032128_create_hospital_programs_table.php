@@ -15,16 +15,17 @@ class CreateHospitalProgramsTable extends Migration
     {
         Schema::create('hospital_programs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('hospital_departement_id')->unsigned();
-            $table->foreign('hospital_departement_id')->references('id')->on('hospital_departments');
-            $table->integer('four_category_id')->unsigned();
+            $table->integer('hospital_department_id')->unsigned();
+            $table->foreign('hospital_department_id')->references('id')->on('hospital_departments');
+            $table->integer('fourth_category_id')->unsigned();
             $table->string('name');
             $table->string('slug');
-            $table->string('description');
+            $table->text('description');
             $table->float('price', 8, 2);
-            $table->float('commission_fee', 8, 2);
+            $table->float('discount', 8, 2);
             $table->integer('duration')->default('1');
-            $table->enum('status', ['true', 'false'])->default('true');
+            $table->enum('status', ['true', 'false', 'banned'])->default('true');
+            $table->text('notices')->nullable();
             $table->timestamps();
         });
     }

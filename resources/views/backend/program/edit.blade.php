@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Edit Hospital Department</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Edit Hospital Program</div>
 
                         </div>
                         <div class="portlet-body">
@@ -25,51 +25,55 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/hospital-departments/'.$department->id) }}" method="POST">
+                            <form action="{{ url('/admin/hospital-programs/'.$program->id) }}" method="POST">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                 <input type="hidden" name="_method" value="PUT">
                                 <div class="form-group">
-                                    <label for="name">Hospital</label>
+                                    <label for="hospital">Hospital</label>
                                     @php
-                                      $hospital = \App\Hospital::where('id', $department->hospital_id)->value('name');
+                                            $hospital = \DB::table('hospitals')
+                                                            ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
+                                                            ->select('hospital_departments.id as department_id', 'hospitals.name as hospital_name')
+                                                            ->where('hospital_departments.id', $program->hospital_department_id)
+                                                            ->first();
                                     @endphp
-                                    <input type="text" class="form-control" id="name" name="name" value="{{$hospital}}" disabled>
+                                    <input type="text" class="form-control" id="hospital" name="hospital" value="{{$hospital->hospital_name}}" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{$department->name}}" disabled>
+                                    <label for="department">Department</label>
+                                    @php
+                                        $department = \App\HospitalDepartment::where('id',$program->hospital_department_id )->value('name');
+                                    @endphp
+                                    <input type="text" class="form-control" id="department" name="department" value="{{$department}}" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label for="doctor">Doctor</label>
-                                    <input type="text" class="form-control" id="doctor" name="doctor" value="{{$department->doctor}}" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <label for="doctor_title">Doctor Title</label>
-                                    <input type="text" class="form-control" id="doctor_title" name="doctor_title" value="{{$department->doctor_title}}" disabled>
+                                    <label for="category">Category</label>
+                                    @php
+                                        $category = \App\FourthCategory::where('id', $program->fourth_category_id)->value('name');
+                                    @endphp
+                                    <input type="text" class="form-control" id="category" name="category" value="{{$category}}" disabled>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="picture">Picture</label>
-                                    <img src="{{$department->path.$department->filename}}" height="250">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="notices">Notices</label>
+                                    <textarea class="form-control" name="notices" id="notes">{!! $program->notices !!}</textarea>
                                 </div>
 
                                  <div class="form-group">
                                      <label for="status">Status</label>
                                      <select class="form-control" name="status" id="status">
-                                          <option value="{{$department->status}}">{{$department->status}}</option>
+                                          <option value="{{$program->status}}">{{$program->status}}</option>
                                           <option value="true">True</option>
                                           <option value="false">False</option>
                                           <option value="banned">Banned</option>
                                      </select>
                                  </div>
-
-                                 <div class="form-group">
-                                     <label for="notices">Notices</label>
-                                     <textarea class="form-control" name="notices" id="notes">{!! $department->notices !!}</textarea>
-                                 </div>
-
                                  <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/hospital-departments') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/admin/hospital-programs') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

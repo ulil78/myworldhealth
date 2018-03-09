@@ -19,6 +19,7 @@ class CreateFourthCategoriesTable extends Migration
             $table->foreign('thrid_category_id')->references('id')->on('thrid_categories');
             $table->string('name');
             $table->string('slug');
+            $table->float('commision_fee', 8, 2);
             $table->text('description');
             $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();

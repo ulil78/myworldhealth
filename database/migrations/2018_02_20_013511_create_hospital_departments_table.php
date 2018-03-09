@@ -25,7 +25,7 @@ class CreateHospitalDepartmentsTable extends Migration
             $table->string('path')->default('images/hospital/');
             $table->string('filename')->default('noimages.png');
             $table->enum('status', ['true', 'false', 'banned'])->default('true');
-            $table->text('notes')->nullable();
+            $table->text('notices')->nullable();
             $table->timestamps();
         });
     }

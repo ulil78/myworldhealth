@@ -77,7 +77,7 @@ class DepartmentController extends Controller
       public function update(Request $request, $id)
       {
           $rules = array(
-                     'notes'           => 'required',
+                     'notices'           => 'required',
 
              );
 
@@ -85,7 +85,7 @@ class DepartmentController extends Controller
 
          $department = HospitalDepartment::find($id);
          $department->status          = $request->get('status');
-         $department->notes           = $request->get('notes');
+         $department->notices         = $request->get('notices');
          $department->updated_at      = Carbon::now();
          $department->save();
 
