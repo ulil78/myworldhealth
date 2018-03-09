@@ -156,17 +156,17 @@
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/hospital-departments')}}" class="nav-link ">
                             <span class="title">Hospital Departments</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/hospital-programs')}}" class="nav-link ">
                             <span class="title">Hospital Programs</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/additional-services')}}" class="nav-link ">
                             <span class="title">Additional Services</span>
                         </a>
                     </li>

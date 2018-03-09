@@ -22,9 +22,10 @@ class CreateHospitalDepartmentsTable extends Migration
             $table->text('description');
             $table->string('doctor');
             $table->string('doctor_title');
-            $table->string('path')->default('images/hospital');
+            $table->string('path')->default('images/hospital/');
             $table->string('filename')->default('noimages.png');
-            $table->enum('status', ['true', 'false'])->default('true');
+            $table->enum('status', ['true', 'false', 'banned'])->default('true');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

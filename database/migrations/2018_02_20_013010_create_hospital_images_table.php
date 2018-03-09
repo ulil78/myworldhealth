@@ -17,7 +17,7 @@ class CreateHospitalImagesTable extends Migration
             $table->increments('id');
             $table->integer('hospital_id')->unsigned();
             $table->foreign('hospital_id')->references('id')->on('hospitals');
-            $table->string('path')->default('images/hospital');
+            $table->string('path')->default('images/hospital/');
             $table->string('filename')->default('noimages.png');
             $table->string('description');
             $table->enum('status', ['true', 'false'])->default('true');
