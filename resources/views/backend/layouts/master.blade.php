@@ -9,7 +9,14 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Find Hospital & Treatment in the world | MyWorldHealth.Com</title>
+        <title>
+           @if(isset($page_title))
+               {{ $page_title }}
+           @else
+              Find Hospital & Treatment in the world | MyWorldHealth.Com
+           @endif
+       </title>
+       
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
