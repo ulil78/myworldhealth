@@ -17,7 +17,7 @@ class CreateAboutsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->string('path')->default('images/general');
+            $table->string('path')->default('images/general/');
             $table->string('filename')->default('noimages.png');
             $table->timestamps();
         });

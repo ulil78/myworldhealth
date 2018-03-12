@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+use App\WhyBooking;
+use Carbon\Carbon;
+use Session;
+
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +18,7 @@ class WhyBookingController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -57,7 +61,9 @@ class WhyBookingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $booking = WhyBooking::find($id);
+        return view('backend/why-booking/edit')->with('booking', $booking)
+                                         ->with('$page_title', 'Why Booking | Admin Center MyWorldHealth.Com');
     }
 
     /**
@@ -69,7 +75,33 @@ class WhyBookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = array(
+                 'title'        => 'required',
+                 'description'  => 'required'
+         );
+
+         $this->validate($request, $rules);
+
+         $booking = WhyBooking::find($id);
+         $booking->title          = $request->get('title');
+         $booking->description    = $request->get('description');
+         if (strlen($request->file('picture')) > 0 ){
+            $upload_path =  'images/general/';
+            $filename = date('ymdhis') . '_' . $request->file('picture')->getClientOriginalName();
+            $request->file('picture')->move('images/general/', $filename);
+
+            $booking->path                    = $upload_path;
+            $booking->filename                = $filename;
+
+
+        }
+         $booking->updated_at         = Carbon::now();
+         $booking->save();
+
+         Session::flash('message','Update Successfuly');
+
+         return redirect('admin/why-bookings/1/edit');
+
     }
 
     /**

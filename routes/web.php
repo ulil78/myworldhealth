@@ -64,6 +64,15 @@ Route::prefix('admin')->group(function() {
         Route::resource('additional-services', 'ServiceController');
 
 
+        //model general
+        Route::resource('abouts', 'AboutController');
+        Route::resource('contacts', 'ContactController');
+        Route::resource('how-it-works', 'HowItWorkController');
+        Route::resource('our-teams', 'OurTeamController');
+        Route::resource('quality-standards', 'QualityStandardController');
+        Route::resource('why-bookings', 'WhyBookingController');
+        Route::resource('faqs', 'FaqController');
+
     });
 });
 

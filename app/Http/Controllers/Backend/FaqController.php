@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+use App\Faq;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +16,9 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $faqs = Faq::all();
+        return view('backend/faq/index')->with('faqs', $faqs)
+                                        ->with('page_title', 'FAQ | Admin Center - MyWorldHealth.Com');
     }
 
     /**
@@ -24,7 +28,8 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('backend/faq/create')->with('page_title', 'Add FAQ | Admin Center - MyWorldHealth.Com');
     }
 
     /**
@@ -35,7 +40,22 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $rules = array(
+                     'question'                   => 'required',
+                     'answer'            => 'required',
+          );
+
+         $this->validate($request, $rules);
+
+
+
+         $faq = new Faq;
+         $faq->question            = $request->get('question');
+         $faq->answer              = $request->get('answer');
+         $faq->save();
+
+         return redirect('admin/faqs');
+
     }
 
     /**
@@ -57,7 +77,9 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faq  = Faq::find($id);
+        return view('backend/faq/edit')->with('faq', $faq)
+                                        ->with('page_title', 'Edit FAQ | Admin Center - MyWorldHealth.Com');
     }
 
     /**
@@ -69,7 +91,24 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          $rules = array(
+            'question'          => 'required',
+            'answer'            => 'required',
+
+          );
+
+         $this->validate($request, $rules);
+
+         $faq = Faq::find($id);
+         $faq->question             = $request->get('question');
+         $faq->answer               = $request->get('answer');
+         $faq->updated_at           = Carbon::now();
+         $faq->status               = $request->get('status');
+         $faq->save();
+
+         return redirect('admin/faqs');
+
+
     }
 
     /**
@@ -80,6 +119,9 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $faq = Faq::find($id);
+        $faq->delete();
+
+        return redirect('admin/faqs');
     }
 }

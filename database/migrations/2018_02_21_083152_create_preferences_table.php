@@ -28,7 +28,7 @@ class CreatePreferencesTable extends Migration
             $table->string('facebook')->default('#');
             $table->string('twitter')->default('#');
             $table->string('youtube')->default('#');
-            $table->string('path')->default('images/preference');
+            $table->string('path')->default('images/preference/');
             $table->string('filename')->default('noimages.png');
             $table->timestamps();
         });

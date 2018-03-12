@@ -204,43 +204,41 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="page_general_about.html" class="nav-link ">
+                        <a href="{{url('admin/abouts/1/edit')}}" class="nav-link ">
                             <i class="icon-info"></i>
                             <span class="title">About</span>
                         </a>
                     </li>
+
                     <li class="nav-item  ">
-                        <a href="page_general_contact.html" class="nav-link ">
-                            <i class="icon-call-end"></i>
-                            <span class="title">Contact</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link nav-toggle">
+                        <a href="{{url('admin/how-it-works/1/edit')}}" class="nav-link nav-toggle">
                             <i class="icon-notebook"></i>
                             <span class="title">How it Work</span>
-                            <span class="arrow"></span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link nav-toggle">
+                        <a href="{{url('admin/our-teams')}}" class="nav-link nav-toggle">
                             <i class="icon-notebook"></i>
                             <span class="title">Our Teams</span>
-                            <span class="arrow"></span>
+
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link nav-toggle">
+                        <a href="{{url('admin/quality-standards/1/edit')}}" class="nav-link nav-toggle">
                             <i class="icon-notebook"></i>
                             <span class="title">Quality Standard</span>
-                            <span class="arrow"></span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link nav-toggle">
+                        <a href="{{url('admin/why-bookings/1/edit')}}" class="nav-link nav-toggle">
                             <i class="icon-notebook"></i>
                             <span class="title">Why Booking</span>
-                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="{{url('admin/faqs')}}" class="nav-link nav-toggle">
+                            <i class="icon-notebook"></i>
+                            <span class="title">FAQ</span>
                         </a>
                     </li>
                 </ul>

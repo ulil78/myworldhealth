@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+use App\About;
+use Carbon\Carbon;
+use Session;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +17,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -57,7 +60,9 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        //
+        $about = About::find($id);
+        return view('backend/about/edit')->with('about', $about)
+                                         ->with('$page_title', 'About us | Admin Center MyWorldHealth.Com');
     }
 
     /**
@@ -69,7 +74,33 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = array(
+                 'title'        => 'required',
+                 'description'  => 'required'
+         );
+
+         $this->validate($request, $rules);
+
+         $about = About::find($id);
+         $about->title          = $request->get('title');
+         $about->description    = $request->get('description');
+         if (strlen($request->file('picture')) > 0 ){
+            $upload_path =  'images/general/';
+            $filename = date('ymdhis') . '_' . $request->file('picture')->getClientOriginalName();
+            $request->file('picture')->move('images/general/', $filename);
+
+            $about->path                    = $upload_path;
+            $about->filename                = $filename;
+
+
+        }
+         $about->updated_at         = Carbon::now();
+         $about->save();
+
+         Session::flash('message','Update Successfuly');
+
+         return redirect('admin/abouts/1/edit');
+
     }
 
     /**

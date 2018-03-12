@@ -18,7 +18,7 @@ class CreateOurTeamsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->text('description');
-            $table->string('path')->default('images/team');
+            $table->string('path')->default('images/team/');
             $table->string('filename')->default('noimages.png');
             $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();

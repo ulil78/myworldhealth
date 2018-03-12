@@ -16,8 +16,8 @@ class CreateQualityStandardsTable extends Migration
         Schema::create('quality_standards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('descrtion');
-            $table->string('path')->default('images/general');
+            $table->text('description');
+            $table->string('path')->default('images/general/');
             $table->string('filename')->default('noimages.png');
             $table->timestamps();
         });
