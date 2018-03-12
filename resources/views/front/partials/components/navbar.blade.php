@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light nav_metallic">
   <a href="#menu-toggle" id="menu-toggle"><i class="ion-ios-keypad" style="font-size: 30px;color: #ffc326"></i></a>
   <a class="navbar-brand ml-3 text-light align-center" href="#">
-    <img class="img-fluid" src="{{url('img/mwh_logo.png')}}" width="200px" height="200px" class="rounded float-left" alt="...">
+    <img class="img-fluid" src="{{url('img/myworldhealth-logo.png')}}" width="200px" height="200px" class="rounded float-left" alt="...">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -66,9 +66,16 @@
   </div>
 </nav>
 <nav class="d-none d-lg-block d-md-block">
+    @php
+      $first_category = \App\FirstCategory::all();
+    @endphp
+    {{-- {{dd($first_category)}} --}}
     <ul class="nav nav-pills nav-fill" style="background-color: #ffc326">
+      @foreach ($first_category as $cat)
       <li class="nav-item">
-        <a class="nav-link text-light font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Treatments</a>
+        <a class="nav-link text-light font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+          {{$cat->name}}
+        </a>
         <div class="dropdown-menu" style="width:100%">
           <div class="px-0 container">
               <div class="row">
@@ -101,15 +108,7 @@
         </div>
 
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-light font-weight-bold" href="#">Diagnostics</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light font-weight-bold" href="#">Rehabilitations </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light font-weight-bold" href="#">Spa & Beauty</a>
-      </li>
+      @endforeach
     </ul>
 </nav>
 {{-- Login Modal --}}

@@ -14,7 +14,7 @@
                 <div class="account-wall" style="background-color: #32d6cd;">
                     <div id="my-tab-content" class="tab-content">
                         <div class="clearfix">
-                            <img class="img-fluid justify-content-center p-2 float-right" width="124px" height="124px" src="{{asset('img/logomwh.png')}}">
+                            <img class="img-fluid justify-content-center p-2 float-right" width="230px" height="230px" src="{{asset('img/myworldhealth-logo-admin.png')}}">
                         </div><br>
                         <form class="login-form" role="form" method="POST" action="{{ route('admin.login.submit') }}">
                             {{ csrf_field() }}
@@ -69,7 +69,7 @@
                             </div>
                         </form>
                         <hr>
-                        <div class="col-12" style="background-color: #494c4c;">
+                        <div class="col-12" style="background-color: #17C4BB;">
                             <small class="text-center text-light p-2">Copyright © 2018 MyWorldHealth</small>
                         </div>
                     </div>
