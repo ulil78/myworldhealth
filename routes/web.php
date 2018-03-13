@@ -76,7 +76,7 @@ Route::prefix('admin')->group(function() {
         //tools
         Route::resource('users', 'UserController');
         Route::resource('admins', 'AdministratorController');
-        Route::resource('merchants', 'MerchantContoller');
+        Route::resource('merchants', 'MerchantAdmController');
 
     });
 });

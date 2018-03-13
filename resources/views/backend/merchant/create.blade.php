@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Edit Admin</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Edit Merchant</div>
 
                         </div>
                         <div class="portlet-body">
@@ -25,16 +25,9 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/admins/') }}" method="POST">
+                            <form action="{{ url('/admin/merchants/') }}" method="POST">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                                <div class="form-group">
-                                    <label for="name">Group</label>
-                                    <select name="group_id" class="form-control">
-                                        @foreach($groups as $group)
-                                          <option value="{{$group->id}}">{{$group->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name">
@@ -53,7 +46,7 @@
                                 </div>
 
                                  <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/admins') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/admin/merchants') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Edit Admin</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Edit Merchant</div>
 
                         </div>
                         <div class="portlet-body">
@@ -25,23 +25,18 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/admins/') }}" method="POST">
+                            <form action="{{ url('/admin/merchants/'.$merchant->id) }}" method="POST">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                                <div class="form-group">
-                                    <label for="name">Group</label>
-                                    <select name="group_id" class="form-control">
-                                        @foreach($groups as $group)
-                                          <option value="{{$group->id}}">{{$group->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <input type="hidden" name="_method" value="PUT">
+
+
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name">
+                                    <input type="text" class="form-control" id="name" name="name" value="{{$merchant->name}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" name="email">
+                                    <input type="text" class="form-control" id="email" name="email" value="{{$merchant->email}}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
@@ -51,9 +46,22 @@
                                     <label for="password_confirmation">Password Confirmation</label>
                                     <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" >
                                 </div>
+                                <div class="form-group">
+                                    <label for="notices">Notices</label>
+                                    <textarea name="notices" class="form-control">{!! $merchant->notices !!}</textarea>
+                                </div>
+                                 <div class="form-group">
+                                     <label for="status">Status</label>
+                                     <select class="form-control" name="status" id="status">
+                                          <option value="{{$merchant->status}}">{{$merchant->status}}</option>
+                                          <option value="true">True</option>
+                                          <option value="false">False</option>
+                                          <option value="banned">Banned</option>
+                                     </select>
+                                 </div>
 
                                  <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/admins') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/admin/merchants') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

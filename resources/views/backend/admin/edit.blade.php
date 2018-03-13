@@ -29,7 +29,7 @@
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                 <input type="hidden" name="_method" value="PUT">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">Group</label>
                                     <select name="group_id" class="form-control">
                                         @php
                                           $group_name = \App\Group::where('id', $admin->group_id)->value('name');
