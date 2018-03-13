@@ -68,9 +68,9 @@ class RegisterController extends Controller
            'email'    => $data['email'],
            'password' => bcrypt($data['password']),
          ]);
-         $user
-            ->roles()
-            ->attach(Role::where('name', 'customer')->first());
+         // $user
+         //    ->roles()
+         //    ->attach(Role::where('name', 'customer')->first());
          return $user;
      }
 }

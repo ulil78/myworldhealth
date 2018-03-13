@@ -59,10 +59,24 @@
             <small>(021) 555 12345</small> <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#login_modal">Login</button>
-      <button type="button" class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#register_modal">Register</button>
-    </div>
+    @guest
+      <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#login_modal">Login</button>
+        <button type="button" class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#register_modal">Register</button>
+      </div>
+    @else
+      <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
+        <a href="#" class="btn btn-sm btn-outline-light">{{ Auth::user()->email }}</a>
+        <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-light"
+          onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();">
+          Logout
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
+      </div>
+     @endguest
   </div>
 </nav>
 <nav class="d-none d-lg-block d-md-block">

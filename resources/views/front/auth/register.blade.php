@@ -8,56 +8,60 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4">Password</label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-            </div>
+      <form action="{{route('register')}}" method="post">
+        <div class="modal-body">
+          {{ csrf_field() }}
+          <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+              <label for="name" class="col-md-12 control-label">Name</label>
+              <div class="col-md-12">
+                  <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                  @if ($errors->has('name'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('name') }}</strong>
+                      </span>
+                  @endif
+              </div>
+          </div>
+
+          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+              <label for="email" class="col-md-12 control-label">E-Mail Address</label>
+
+              <div class="col-md-12">
+                  <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                  @if ($errors->has('email'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('email') }}</strong>
+                      </span>
+                  @endif
+              </div>
+          </div>
+          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+              <label for="password" class="col-md-12 control-label">Password</label>
+
+              <div class="col-md-12">
+                  <input id="password" type="password" class="form-control" name="password" required>
+
+                  @if ($errors->has('password'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('password') }}</strong>
+                      </span>
+                  @endif
+              </div>
           </div>
           <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              <label for="password-confirm" class="col-md-12 control-label">Confirm Password</label>
+
+              <div class="col-md-12">
+                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+              </div>
           </div>
-          <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputState">State</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputZip">Zip</label>
-              <input type="text" class="form-control" id="inputZip">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Check me out
-              </label>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning text-light">Register</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-warning text-light">Register</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
