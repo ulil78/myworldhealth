@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 // First Category Modal
 use App\FirstCategory;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller

@@ -15,12 +15,12 @@
 
 */
 
-Route::get('/', 'FrontController@beranda')->name('beranda');
-Route::get('/search', 'FrontController@search_result')->name('result');
-Route::get('/detail', 'FrontController@detail')->name('detail');
-Route::get('/booked', 'FrontController@booked')->name('booked');
-Route::get('/getbooked', 'FrontController@getbooked')->name('getbooked');
-Route::get('/processbooked', 'FrontController@processbooked')->name('processbooked');
+Route::get('/', 'Frontend\FrontController@beranda')->name('beranda');
+Route::get('/search', 'Frontend\FrontController@search_result')->name('result');
+Route::get('/detail', 'Frontend\FrontController@detail')->name('detail');
+Route::get('/booked', 'Frontend\FrontController@booked')->name('booked');
+Route::get('/getbooked', 'Frontend\FrontController@getbooked')->name('getbooked');
+Route::get('/processbooked', 'Frontend\FrontController@processbooked')->name('processbooked');
 
 Auth::routes();
 
