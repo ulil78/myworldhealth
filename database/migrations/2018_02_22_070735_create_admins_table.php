@@ -20,6 +20,7 @@ class CreateAdminsTable extends Migration
           $table->string('email')->unique();
           $table->string('password');
           $table->rememberToken();
+          $table->enum('status', ['true', 'false'])->default('true');
           $table->timestamps();
 
           $table->foreign('group_id')->references('id')->on('groups');

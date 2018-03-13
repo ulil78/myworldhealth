@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 use App\User;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -81,8 +82,9 @@ class UserController extends Controller
          $this->validate($request, $rules);
 
          $user = User::find($id);
-         $user->status   = $request->get('status');
-         $user->notices  = $request->get('notices');
+         $user->status      = $request->get('status');
+         $user->notices     = $request->get('notices');
+         $user->updated_at  = Carbon::now();
          $user->save();
 
          return redirect('admin/users');
