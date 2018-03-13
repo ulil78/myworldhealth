@@ -8,22 +8,50 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <form action="{{route('login')}}" method="post">
+        <div class="modal-body">
+          {{ csrf_field() }}
+          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+              <label for="email" class="col-md-12 control-label">E-Mail Address</label>
+              <div class="col-md-12">
+                  <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                  @if ($errors->has('email'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('email') }}</strong>
+                      </span>
+                  @endif
+              </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+              <label for="password" class="col-md-12 control-label">Password</label>
+
+              <div class="col-md-12">
+                  <input id="password" type="password" class="form-control" name="password" required>
+
+                  @if ($errors->has('password'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('password') }}</strong>
+                      </span>
+                  @endif
+              </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning text-light">Login</button>
-      </div>
+
+          <div class="form-group">
+              <div class="col-md-12 col-md-offset-4">
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                      </label>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-warning text-light">Login</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
