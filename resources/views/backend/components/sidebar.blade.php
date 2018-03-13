@@ -325,19 +325,19 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/users')}}" class="nav-link ">
                             <i class="icon-user"></i>
                             <span class="title">Users</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/admins')}}" class="nav-link ">
                             <i class="icon-energy"></i>
                             <span class="title">Admin</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link " target="_blank">
+                        <a href="{{url('admin/merchants')}}" class="nav-link " target="_blank">
                             <i class="icon-user-follow"></i>
                             <span class="title">Merchant</span>
                         </a>

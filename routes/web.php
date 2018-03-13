@@ -73,6 +73,11 @@ Route::prefix('admin')->group(function() {
         Route::resource('why-bookings', 'WhyBookingController');
         Route::resource('faqs', 'FaqController');
 
+        //tools
+        Route::resource('users', 'UserController');
+        Route::resource('admins', 'AdminController');
+        Route::resource('merchants', 'MerchantContoller');
+
     });
 });
 
