@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('merchant.layouts.master')
+=======
+@extends('merchant.layouts.app')
+>>>>>>> 3f81914b2610f18e26f22123239816873e8822f2
 
 @section('main-content')
 <div class="mt-content-body">

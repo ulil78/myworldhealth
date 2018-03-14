@@ -239,13 +239,13 @@
                 </a>
                 <ul class="sub-menu">
                   <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                      <a href="{{url('admin/patients')}}" class="nav-link ">
                           <i class="icon-doc"></i>
                           <span class="title">Patient Data</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                      <a href="{{url('patient-transactions')}}" class="nav-link ">
                           <i class="icon-equalizer"></i>
                           <span class="title">Patient Transaction</span>
                       </a>
