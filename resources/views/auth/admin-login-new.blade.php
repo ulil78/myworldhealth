@@ -11,7 +11,7 @@
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-sm-6 col-md-6 col-12">
             <div class="d-flex justify-content-center">
-                <div class="account-wall" style="background-color: #32d6cd;">
+                <div class="account-wall" style="background-color: #344766;">
                     <div id="my-tab-content" class="tab-content">
                         <div class="clearfix">
                             <img class="img-fluid justify-content-center p-2 float-right" width="230px" height="230px" src="{{asset('img/myworldhealth-logo-admin.png')}}">
@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <div class="checkbox">
-                                        <label>
+                                        <label class="text-light">
                                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
                                         </label>
                                     </div>
@@ -62,15 +62,15 @@
 
                             <div class="form-group">
                                 <div class="col-md-12 col-12 col-md-offset-4">
-                                    <button type="submit" class="btn btn-light btn-block" style="background-color: #17C4BB;color: #fff">
+                                    <button type="submit" class="btn btn-light btn-block">
                                         Login
                                     </button>
                                 </div>
                             </div>
                         </form>
                         <hr>
-                        <div class="col-12" style="background-color: #17C4BB;">
-                            <small class="text-center text-light p-2">Copyright © 2018 MyWorldHealth</small>
+                        <div class="col-12" style="background-color: #fff;">
+                            <small class="text-center p-2">Copyright © 2018 MyWorldHealth</small>
                         </div>
                     </div>
                 </div>

@@ -85,6 +85,7 @@ Route::prefix('admin')->group(function() {
 Route::prefix('merchant')->group(function() {
     Route::get('/login', 'Auth\MerchantLoginController@showLoginForm')->name('merchant.login');
     Route::post('/login', 'Auth\MerchantLoginController@login')->name('merchant.login.submit');
+    Route::post('/logout', 'Auth\MerchantLoginController@logout');
 
     Route::group(['namespace' => 'Merchant', 'middleware' => 'merchant'], function (){
 

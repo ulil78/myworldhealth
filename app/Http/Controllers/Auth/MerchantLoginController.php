@@ -7,7 +7,7 @@ class MerchantLoginController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('guest:merchant');
+      $this->middleware('guest:merchant')->except('logout');
     }
     public function showLoginForm()
     {
@@ -27,5 +27,14 @@ class MerchantLoginController extends Controller
       }
       // if unsuccessful, then redirect back to the login with the form data
       return redirect()->back()->withInput($request->only('email', 'remember'));
+    }
+
+    public function Logout(Request $request){
+        Auth::guard('merchant')->logout();
+        $request->session()->flush(); 
+        $request->session()->regenerate();
+
+        return redirect('merchant/login')
+            ->withSuccess('Terimakasih, selamat datang kembali!');
     }
 }
