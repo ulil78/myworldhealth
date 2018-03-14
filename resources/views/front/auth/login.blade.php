@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-warning text-light">Login</button>
+          <button type="submit" class="btn btn-warning btn-block text-light">Login</button>
         </div>
       </form>
     </div>
