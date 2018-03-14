@@ -73,6 +73,10 @@ Route::prefix('admin')->group(function() {
         Route::resource('why-bookings', 'WhyBookingController');
         Route::resource('faqs', 'FaqController');
 
+        //Patients
+        Route::resource('patients', 'PatientController');
+        Route::get('patient-transactions', 'PatientController@getTransaction');
+
         //tools
         Route::resource('users', 'UserController');
         Route::resource('admins', 'AdministratorController');
