@@ -37,7 +37,9 @@
                   @endif
               </div>
           </div>
-          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+
+          <div class="form-row">
+            <div class="col{{ $errors->has('password') ? ' has-error' : '' }}">
               <label for="password" class="col-md-12 control-label">Password</label>
 
               <div class="col-md-12">
@@ -49,17 +51,18 @@
                       </span>
                   @endif
               </div>
-          </div>
-          <div class="form-group">
+            </div>
+            <div class="col">
               <label for="password-confirm" class="col-md-12 control-label">Confirm Password</label>
 
               <div class="col-md-12">
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
               </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-warning text-light">Register</button>
+          <button type="submit" class="btn btn-warning btn-block text-light">Register</button>
         </div>
       </form>
     </div>

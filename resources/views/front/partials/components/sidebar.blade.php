@@ -2,7 +2,7 @@
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
             <a href="#">
-                <img class="img-fluid" src="{{url('img/logomwh.png')}}" width="120px" height="120px" class="rounded float-left" alt="...">
+                <img class="img-fluid float-left mt-3" src="{{url('img/myworldhealth-logo.png')}}" width="180px" height="180px" class="rounded float-left" alt="...">
             </a>
         </li>
         <li>
