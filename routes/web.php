@@ -75,7 +75,7 @@ Route::prefix('admin')->group(function() {
 
         //Patients
         Route::resource('patients', 'PatientController');
-        Route::get('patient-transactions', 'PatientController@getTransaction');
+        Route::resource('patient-transactions', 'PatientTransactionController');
 
         //tools
         Route::resource('users', 'UserController');
