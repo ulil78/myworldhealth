@@ -144,4 +144,32 @@ class DiscountController extends Controller
 
         return redirect('admin/discounts');
     }
+
+    public function postProgram(Request $request)
+    {
+        $rules = array(
+
+                   'hospital_program_id'       => 'required',
+           );
+
+       $this->validate($request, $rules);
+
+        $id = $request->post('discount_id');
+
+
+
+        $image = new \App\DiscountProgram;
+        $image->discount_id           = $id;
+        $image->hospital_program_id   = $request->post('hospital_program_id');
+        $image->save();
+
+        return redirect('admin/discounts/' .$id. '/edit');
+
+    }
+
+    public function getRemoveProgram($id, $discount)
+    {
+         \DB::table('discount_programs')->where('id', $id)->delete();
+         return redirect('admin/discounts/' .$discount. '/edit');
+    }
 }

@@ -17,7 +17,7 @@ class CreateDiscountProgramsTable extends Migration
             $table->increments('id');
             $table->integer('discount_id')->unsigned();
             $table->foreign('discount_id')->references('id')->on('discounts');
-            $table->integer('program_id')->unsigned();            
+            $table->integer('hospital_program_id')->unsigned();            
             $table->timestamps();
         });
     }

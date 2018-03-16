@@ -60,6 +60,8 @@ Route::prefix('admin')->group(function() {
         Route::resource('sliders', 'SliderController');
         Route::resource('vouchers', 'VoucherController');
         Route::resource('discounts', 'DiscountController');
+        Route::post('add-program', 'DiscountController@postProgram');
+        Route::get('remove-program/{id}/{program}', 'DiscountController@getRemoveProgram');
 
         //hospitals
         Route::resource('hospitals', 'HospitalController');
