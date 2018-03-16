@@ -156,25 +156,25 @@
                 </a>
                 <ul class="sub-menu">
                   <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                      <a href="{{url('admin/banners')}}" class="nav-link ">
                           <i class="icon-picture"></i>
                           <span class="title">Banners</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                      <a href="{{url('admin/sliders')}}" class="nav-link ">
                           <i class="icon-film"></i>
                           <span class="title">Sliders</span>
                       </a>
                   </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/vouchers')}}" class="nav-link ">
                             <i class="icon-envelope"></i>
                             <span class="title">Voucher</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{url('admin/discounts')}}" class="nav-link ">
                             <i class="icon-star"></i>
                             <span class="title">Discount</span>
                         </a>
