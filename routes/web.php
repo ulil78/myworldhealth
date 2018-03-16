@@ -58,6 +58,7 @@ Route::prefix('admin')->group(function() {
         //Promo
         Route::resource('banners', 'BannerController');
         Route::resource('sliders', 'SliderController');
+        Route::resource('vouchers', 'VoucherController');
 
         //hospitals
         Route::resource('hospitals', 'HospitalController');

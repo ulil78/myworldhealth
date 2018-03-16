@@ -16,7 +16,7 @@
               Find Hospital & Treatment in the world | MyWorldHealth.Com
            @endif
        </title>
-       
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -49,6 +49,10 @@
         <link href="{{asset('assets/layouts/layout2/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css" />
+        <!-- date timepicker -->
+        <link href="{{asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/global/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- end date timepicker -->
 
         <!-- begin tinymce -->
          <script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
@@ -220,6 +224,10 @@
              <script src="{{asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
              <script src="{{asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+             <!-- datepicker -->
+             <script src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+             <script src="{{asset('assets/global/plugins/fullcalendar/fullcalendar.min.js')}}" type="text/javascript"></script>
+             <!-- end datepicker -->
     </body>
 
 </html>

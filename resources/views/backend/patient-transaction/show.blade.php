@@ -48,11 +48,11 @@
                                  </div>
                                  <div class="form-group">
                                      <label for="start_date">Start Date</label>
-                                     <input type="text" class="form-control" id="start_date" name="start_date" value="{{Carbon\Carbon::parse($patient->start_date)->format('d-m-Y')}}" disabled>
+                                     <input type="text" class="form-control" id="start_date" name="start_date" value="{{Carbon\Carbon::parse($patient->start_date)->format('m-d-Y')}}" disabled>
                                  </div>
                                  <div class="form-group">
                                      <label for="end_date">End Date</label>
-                                     <input type="text" class="form-control" id="end_date" name="end_date" value="{{Carbon\Carbon::parse($patient->end_date)->format('d-m-Y')}}" disabled>
+                                     <input type="text" class="form-control" id="end_date" name="end_date" value="{{Carbon\Carbon::parse($patient->end_date)->format('m-d-Y')}}" disabled>
                                  </div>
                                  <div class="form-group">
                                      <label for="total_amount">Total Amount</label>

@@ -13,7 +13,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Patient Transaction</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Voucher</div>
                             <div class="tools"></div>
                         </div>
                         <div class="portlet-body">
@@ -22,26 +22,36 @@
             							          <tr>
                                       <th>No.</th>
                       								<th>Name</th>
-                                      <th>Order Id</th>
-                                      <th>Program</th>
+                                      <th>Code</th>
                                       <th>Start Date</th>
                                       <th>End Date</th>
-                                      <th> Action </th>
+                                      <th>Status</th>
+                                      <th> <a href="{{url('admin/vouchers/create')}}" class="btn btn-primary">Add Voucher</a> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                      {{'', $n=1}}
-                    							   @foreach ($patients as $item)
+                    							   @foreach ($vouchers as $item)
                     							   <tr>
                                         <td>{{$n++}}</td>
-                        								<td>{{$item->patient_name}}</td>
-                                        <td>{{$item->order_id}}</td>
-                                        <td>{{$item->program}}</td>
+                        								<td>{{$item->name}}</td>
+                                        <td>{{$item->code_voucher}}</td>
                                         <td>{{Carbon\Carbon::parse($item->start_date)->format('m-d-Y')}}</td>
                                         <td>{{Carbon\Carbon::parse($item->end_date)->format('m-d-Y')}}</td>
                                         <td>
-                        									  <a href="{{ route('patient-transactions.show',$item->diagnostics_id) }}" class="btn btn-warning">Show</a>
-
+                                        @if($item->status == 'true')
+                                            <label class="label label-success">True</label>
+                                        @else
+                                            <label class="label label-danger">False</label>
+                                        @endif
+                                        </td>
+                                        <td>
+                        									  <a href="{{ url('/admin/vouchers/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
+                                            <form action="{{ url('admin/vouchers/'.$item->id) }}" method="POST">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                                                <input type="hidden" name="_method" value="DELETE" />
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">DELETE</button>
+                                            </form>
                                         </td>
                                       </tr>
                                       @endforeach
