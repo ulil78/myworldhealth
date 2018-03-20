@@ -14,5 +14,5 @@ Pleade Check Partner Center
 @endcomponent
 
 Thanks,<br>
-Admin, MyWorldhealt.com
+Admin, MyWorldhealth.com
 @endcomponent
