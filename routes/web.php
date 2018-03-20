@@ -55,6 +55,15 @@ Route::prefix('admin')->group(function() {
         Route::resource('preferences', 'PreferenceController');
         Route::post('select-country', ['as'=>'select-country','uses'=>'AjaxController@selectCountry']);
 
+        //bookings
+        Route::resource('invoices', 'InvoiceBackendController');
+        Route::get('invoice/{status}', 'InvoiceBackendController@getStatus');
+
+        //payment-merchants
+        Route::resource('payment-merchants', 'PaymentMerchatBackendController');
+        Route::get('payment/{status}', 'PaymentMerchatBackendController@getStatus');
+
+
         //Promo
         Route::resource('banners', 'BannerController');
         Route::resource('sliders', 'SliderController');

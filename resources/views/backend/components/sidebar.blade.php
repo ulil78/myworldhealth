@@ -100,7 +100,7 @@
                 </ul>
             </li>
 
-            @if(Request::is('admin/booking*'))
+            @if(Request::is('admin/invoice*'))
                 <li class="nav-item start active open">
             @else
                 <li class="nav-item">
@@ -108,36 +108,79 @@
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-basket"></i>
                     <span class="title">Booking Order</span>
-                    @if(Request::is('admin/booking*'))
+                    @if(Request::is('admin/invoice*'))
                       <span class="selected"></span>
                     @endif
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
                   <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                      <a href="{{url('admin/invoices')}}" class="nav-link ">
                           <i class="icon-control-play"></i>
                           <span class="title">Booking New</span>
                       </a>
                   </li>
-                  <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                  <li class="nav-item ">
+                      <a href="{{url('admin/invoice/paid')}}" class="nav-link ">
                           <i class="icon-credit-card"></i>
                           <span class="title">Paid</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                      <a href="{{url('admin/invoice/confirm')}}"  class="nav-link ">
                           <i class="icon-bell"></i>
                           <span class="title">Confirm</span>
                       </a>
                   </li>
                   <li class="nav-item  ">
-                      <a href="#" class="nav-link ">
+                      <a href="{{url('admin/invoice/finish')}}"  class="nav-link ">
                           <i class="icon-check"></i>
                           <span class="title">Finish</span>
                       </a>
                   </li>
+                  <li class="nav-item  ">
+                      <a href="{{url('admin/invoice/cancel')}}"  class="nav-link ">
+                          <i class="icon-check"></i>
+                          <span class="title">Cancel</span>
+                      </a>
+                  </li>
+                </ul>
+            </li>
+
+
+            @if(Request::is('admin/payment*'))
+                <li class="nav-item start active open">
+            @else
+                <li class="nav-item">
+            @endif
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-basket"></i>
+                    <span class="title">Payment Merchant</span>
+                    @if(Request::is('admin/payment*'))
+                      <span class="selected"></span>
+                    @endif
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                  <li class="nav-item  ">
+                      <a href="{{url('admin/payment-merchants')}}" class="nav-link ">
+                          <i class="icon-control-play"></i>
+                          <span class="title">Payment New</span>
+                      </a>
+                  </li>
+                  <li class="nav-item ">
+                      <a href="{{url('admin/payment/request')}}" class="nav-link ">
+                          <i class="icon-credit-card"></i>
+                          <span class="title">Payment Request</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="{{url('admin/payment/paid')}}"  class="nav-link ">
+                          <i class="icon-bell"></i>
+                          <span class="title">Paid</span>
+                      </a>
+                  </li>
+
                 </ul>
             </li>
 

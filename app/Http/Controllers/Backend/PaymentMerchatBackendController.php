@@ -1,0 +1,112 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+use App\PaymentMerchant;
+use Carbon\Carbon;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class PaymentMerchatBackendController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $payments = PaymentMerchant::orderBy('id', 'desc')->get();
+        return view('backend/payment-merchant/index')->with('payments', $payments)
+                                                     ->with('page_title', 'Payment Merchants | Admin Center MyWorldhealth.Com');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $payment = PaymentMerchant::find($id);
+        return view('backend/payment-merchant/edit')->with('payment', $payment)
+                                                    ->with('page_title', 'Edit Payment Merchant | Admin Center MyWorldhealth.Com');
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+          $payment = PaymentMerchant::find($id);
+          $payment->status        = $request->get('status');
+          $payment->updated_at    = Carbon::now();
+          $payment->save();
+
+         // $receiverAddress = 'rully.arfan@gmail.com';
+         //
+         // Mail::to($receiverAddress)->send(new PaymentConfirm);
+
+         return redirect('admin/payment-merchants');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    public function getStatus($status)
+    {
+
+        $payments = PaymentMerchant::where('status', $status)->orderBy('id', 'desc')->get();
+        return view('backend/payment-merchant/status')->with('payments', $payments)
+                                            ->with('page_title', 'Payment Merchant | Admin Center MyWorldHealt.Com');
+
+
+
+    }
+}
