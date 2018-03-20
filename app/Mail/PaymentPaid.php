@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class PaymentConfirm extends Mailable
+class PaymentPaid extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -21,6 +21,7 @@ class PaymentConfirm extends Mailable
           $this->content = $content;
       }
 
+
     /**
      * Build the message.
      *
@@ -28,7 +29,7 @@ class PaymentConfirm extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.payments.confirm')
-                              ->with('content', $this->content);
+        return $this->markdown('emails.payments.paid')
+                            ->with('content', $this->content);
     }
 }

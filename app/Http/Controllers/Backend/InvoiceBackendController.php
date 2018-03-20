@@ -66,7 +66,7 @@ class InvoiceBackendController extends Controller
     public function edit($id)
     {
         $invoice = Invoice::find($id);
-        return view('backend/Invoice/edit')->with('invoice', $invoice)
+        return view('backend/invoice/edit')->with('invoice', $invoice)
                                           ->with('page_title', 'Edit Invoice | Admin Center MyWorldHealt.Com');
     }
 
@@ -85,29 +85,29 @@ class InvoiceBackendController extends Controller
           $invoice->updated_at    = Carbon::now();
           $invoice->save();
 
-          // if($invoice->status == 'confirm')
-          // {
-          //
-          //       $hospital_program = \App\HospitalProgram::where('id', $invoice->hospital_program_id)->value('name');
-          //       $email_hospital   = \DB::table('merchants')
-          //                               ->join('hospitals', 'hospitals.merchant_id', '=', 'merchants.id')
-          //                               ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
-          //                               ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
-          //                               ->select('hospital_programs.id as program_id', 'merchants.email as hospital_email')
-          //                               ->where('hospital_programs.id', $invoice->hospital_program_id)
-          //                               ->first();
-          //       $content = [
-          //          'title'              => 'test email',
-          //          'order_number'       => $invoice->order_id,
-          //          'program'            => $hospital_program
-          //
-          //       ];
-          //
-          //    // $receiverAddress = $email_hospital;
-          //     $receiverAddress = 'rully.arfan@gmail.com';
-          //
-          //    Mail::to($receiverAddress)->send(new PaymentConfirm);
-          // }
+          if($invoice->status == 'confirm')
+          {
+
+                $hospital_program = \App\HospitalProgram::where('id', $invoice->hospital_program_id)->value('name');
+                $email_hospital   = \DB::table('merchants')
+                                        ->join('hospitals', 'hospitals.merchant_id', '=', 'merchants.id')
+                                        ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
+                                        ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
+                                        ->select('hospital_programs.id as program_id', 'merchants.email as hospital_email')
+                                        ->where('hospital_programs.id', $invoice->hospital_program_id)
+                                        ->first();
+                $content = [
+                   'title'              => 'New BookingOrder',
+                   'order_number'       => $invoice->order_id,
+                   'program'            => $hospital_program
+
+                ];
+
+             // $receiverAddress = $email_hospital;
+              $receiverAddress = 'rully.arfan@gmail.com';
+
+             Mail::to($receiverAddress)->send(new PaymentConfirm($content));
+          }
 
 
           if($invoice->status == 'finish')
@@ -145,7 +145,6 @@ class InvoiceBackendController extends Controller
         $invoices = Invoice::where('status', $status)->orderBy('id', 'desc')->get();
         return view('backend/invoice/status')->with('invoices', $invoices)
                                             ->with('page_title', 'Invoice | Admin Center MyWorldHealt.Com');
-
 
 
     }

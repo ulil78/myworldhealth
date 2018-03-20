@@ -1,11 +1,12 @@
 @component('mail::message')
 # {{ $content['title'] }}
 
-Hi Partner, we have received reservations for
+Hi Partner, we already made payment for :
 
 
-Order Number			   : {{ $content['order_number'] }}<br />
-Program			         : {{ $content['program'] }}<br />
+Invoice Number			    : {{ $content['invoice_number'] }}<br />
+Program			            : {{ $content['program'] }}<br />
+Total Amount            : $ {{ $content['total_amount']}}<br />
 
 
 @component('mail::button', ['url' => 'dev.myworldhealth.com/merchant/login'])

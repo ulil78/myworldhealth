@@ -25,6 +25,7 @@ Route::get('/processbooked', 'Frontend\FrontController@processbooked')->name('pr
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('sendmail', 'SendMailController@sendMail');
 
 // Route for Frontend hire
 
@@ -62,6 +63,8 @@ Route::prefix('admin')->group(function() {
         //payment-merchants
         Route::resource('payment-merchants', 'PaymentMerchatBackendController');
         Route::get('payment/{status}', 'PaymentMerchatBackendController@getStatus');
+
+
 
 
         //Promo

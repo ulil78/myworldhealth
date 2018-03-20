@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 use App\PaymentMerchant;
 use Carbon\Carbon;
+use App\Mail\PaymentPaid;
+use Mail;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -81,9 +83,28 @@ class PaymentMerchatBackendController extends Controller
           $payment->updated_at    = Carbon::now();
           $payment->save();
 
-         // $receiverAddress = 'rully.arfan@gmail.com';
-         //
-         // Mail::to($receiverAddress)->send(new PaymentConfirm);
+          $hospital_program = \App\HospitalProgram::where('id', $payment->hospital_program_id)->value('name');
+          $email_hospital   = \DB::table('merchants')
+                                  ->join('hospitals', 'hospitals.merchant_id', '=', 'merchants.id')
+                                  ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
+                                  ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
+                                  ->select('hospital_programs.id as program_id', 'merchants.email as hospital_email')
+                                  ->where('hospital_programs.id', $payment->hospital_program_id)
+                                  ->first();
+
+          $content = [
+             'title'              => 'Paid Booking Order',
+             'invoice_number'       => $payment->invoice_id,
+             'program'            => $hospital_program,
+             'total_amount'       => $payment->total_amount
+
+          ];
+
+          // $receiverAddress = $email_hospital;
+
+         $receiverAddress = 'rully.arfan@gmail.com';
+
+         Mail::to($receiverAddress)->send(new PaymentPaid($content));
 
          return redirect('admin/payment-merchants');
     }

@@ -116,8 +116,14 @@
                 <ul class="sub-menu">
                   <li class="nav-item  ">
                       <a href="{{url('admin/invoices')}}" class="nav-link ">
+                          <i class="icon-folder"></i>
+                          <span class="title">Booking All</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="{{url('admin/invoice/new')}}" class="nav-link ">
                           <i class="icon-control-play"></i>
-                          <span class="title">Booking New</span>
+                          <span class="title">New</span>
                       </a>
                   </li>
                   <li class="nav-item ">
@@ -140,7 +146,7 @@
                   </li>
                   <li class="nav-item  ">
                       <a href="{{url('admin/invoice/cancel')}}"  class="nav-link ">
-                          <i class="icon-check"></i>
+                          <i class="icon-magnifier-remove"></i>
                           <span class="title">Cancel</span>
                       </a>
                   </li>
@@ -154,7 +160,7 @@
                 <li class="nav-item">
             @endif
                 <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-basket"></i>
+                    <i class="icon-calculator"></i>
                     <span class="title">Payment Merchant</span>
                     @if(Request::is('admin/payment*'))
                       <span class="selected"></span>
@@ -164,6 +170,12 @@
                 <ul class="sub-menu">
                   <li class="nav-item  ">
                       <a href="{{url('admin/payment-merchants')}}" class="nav-link ">
+                          <i class="icon-folder"></i>
+                          <span class="title">Payment All</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="{{url('admin/payment/new')}}" class="nav-link ">
                           <i class="icon-control-play"></i>
                           <span class="title">Payment New</span>
                       </a>
