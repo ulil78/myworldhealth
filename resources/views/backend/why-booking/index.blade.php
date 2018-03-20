@@ -13,7 +13,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>FAQ</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Why Booking</div>
                             <div class="tools"></div>
                         </div>
                         <div class="portlet-body">
@@ -21,30 +21,24 @@
             						       <thead>
             							          <tr>
                                       <th>No.</th>
-                                      <th>Question</th>
-                      								<th>Answer</th>
-                                      <th>Status</th>
-                                      <th> <a href="{{url('admin/faqs/create')}}" class="btn btn-primary">Add FAQ</a> </th>
+                                      <th>Title</th>
+                                      <th>Picture</th>
+                                      <th> <a href="{{url('admin/why-bookings/create')}}" class="btn btn-primary">Add Why Booking</a> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                      {{'', $n=1}}
-                    							   @foreach ($faqs as $item)
+                    							   @foreach ($bookings as $item)
                     							   <tr>
                                         <td>{{$n++}}</td>
-                                        <td>{!! $item->question !!}</td>
-                        								<td>{!! $item->answer !!}</td>
+                                        <td>{{$item->title}}</td>
                                         <td>
-                                        @if($item->status == 'true')
-                                            <label class="label label-success">True</label>
-                                        @else
-                                            <label class="label label-danger">False</label>
-                                        @endif
+                                            <img src="{{asset($item->path.$item->filename)}}" height="75" >
                                         </td>
 
                                         <td>
-                        									  <a href="{{ url('/admin/faqs/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
-                                            <form action="{{ url('admin/faqs/'.$item->id) }}" method="POST">
+                        									  <a href="{{ url('/admin/why-bookings/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
+                                            <form action="{{ url('admin/why-bookings/'.$item->id) }}" method="POST">
                                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                                 <input type="hidden" name="_method" value="DELETE" />
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">DELETE</button>

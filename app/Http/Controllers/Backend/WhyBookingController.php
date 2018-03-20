@@ -18,7 +18,9 @@ class WhyBookingController extends Controller
      */
     public function index()
     {
-
+        $bookings = WhyBooking::orderBy('id', 'desc')->get();
+        return view('backend/why-booking/index')->with('bookings', $bookings)
+                                               ->with('$page_title', 'Why Booking | Admin Center MyWorldHealth.Com');
     }
 
     /**
@@ -28,7 +30,7 @@ class WhyBookingController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend/why-booking/create')->with('$page_title', 'Add Why Booking | Admin Center MyWorldHealth.Com');
     }
 
     /**
@@ -39,7 +41,25 @@ class WhyBookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $rules = array(
+                   'title'        => 'required',
+                   'description'  => 'required'
+           );
+
+           $this->validate($request, $rules);
+
+           $upload_path =  'images/general/';
+           $filename = date('ymdhis') . '_' . $request->file('picture')->getClientOriginalName();
+           $request->file('picture')->move('images/general/', $filename);
+
+           $booking = new WhyBooking;
+           $booking->title          = $request->get('title');
+           $booking->description    = $request->get('description');
+           $booking->path           = $upload_path;
+           $booking->filename       = $filename;
+           $booking->save();
+
+           return redirect('admin/why-bookings/');
     }
 
     /**
@@ -63,7 +83,7 @@ class WhyBookingController extends Controller
     {
         $booking = WhyBooking::find($id);
         return view('backend/why-booking/edit')->with('booking', $booking)
-                                         ->with('$page_title', 'Why Booking | Admin Center MyWorldHealth.Com');
+                                         ->with('$page_title', 'Edit Why Booking | Admin Center MyWorldHealth.Com');
     }
 
     /**
@@ -98,9 +118,9 @@ class WhyBookingController extends Controller
          $booking->updated_at         = Carbon::now();
          $booking->save();
 
-         Session::flash('message','Update Successfuly');
+         // Session::flash('message','Update Successfuly');
 
-         return redirect('admin/why-bookings/1/edit');
+         return redirect('admin/why-bookings/');
 
     }
 
@@ -112,6 +132,8 @@ class WhyBookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $booking = WhyBooking::find($id);
+        $booking->delete();
+        return redirect('admin/why-bookings/');
     }
 }

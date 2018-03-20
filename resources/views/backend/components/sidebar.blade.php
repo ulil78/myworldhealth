@@ -352,7 +352,7 @@
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="{{url('admin/why-bookings/1/edit')}}" class="nav-link nav-toggle">
+                        <a href="{{url('admin/why-bookings')}}" class="nav-link nav-toggle">
                             <i class="icon-question"></i>
                             <span class="title">Why Booking</span>
                         </a>

@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Edit Why Booking</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Create Why Booking</div>
                             <div class="tools"></div>
                         </div>
                         <div class="portlet-body">
@@ -31,26 +31,24 @@
                       			</div>
                       			@endif
 
-                            <form action="{{ url('/admin/why-bookings/'.$booking->id) }}" method="POST"  enctype="multipart/form-data">
+                            <form action="{{ url('/admin/why-bookings/') }}" method="POST"  enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                                <input type="hidden" name="_method" value="PUT">
 
                                  <div class="form-group">
                                      <label for="title">Title</label>
-                                     <input type="text" class="form-control" id="title" name="title" value="{{$booking->title}}">
+                                     <input type="text" class="form-control" id="title" name="title">
                                  </div>
                                  <div class="form-group">
                                      <label for="description">Description</label>
-                                     <textarea name="description" id="description" class="form-control">{!! $booking->description !!}</textarea
+                                     <textarea name="description" id="description" class="form-control"></textarea
                                  </div>
                                  <div class="form-group">
                                      <label for="picture">Picture</label>
-                                     <img height="75" src="{{asset($booking->path.$booking->filename)}}">
-                                     <input type="file" class="form-control" name="picture" value="{{$booking->filename}}">
+                                     <input type="file" class="form-control" name="picture">
                                  </div>
 
 
-                                 <button type="submit" class="btn btn-primary">Update</button>
+                                 <button type="submit" class="btn btn-primary">Add</button>
                                  <a href="{{ url('admin/why-bookings') }}" class="btn btn-warning">Close</a>
                             </form>
 
