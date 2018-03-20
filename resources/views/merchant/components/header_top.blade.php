@@ -3,8 +3,8 @@
     <div class="container">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="index.html">
-                <img src="../assets/layouts/layout3/img/logo-default.jpg" alt="logo" class="logo-default">
+            <a href="/merchant">
+                <img src="{{asset('images/mwh_logo.png')}}" alt="logo" class="logo-default"  style="background-color: #444d58;">
             </a>
         </div>
         <!-- END LOGO -->

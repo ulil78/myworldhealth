@@ -3,7 +3,7 @@
         <!-- BEGIN PAGE TITLE -->
         <div class="page-title">
             <h1>Dashboard
-                <small>dashboard & statistics</small>
+                {{-- <small>dashboard & statistics</small> --}}
             </h1>
         </div>
         <!-- END PAGE TITLE -->
