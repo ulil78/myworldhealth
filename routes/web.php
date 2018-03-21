@@ -83,6 +83,11 @@ Route::prefix('admin')->group(function() {
         Route::resource('hospital-programs', 'ProgramController');
         Route::resource('additional-services', 'ServiceController');
 
+        Route::resource('transfer-arrivals', 'TransferArrivalController');
+        Route::resource('transfer-arrival-types', 'TransferArrivalTypeController');
+        Route::resource('transfer-return', 'TransferReturnController');
+        Route::resource('transfer-return-types', 'TransferReturnTypeController');
+
 
         //model general
         Route::resource('abouts', 'AboutController');

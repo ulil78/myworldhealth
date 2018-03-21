@@ -17,9 +17,7 @@
                             <div class="tools"></div>
                         </div> --}}
                         <div class="portlet-body">
-                          <div class="panel">
-                            <a href="{{url('admin/fourth-categories/create')}}" class="btn btn-success">Add Category</a>
-                          </div>
+                          
                           <div class="panel-body">
                 						 <table class="table table-hover" id="sample_2">
                 						       <thead>
@@ -80,8 +78,8 @@
                                                 <li>
                                                   <a href="{{ url('/admin/fourth-categories/'.$item->id.'/edit') }}">Edit</a>
                                                 </li>
-                                                <form id="delete-form-{{$item->id}}" 
-                                                    method="post" 
+                                                <form id="delete-form-{{$item->id}}"
+                                                    method="post"
                                                     action="{{url('admin/fourth-categories/'.$item->id) }}"
                                                     style="display: none;">
                                                     {{csrf_field()}}

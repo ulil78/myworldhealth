@@ -239,7 +239,7 @@
 
 
 
-            @if(Request::is('admin/hospital*') || Request::is('admin/additional-services'))
+            @if(Request::is('admin/hospital*') || Request::is('admin/additional-services') || Request::is('admin/transfer*'))
                 <li class="nav-item start active open">
             @else
                 <li class="nav-item">
@@ -247,7 +247,7 @@
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-list"></i>
                     <span class="title">Hospital</span>
-                    @if(Request::is('admin/hospital*') || Request::is('admin/additional-services'))
+                    @if(Request::is('admin/hospital*') || Request::is('admin/additional-services') || Request::is('admin/transfer*'))
                       <span class="selected"></span>
                     @endif
                     <span class="arrow"></span>
@@ -276,6 +276,49 @@
                             <i class="icon-folder"></i>
                             <span class="title">Additional Services</span>
                         </a>
+                    </li>
+
+                    <li class="nav-item  ">
+                        <a href="#" class="nav-link ">
+                            <i class="icon-list"></i>
+                            <span class="title">Transfer Arrival</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/transfer-arrival-types')}}" class="nav-link ">
+                                  <i class="icon-folder"></i>
+                                  <span class="title">Types</span>
+                              </a>
+                          </li>
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/transfer-arrivals')}}" class="nav-link ">
+                                  <i class="icon-folder"></i>
+                                  <span class="title">Arrival</span>
+                              </a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="#" class="nav-link ">
+                            <i class="icon-list"></i>
+                            <span class="title">Transfer Return</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/transfer-return-types')}}" class="nav-link ">
+                                  <i class="icon-folder"></i>
+                                  <span class="title">Types</span>
+                              </a>
+                          </li>
+                          <li class="nav-item  ">
+                              <a href="{{url('admin/transfer-returns')}}" class="nav-link ">
+                                  <i class="icon-folder"></i>
+                                  <span class="title">Return</span>
+                              </a>
+                          </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
