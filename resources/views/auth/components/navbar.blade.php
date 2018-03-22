@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light nav_metallic clearfix">
-	<a class="navbar-brand ml-3 text-light align-center float-left" href="#">
+	<a class="navbar-brand ml-3 text-light align-center float-left" href="{{route('beranda')}}">
 		<img class="img-fluid" src="{{url('img/myworldhealth-logo.png')}}" width="200px" height="200px" class="rounded float-left" alt="...">
 	</a>
 	<ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-left">
