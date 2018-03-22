@@ -38,6 +38,24 @@
                                     <label for="email">Email</label>
                                     <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}" disabled>
                                 </div>
+                                <div class="form-group">
+                                  <label for="country_id">Country</label>
+                                      @php
+                                        $country = \DB::table('countries')
+                                                      ->join('cities', 'cities.country_id', '=', 'countries.id')
+                                                      ->select('cities.id as city_id', 'countries.name as country_name')
+                                                      ->where('cities.id', $user->city_id)
+                                                      ->first();
+                                      @endphp
+                                  <input type="text" class="form-control" id="country_id" name="country_id" value="{{$country->country_name}}" disabled>
+                                </div>
+                                 <div class="form-group">
+                                     <label for="city_id">City</label>
+                                          @php
+                                            $city = \App\City::where('id', $user->city_id)->value('name');
+                                          @endphp
+                                    <input type="text" class="form-control" id="city_id" name="city_id" value="{{$city}}" disabled>
+                                  </div>
 
                                  <div class="form-group">
                                      <label for="status">Status</label>

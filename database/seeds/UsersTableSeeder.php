@@ -18,7 +18,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'customer',
             'email' => 'customer@gmail.com',
             'password' => bcrypt('1234567890'),
-            'status'   => 'true',            
+            'status'   => 'true',
+            'city_id'  => 1,          
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
 

@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('city_id')->unsigned();
             $table->rememberToken();
             $table->enum('status', ['true', 'false', 'banned'])->default('true');
             $table->text('notices')->nullable();

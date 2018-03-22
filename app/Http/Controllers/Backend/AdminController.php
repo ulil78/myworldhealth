@@ -84,13 +84,29 @@ class AdminController extends Controller
 
 
         Mapper::map(-8.409518, 115.188916, ['center' => false, 'marker' => true]);
-        Mapper::marker(-6.175110, 106.865039);
-        Mapper::marker(-7.257472, 112.752088);
+        $loc_partners = DB::table('cities')
+                            ->join('hospitals', 'hospitals.city_id', '=', 'cities.id')
+                            ->select('cities.latitude as latitude', 'cities.longitude as longitude')
+                            ->get();
+        foreach($loc_partners as $loc_partner)
+        {
+            Mapper::marker($loc_partner->latitude, $loc_partner->longitude);
+        }
+
+
 
 
         Mapper::map(-8.409518, 115.188916, ['center' => false, 'marker' => true]);
-        Mapper::marker(-6.175110, 106.865039);
-        Mapper::marker(-7.257472, 112.752088);
+        $loc_users = DB::table('cities')
+                            ->join('users', 'users.city_id', '=', 'cities.id')
+                            ->select('cities.latitude as latitude', 'cities.longitude as longitude')
+                            ->get();
+
+        foreach($loc_users as $loc_user)
+        {
+            Mapper::marker($loc_user->latitude, $loc_user->longitude);
+        }
+
 
 
         return view('backend/dashboard')->with('total_transaction', $total_transaction)
