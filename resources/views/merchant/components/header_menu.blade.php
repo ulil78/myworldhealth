@@ -1,10 +1,11 @@
 <!-- BEGIN HEADER MENU -->
-<div class="page-header-menu">
+<div class="page-header-menu" {{-- style="background:#3399ff!important;" --}}>
     <div class="container">
         <!-- BEGIN HEADER SEARCH BOX -->
         <form class="search-form" action="page_general_search.html" method="GET">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" name="query">
+            <div class="input-group" {{-- style="background:#fff!important;" --}}>
+                <input type="text" class="form-control" 
+                        {{-- style="background:#fff!important;color: #cecece!important;" --}} placeholder="Search" name="query">
                 <span class="input-group-btn">
                     <a href="javascript:;" class="btn submit">
                         <i class="icon-magnifier"></i>

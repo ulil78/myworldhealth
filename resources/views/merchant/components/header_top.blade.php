@@ -4,7 +4,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="/merchant">
-                <img src="{{asset('images/mwh_logo.png')}}" alt="logo" class="logo-default"  style="background-color: #444d58;">
+                <img src="{{asset('img/myworldhealth-logo-partner-blue-s.png')}}" width="170px" height="40px" alt="logo" class="logo-default"  style="background-color: #444d58;">
             </a>
         </div>
         <!-- END LOGO -->

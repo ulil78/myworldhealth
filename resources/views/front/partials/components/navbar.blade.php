@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light nav_metallic">
-  <a href="#menu-toggle" id="menu-toggle"><i class="ion-ios-keypad" style="font-size: 30px;color: #ffc326"></i></a>
+  <a href="#menu-toggle" id="menu-toggle"><i class="ion-navicon" style="font-size: 30px;color: #ffc326"></i></a>
   <a class="navbar-brand ml-3 text-light align-center" href="#">
     <img class="img-fluid" src="{{url('img/myworldhealth-logo.png')}}" width="200px" height="200px" class="rounded float-left" alt="...">
   </a>
@@ -16,27 +16,6 @@
               <div class="row">
                   <div class="col-md-4">
                       <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Or a link</a>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                  </div>
-                  <div class="col-md-4">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Or a link</a>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                  </div>
-                <div class="col-md-4">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Or a link</a>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
                   </div>
               </div>
           </div>
@@ -93,30 +72,14 @@
         <div class="dropdown-menu" style="width:100%">
           <div class="px-0 container">
               <div class="row">
+                  @php
+                    $second_category = \App\SecondCategory::orderBy('name')->where('first_category_id', $cat->id)->get();
+                  @endphp
+                  @foreach($second_category as $item)
                   <div class="col-md-4">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Or a link</a>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">{{$item->name}}</a>
                   </div>
-                  <div class="col-md-4">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Or a link</a>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                  </div>
-                <div class="col-md-4">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Or a link</a>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                  </div>
+                  @endforeach
               </div>
           </div>
         </div>
