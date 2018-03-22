@@ -44,7 +44,9 @@ class CityController extends Controller
           $rules = array(
                      'name'                   => 'required',
                      'description'            => 'required',
-                     'country_id'             => 'required'
+                     'country_id'             => 'required',
+                     'latitude'               => 'required',
+                     'longitude'              => 'required'
              );
 
          $this->validate($request, $rules);
@@ -54,6 +56,8 @@ class CityController extends Controller
          $city = new City;
          $city->name                 = $request->get('name');
          $city->country_id           = $request->get('country_id');
+         $city->latitude             = $request->get('latitude');
+         $city->longitude            = $request->get('longitude');
          $city->slug                 = str_slug($request->get('name'), '-');
          $city->description          = $request->get('description');
          $city->save();
@@ -100,7 +104,9 @@ class CityController extends Controller
           $rules = array(
             'name'                   => 'required',
             'description'            => 'required',
-            'country_id'             => 'required'
+            'country_id'             => 'required',
+            'latitude'               => 'required',
+            'longitude'              => 'required'
           );
 
          $this->validate($request, $rules);
@@ -110,6 +116,8 @@ class CityController extends Controller
          $city->country_id           = $request->get('country_id');
          $city->slug                 = str_slug($request->get('name'), '-');
          $city->description          = $request->get('description');
+         $city->latitude             = $request->get('latitude');
+         $city->longitude            = $request->get('longitude');
          $city->updated_at           = Carbon::now();
          $city->status               = $request->get('status');
          $city->save();

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use DB;
+use Mapper;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
@@ -76,6 +77,20 @@ class AdminController extends Controller
        $rev_ytd = \DB::table('invoices')->select(DB::raw('sum(total_amount) as sum_amount'))
        									->wherebetween('created_at', [$t_awal, $t_akhir])
        									->value('sum_amount');
+
+
+        // Mapper::map(-6.175110, 106.865039);
+        // Mapper::map(-7.257472, 112.752088);
+
+
+        Mapper::map(-8.409518, 115.188916, ['center' => false, 'marker' => true]);
+        Mapper::marker(-6.175110, 106.865039);
+        Mapper::marker(-7.257472, 112.752088);
+
+
+        Mapper::map(-8.409518, 115.188916, ['center' => false, 'marker' => true]);
+        Mapper::marker(-6.175110, 106.865039);
+        Mapper::marker(-7.257472, 112.752088);
 
 
         return view('backend/dashboard')->with('total_transaction', $total_transaction)

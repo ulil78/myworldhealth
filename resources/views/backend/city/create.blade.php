@@ -44,7 +44,14 @@
                                      <label for="description">Description</label>
                                      <textarea class="form-control" name="description" id="description"></textarea>
                                  </div>
-
+                                 <div class="form-group">
+                                     <label for="latitude">Latitude</label>
+                                     <input type="text" class="form-control" id="latitude" name="latitude">
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="longitude">Longitude</label>
+                                     <input type="text" class="form-control" id="longitude" name="longitude">
+                                 </div>
                                  <button type="submit" class="btn btn-primary">Save</button>
                                  <a href="{{ url('/admin/cities') }}" class="btn btn-warning">Cancel</a>
                             </form>

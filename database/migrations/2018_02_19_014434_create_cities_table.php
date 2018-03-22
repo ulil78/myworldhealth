@@ -20,6 +20,8 @@ class CreateCitiesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('description');
+            $table->string('Latitude');
+            $table->string('Longitude');
             $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();
         });

@@ -50,7 +50,14 @@
                                      <label for="description">Description</label>
                                      <textarea class="form-control" name="description" id="description">{!! $city->description !!}</textarea>
                                  </div>
-
+                                 <div class="form-group">
+                                     <label for="latitude">Latitude</label>
+                                     <input type="text" class="form-control" id="latitude" name="latitude" value="{{$city->latitude}}">
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="longitude">Longitude</label>
+                                     <input type="text" class="form-control" id="longitude" name="longitude" value="{{$city->longitude}}">
+                                 </div>
                                  <div class="form-group">
                                      <label for="status">Status</label>
                                      <select class="form-control" name="status" id="status">

@@ -106,6 +106,44 @@
           @include('backend/report-overview')
           @include('backend/chart')
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Begin: life time stats -->
+            <!-- BEGIN PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <i class="icon-share font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Partner Location</span>
+                    <span class="caption-helper">location overview...</span>
+                </div>
+
+            </div>
+              <div  style="width: 100%; height: 400px; margin: 10px 0 10px 0;">
+              	{!! Mapper::render(0) !!}
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <!-- Begin: life time stats -->
+          <!-- BEGIN PORTLET-->
+          <div class="portlet light bordered">
+              <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <i class="icon-share font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Customer Location</span>
+                    <span class="caption-helper">location overview...</span>
+                </div>
+
+            </div>
+              <div  style="width: 100%; height: 400px; margin: 10px 0 10px 0;">
+              	{!! Mapper::render(1) !!}
+            </div>
+          </div>
+        </div>
+
 
 
 
