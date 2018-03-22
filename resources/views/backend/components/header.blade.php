@@ -26,97 +26,34 @@
                     <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <i class="icon-bell"></i>
-                            <span class="badge badge-default"> 7 </span>
+                            @php
+                              $new_order_count = \App\Invoice::where('status', 'paid')->count();
+                            @endphp
+                            <span class="badge badge-default"> {{$new_order_count}} </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="external">
                                 <h3>
-                                    <span class="bold">12 pending</span> notifications</h3>
-                                <a href="page_user_profile_1.html">view all</a>
+                                    <span class="bold">{{$new_order_count}} pending</span> notifications</h3>
+                                <a href="{{url('admin/invoices')}}">view all</a>
                             </li>
                             <li>
                                 <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                  @php
+                                    $new_orders = \App\Invoice::whereIn('status', ['paid', 'new'])->take(10)->get();
+                                  @endphp
+                                  @foreach($new_orders as $new_order)
                                     <li>
                                         <a href="javascript:;">
-                                            <span class="time">just now</span>
+                                            <span class="time">{{$new_order->order_id}}</span>
                                             <span class="details">
                                                 <span class="label label-sm label-icon label-success">
                                                     <i class="fa fa-plus"></i>
-                                                </span> New user registered. </span>
+                                                </span> {{$new_order->status }} </span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">3 mins</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> Server #12 overloaded. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">10 mins</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-warning">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </span> Server #2 not responding. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">14 hrs</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-info">
-                                                    <i class="fa fa-bullhorn"></i>
-                                                </span> Application error. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">2 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> Database overloaded 68%. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">3 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> A user IP blocked. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">4 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-warning">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </span> Storage Server #4 not responding dfdfdfd. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">5 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-info">
-                                                    <i class="fa fa-bullhorn"></i>
-                                                </span> System Error. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">9 days</span>
-                                            <span class="details">
-                                                <span class="label label-sm label-icon label-danger">
-                                                    <i class="fa fa-bolt"></i>
-                                                </span> Storage server failed. </span>
-                                        </a>
-                                    </li>
+                                  @endforeach
+
                                 </ul>
                             </li>
                         </ul>
@@ -124,74 +61,39 @@
                     <!-- END NOTIFICATION DROPDOWN -->
                     <!-- BEGIN INBOX DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    @php
+                      $count_message = \App\Message::where('status', 'unread')->count();
+                    @endphp
                     <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <i class="icon-envelope-open"></i>
-                            <span class="badge badge-default"> 4 </span>
+                            <span class="badge badge-default"> {{$count_message}} </span>
                         </a>
+
                         <ul class="dropdown-menu">
                             <li class="external">
                                 <h3>You have
-                                    <span class="bold">7 New</span> Messages</h3>
-                                <a href="app_inbox.html">view all</a>
+                                    <span class="bold">{{$count_message }} New</span> Messages</h3>
+                                <a href="{{url('admin/messages')}}">view all</a>
                             </li>
                             <li>
                                 <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                  @php
+                                    $messages = \App\Message::where('status', 'unread')->take(10)->get();
+                                  @endphp
+                                  @foreach ($messages as $message)
                                     <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('assets/layouts/layout3/img/avatar2.jpg')}}" class="img-circle" alt=""> </span>
+                                        <a href="{{url('admin/messages/' .$message->id)}}">
                                             <span class="subject">
-                                                <span class="from"> Lisa Wong </span>
-                                                <span class="time">Just Now </span>
+                                                <span class="from"> {{$message->name}} </span>
+                                                <span class="time">{{Carbon\Carbon::parse($message->created_at)->format('m/d/Y m:s')}}</span>
                                             </span>
-                                            <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                            <span class="message"> {{$message->subject}} </span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('assets/layouts/layout3/img/avatar3.jpg')}}" class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Richard Doe </span>
-                                                <span class="time">16 mins </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('assets/layouts/layout3/img/avatar1.jpg')}}" class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Bob Nilson </span>
-                                                <span class="time">2 hrs </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('assets/layouts/layout3/img/avatar2.jpg')}}" class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Lisa Wong </span>
-                                                <span class="time">40 mins </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo">
-                                                <img src="{{asset('assets/layouts/layout3/img/avatar3.jpg')}}" class="img-circle" alt=""> </span>
-                                            <span class="subject">
-                                                <span class="from"> Richard Doe </span>
-                                                <span class="time">46 mins </span>
-                                            </span>
-                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                        </a>
-                                    </li>
+                                  @endforeach
+
+
                                 </ul>
                             </li>
                         </ul>

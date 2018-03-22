@@ -30,7 +30,7 @@
                     <div class="display">
                         <div class="number">
                             <h3 class="font-green-sharp">
-                                <span data-counter="counterup" data-value="7800">0</span>
+                                <span data-counter="counterup" data-value="{{$total_transaction->total_amount}}">0</span>
                                 <small class="font-green-sharp">$</small>
                             </h3>
                             <small>TOTAL TRANSACTION</small>
@@ -50,12 +50,12 @@
                     <div class="display">
                         <div class="number">
                             <h3 class="font-red-haze">
-                                <span data-counter="counterup" data-value="1349">0</span>
+                                <span data-counter="counterup" data-value="{{$total_merchant}}">0</span>
                             </h3>
-                            <small>NEW FEEDBACKS</small>
+                            <small>TOTAL PARTNER</small>
                         </div>
                         <div class="icon">
-                            <i class="icon-like"></i>
+                            <i class="icon-users"></i>
                         </div>
                     </div>
                 </div>
@@ -68,9 +68,9 @@
                     <div class="display">
                         <div class="number">
                             <h3 class="font-blue-sharp">
-                                <span data-counter="counterup" data-value="567"></span>
+                                <span data-counter="counterup" data-value="{{$total_order->count_order}}"></span>
                             </h3>
-                            <small>NEW ORDERS</small>
+                            <small>TOTAL ORDERS</small>
                         </div>
                         <div class="icon">
                             <i class="icon-basket"></i>
@@ -86,9 +86,9 @@
                     <div class="display">
                         <div class="number">
                             <h3 class="font-purple-soft">
-                                <span data-counter="counterup" data-value="276"></span>
+                                <span data-counter="counterup" data-value="{{$total_user}}"></span>
                             </h3>
-                            <small>NEW USERS</small>
+                            <small>TOTAL USERS</small>
                         </div>
                         <div class="icon">
                             <i class="icon-user"></i>
@@ -99,8 +99,14 @@
             </div>
             <!-- END USER -->
 
+
         </div>
         <!-- END BOX ON TOP -->
+        <div class="row">
+          @include('backend/report-overview')
+          @include('backend/chart')
+        </div>
+
 
 
     </div>
