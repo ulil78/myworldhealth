@@ -22,7 +22,7 @@
             							          <tr>
                                       <th>No.</th>
                       								<th>Name</th>
-                                      <th>Order Id</th>
+                                      <th>Order No.#</th>
                                       <th>Program</th>
                                       <th>Start Date</th>
                                       <th>End Date</th>
@@ -35,7 +35,14 @@
                     							   <tr>
                                         <td>{{$n++}}</td>
                         								<td>{{$item->patient_name}}</td>
-                                        <td>{{$item->order_id}}</td>
+                                        <td>
+                                            @php
+                                              $invoice = \App\Invoice::where('order_id', $item->order_id)->value('id');
+                                            @endphp
+                                            <div title="clik to view invoice">
+                                              <a href="{{url('admin/invoices/' .$invoice. '/edit')}}" alt="invoice">{{$item->order_id}}</a>
+                                            </div>
+                                        </td>
                                         <td>{{$item->program}}</td>
                                         <td>{{Carbon\Carbon::parse($item->start_date)->format('m-d-Y')}}</td>
                                         <td>{{Carbon\Carbon::parse($item->end_date)->format('m-d-Y')}}</td>
