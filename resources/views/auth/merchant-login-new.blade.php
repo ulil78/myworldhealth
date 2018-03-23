@@ -20,7 +20,7 @@
         <div id="">
             <div id="row">
                 <!-- Navbar -->
-                @include('auth.components.navbar')
+                @include('auth.components.navbar-merchant')
                 {{-- Content --}}
                 <div class="row">
                     <div class="col-sm-8 col-md-8 col-12">
@@ -42,7 +42,7 @@
                             <div class="card">
                               <div class="card-body">
                                 <div class="clearfix">
-                                    <img class="img-fluid justify-content-left p-2 float-left" width="230px" height="230px" src="{{asset('img/myworldhealth-logo-partner-blue-s.png')}}">
+                                    {{-- <img class="img-fluid justify-content-left p-2 float-left" width="230px" height="230px" src="{{asset('img/myworldhealth-logo-partner-blue-s.png')}}"> --}}
                                 </div><br>
 
                                     <form class="form-horizontal" role="form" method="POST" action="{{ route('merchant.login.submit') }}">
@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <div class="checkbox">
-                                                    <label class="text-dark">
+                                                    <label class="text-secondary">
                                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
                                                     </label>
                                                 </div>

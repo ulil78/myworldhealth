@@ -20,7 +20,7 @@
         <div id="">
             <div id="row">
                 <!-- Navbar -->
-                @include('auth.components.navbar')
+                @include('auth.components.navbar-admin')
                 {{-- Content --}}
                 <div class="row">
                     <div class="col-sm-8 col-md-8 col-12">
@@ -28,7 +28,7 @@
                             <div class="p-5">
                                 <div class="col-md-12 col-12">
                                     <div class="text-center mb-4">
-                                        <i class="ion-ios-pulse" style="font-size: 120px;color: #3399ff;"></i>
+                                        <i class="ion-ios-pulse" style="font-size: 120px;color: #17C4BB;"></i>
                                         <h1 class="h3 mb-3 font-weight-normal">Admin Center</h1>
                                         <p>Manage your data efficiently at MyworldHealth with <br>
                                         <em class="font-weight-bold"> MyworldHealth Admin Center</em> <br>
@@ -42,7 +42,7 @@
                             <div class="card">
                               <div class="card-body">
                                 <div class="clearfix">
-                                    <img class="img-fluid justify-content-left p-2 float-left" width="230px" height="230px" src="{{asset('img/myworldhealth-logo-admin-blue-s.png')}}">
+                                   {{--  <img class="img-fluid justify-content-left p-2 float-left" width="230px" height="230px" src="{{asset('img/myworldhealth-logo-admin-blue-s.png')}}"> --}}
                                 </div><br>
                                 <form class="login-form" role="form" method="POST" action="{{ route('admin.login.submit') }}">
                                     {{ csrf_field() }}
@@ -90,7 +90,7 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <div class="checkbox">
-                                                <label class="text-primary">
+                                                <label class="text-secondary">
                                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
                                                 </label>
                                             </div>
@@ -102,7 +102,8 @@
 
                                     <div class="form-group">
                                         <div class="col-md-12 col-12 col-md-offset-4">
-                                            <button type="submit" class="btn btn-outline-primary btn-block">
+                                            <button type="submit" class="btn btn-outline-light btn-block"
+                                                    style="background-color: #17C4BB;">
                                                 Login
                                             </button>
                                         </div>
