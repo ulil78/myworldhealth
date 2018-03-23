@@ -107,6 +107,9 @@ Route::prefix('admin')->group(function() {
         Route::resource('admins', 'AdministratorController');
         Route::resource('merchants', 'MerchantAdmController');
 
+        //message
+        Route::resource('messages', 'MessageController');
+
     });
 });
 

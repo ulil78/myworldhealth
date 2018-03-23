@@ -83,7 +83,7 @@
                                   @endphp
                                   @foreach ($messages as $message)
                                     <li>
-                                        <a href="{{url('admin/messages/' .$message->id)}}">
+                                        <a href="{{url('admin/messages/' .$message->id. '/edit')}}">
                                             <span class="subject">
                                                 <span class="from"> {{$message->name}} </span>
                                                 <span class="time">{{Carbon\Carbon::parse($message->created_at)->format('m/d/Y m:s')}}</span>
@@ -109,7 +109,7 @@
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
-                            
+
                             <li>
                               <a href="{{url('admin/logout')}}"
                                   onclick="event.preventDefault();

@@ -26,6 +26,7 @@ class PatientTransactionController extends Controller
                        ->orderBy('diagnostics.name')
                        ->get();
 
+
         return view('backend/patient-transaction/index')->with('patients', $patients)
                                             ->with('page_title', 'Patient Transactions | Admin Center MyWorldHealth.Com');
     }

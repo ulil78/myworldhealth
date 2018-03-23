@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->increments('id');
             $table->string('subject');
             $table->string('from');
-            $table->text('mesaage');
+            $table->text('message');
             $table->enum('status', ['read', 'unread'])->default('unread');
             $table->timestamps();
         });
