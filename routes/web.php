@@ -124,6 +124,20 @@ Route::prefix('merchant')->group(function() {
         //Route For Merchant Hire
         Route::get('/', 'MerchantController@index')->name('merchant.dashboard');
 
+        //ProgramSetup
+
+        Route::resource('hospitals', 'HospitalMerchantController');
+        Route::post('add-image', 'HospitalMerchantController@postImage');
+        Route::get('remove-image/{id}/{hospital}', 'HospitalMerchantController@getRemoveImage');
+        Route::resource('hospital-departments', 'DepartmentController');
+        Route::resource('hospital-programs', 'ProgramController');
+        Route::resource('additional-services', 'ServiceController');
+
+        Route::resource('transfer-arrivals', 'TransferArrivalController');
+        Route::resource('transfer-arrival-types', 'TransferArrivalTypeController');
+        Route::resource('transfer-return', 'TransferReturnController');
+        Route::resource('transfer-return-types', 'TransferReturnTypeController');
+
 
     });
 });
