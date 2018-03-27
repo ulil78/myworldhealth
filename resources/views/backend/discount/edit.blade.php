@@ -25,39 +25,39 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/discounts/'.$discount->id) }}" method="POST"  enctype="multipart/form-data">
+                            <form action="{{ url('/admin/discounts/'.$discount->id) }}" class="row" method="POST"  enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                 <input type="hidden" name="_method" value="PUT">
 
-                                <div class="form-group">
+                                <div class="form-group col-md-12">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" value="{{$discount->name}}">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-md-12">
                                     <label for="discount">Discount (%)</label>
                                     <input type="number" class="form-control" id="discount" name="discount" step="any" value="{{$discount->discount}}" >
                                 </div>
                                 @php
                                     $start_date = date('m/d/Y', strtotime($discount->start_date));
                                 @endphp
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label for="start_date">Start Date</label>
                                     <input type="text" class="form-control input-medium date-picker" id="start_date" name="start_date" value="{{$start_date}}">
                                 </div>
                                 @php
                                     $end_date = date('m/d/Y', strtotime($discount->end_date));
                                 @endphp
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label for="end_date">End Date</label>
                                     <input type="text" class="form-control input-medium date-picker" id="end_date" name="end_date" value="{{$end_date}}">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-12">
                                     <label for="description">Description</label>
                                     <textarea name="description" class="form-control">{!! $discount->description !!}</textarea>
                                 </div>
 
-                                 <div class="form-group">
+                                 <div class="form-group col-md-12">
                                      <label for="status">Status</label>
                                      <select class="form-control" name="status" id="status">
                                           <option value="{{$discount->status}}">{{$discount->status}}</option>
@@ -104,8 +104,10 @@
                                    </tbody>
                                  </table>
 
-                                 <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/discounts') }}" class="btn btn-warning">Cancel</a>
+                                 <div class="form-group col-md-12">
+                                   <button type="submit" class="btn btn-primary">Update</button>
+                                   <a href="{{ url('/admin/discounts') }}" class="btn btn-warning">Cancel</a>
+                                 </div>
                             </form>
 
                         </div>

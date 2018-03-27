@@ -22,7 +22,7 @@
                              <a href="{{url('admin/sliders/create')}}" class="btn btn-success">Add Sliders</a> 
                           </div>
                           <div class="panel-body">
-                         <table class="table table-striped table-bordered table-hover" id="sample_2">
+                         <table class="table table-striped table-hover" id="sample_2">
                                <thead>
                                     <tr>
                                       <th>No.</th>

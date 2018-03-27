@@ -12,12 +12,16 @@
                 <div class="col-md-12">
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
-                        <div class="portlet-title">
+                        {{-- <div class="portlet-title">
                             <div class="caption"><i class="fa fa-globe"></i>Payment Merchant</div>
                             <div class="tools"></div>
-                        </div>
+                        </div> --}}
                         <div class="portlet-body">
-            						 <table class="table table-striped table-bordered table-hover" id="sample_2">
+                          <div class="panel">
+                            <div class="caption"><b>Payment Merchant Status</b></div>
+                            <div class="tools"></div>
+                          </div>
+            						 <table class="table table-striped table-hover" id="sample_2">
             						       <thead>
             							          <tr>
                                       <th>No.</th>
@@ -68,7 +72,17 @@
                                         </td>
 
                                         <td>
-                        									  <a href="{{ url('/admin/invoices/'.$item->id.'/edit') }}" class="btn btn-warning">EDIT</a>
+                                            <!-- Action button -->
+                                            <div class="btn-group">
+                                              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Action <span class="caret"></span>
+                                              </button>
+                                              <ul class="dropdown-menu">
+                                                <li>
+                                                  <a href="{{ url('/admin/invoices/'.$item->id.'/edit') }}">Edit</a>
+                                                </li>
+                                              </ul>
+                                            </div>
 
                                         </td>
 
