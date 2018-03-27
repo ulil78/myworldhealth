@@ -9,7 +9,7 @@ Program			         : {{ $content['program'] }}<br />
 
 
 @component('mail::button', ['url' => 'dev.myworldhealth.com/merchant/login'])
-Pleade Check Partner Center
+Please Check Partner Center
 @endcomponent
 
 Thanks,<br>

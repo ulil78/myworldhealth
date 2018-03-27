@@ -129,7 +129,7 @@ Route::prefix('merchant')->group(function() {
         Route::resource('hospitals', 'HospitalMerchantController');
         Route::post('add-image', 'HospitalMerchantController@postImage');
         Route::get('remove-image/{id}/{hospital}', 'HospitalMerchantController@getRemoveImage');
-        Route::resource('hospital-departments', 'DepartmentController');
+        Route::resource('hospital-departments', 'HospitalDepartmentController');
         Route::resource('hospital-programs', 'ProgramController');
         Route::resource('additional-services', 'ServiceController');
 

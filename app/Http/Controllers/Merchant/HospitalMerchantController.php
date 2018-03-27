@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Merchant;
 use App\Hospital;
 use Carbon\Carbon;
+use App\Mail\HospitalUpdated;
+use Mail;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -109,6 +111,20 @@ class HospitalMerchantController extends Controller
           $hospital->accommodation        = $request->get('accommodation');
           $hospital->updated_at           = Carbon::now();
           $hospital->save();
+
+          $hospital_name = \Auth::guard('merchant')->user()->name;
+
+          $content = [
+             'title'               => 'Partner Update Hospital',
+             'hospital_name'       => $hospital_name,
+
+
+          ];
+
+         // $receiverAddress = $email_hospital;
+          $receiverAddress = 'rully.arfan@gmail.com';
+
+         Mail::to($receiverAddress)->send(new HospitalUpdated($content));
 
           return redirect('merchant/hospitals');
      }
