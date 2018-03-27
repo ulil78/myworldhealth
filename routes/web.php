@@ -135,7 +135,7 @@ Route::prefix('merchant')->group(function() {
 
         Route::resource('transfer-arrivals', 'MerchantTransferArrivalController');
         Route::resource('transfer-arrival-types', 'MerchantTransferArrivalTypeController');
-        Route::resource('transfer-return', 'MerchantTransferReturnController');
+        Route::resource('transfer-returns', 'MerchantTransferReturnController');
         Route::resource('transfer-return-types', 'MerchantTransferReturnTypeController');
 
         Route::post('select-department', ['as'=>'select-department','uses'=>'MerchantAjaxController@selectDepartment']);

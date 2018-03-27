@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Merchant;
-use App\TransferArrival;
+use App\TransferReturn;
+use Carbon\Carbon;
 use DB;
-
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class MerchantTransferArrivalController extends Controller
+class MerchantTransferReturnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,14 +22,14 @@ class MerchantTransferArrivalController extends Controller
         $transfers = DB::table('hospitals')
                             ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
                             ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
-                            ->join('transfer_arrivals', 'transfer_arrivals.hospital_program_id', '=', 'hospital_programs.id')
-                            ->select('transfer_arrivals.*', 'hospitals.merchant_id as merchant_id')
+                            ->join('transfer_returns', 'transfer_returns.hospital_program_id', '=', 'hospital_programs.id')
+                            ->select('transfer_returns.*', 'hospitals.merchant_id as merchant_id')
                             ->where('hospitals.merchant_id', \Auth::guard('merchant')->user()->id)
                             ->get();
 
-        return view('merchant/transfer-arrival/index')->with('transfers', $transfers)
+        return view('merchant/transfer-return/index')->with('transfers', $transfers)
                                                     ->with('hospital', $hospital)
-                                                    ->with('page_title', 'Transfer Arrival | Admin Center MyWorldHealth.Com');
+                                                    ->with('page_title', 'Transfer Return | Admin Center MyWorldHealth.Com');
     }
 
     /**
@@ -42,9 +42,9 @@ class MerchantTransferArrivalController extends Controller
         $hospital = \App\Hospital::where('merchant_id', \Auth::guard('merchant')->user()->id)->first();
         $departments = \App\HospitalDepartment::where('hospital_id', $hospital->id)->orderBy('name')->get();
 
-        return view('merchant/transfer-arrival/create')->with('hospital', $hospital)
+        return view('merchant/transfer-return/create')->with('hospital', $hospital)
                                               ->with('departments', $departments)
-                                              ->with('page_title', 'Add Transfer Arrival| Merchant Center MyWorldHealth.Com');
+                                              ->with('page_title', 'Add Transfer Return| Merchant Center MyWorldHealth.Com');
     }
 
     /**
@@ -63,13 +63,13 @@ class MerchantTransferArrivalController extends Controller
 
          $this->validate($request, $rules);
 
-         $transfer = new TransferArrival;
+         $transfer = new TransferReturn;
          $transfer->hospital_program_id        = $request->get('hospital_program_id');
          $transfer->name                       = $request->get('name');
          $transfer->save();
 
 
-        return redirect('merchant/transfer-arrivals');
+        return redirect('merchant/transfer-returns');
     }
 
     /**
@@ -91,11 +91,11 @@ class MerchantTransferArrivalController extends Controller
      */
     public function edit($id)
     {
-        $transfer = TransferArrival::find($id);
+        $transfer = TransferReturn::find($id);
         $hospital = \App\Hospital::where('merchant_id', \Auth::guard('merchant')->user()->id)->first();
         $departments = \App\HospitalDepartment::where('hospital_id', $hospital->id)->orderBy('name')->get();
 
-        return view('merchant/transfer-arrival/edit')->with('transfer', $transfer)
+        return view('merchant/transfer-return/edit')->with('transfer', $transfer)
                                              ->with('hospital', $hospital)
                                              ->with('departments', $departments)
                                              ->with('page_title', 'Edit Hospital Depatments | Merchant Center MyWorldHealth.Com');
@@ -119,14 +119,14 @@ class MerchantTransferArrivalController extends Controller
 
        $this->validate($request, $rules);
 
-       $transfer = TransferArrival::find($id);
+       $transfer = TransferReturn::find($id);
        $transfer->hospital_program_id        = $request->get('hospital_program_id');
        $transfer->name                       = $request->get('name');
        $transfer->updated_at                 = Carbon::now();
        $transfer->save();
 
 
-       return redirect('merchant/transfer-arrivals');
+       return redirect('merchant/transfer-returns');
 
 
     }
@@ -139,9 +139,9 @@ class MerchantTransferArrivalController extends Controller
      */
     public function destroy($id)
     {
-        $transfer = TransferArrival::find($id);
+        $transfer = TransferReturn::find($id);
         $transfer->delete();
 
-        return redirect('merchant/transfer-arrivals');
+        return redirect('merchant/transfer-returns');
     }
 }

@@ -52,12 +52,13 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="dropdown-menu">
+                              <li class=" ">
+                                  <a href="{{url('merchant/transfer-arrivals')}}" class="nav-link ">Arrival</a>
+                              </li>
                                 <li class=" ">
                                     <a href="{{url('merchant/transfer-arrival-types')}}" class="nav-link ">Type</a>
                                 </li>
-                                <li class=" ">
-                                    <a href="{{url('merchant/transfer-arrivals')}}" class="nav-link ">Arrival</a>
-                                </li>
+
                             </ul>
                         </li>
 
@@ -67,12 +68,13 @@
                                 <span class="arrow"></span>
                             </a>
                             <ul class="dropdown-menu">
+                              <li class=" ">
+                                  <a href="{{url('merchant/transfer-returns')}}" class="nav-link ">Return</a>
+                              </li>
                                 <li class=" ">
                                     <a href="{{url('merchant/transfer-return-types')}}" class="nav-link ">Type</a>
                                 </li>
-                                <li class=" ">
-                                    <a href="{{url('merchant/transfer-returns')}}" class="nav-link ">Return</a>
-                                </li>
+
                             </ul>
                         </li>
 
