@@ -182,9 +182,9 @@
         <script src="{{asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
 
-        <!-- select Department -->
-        <script type="text/javascript">
 
+        <script type="text/javascript">
+            //select Department
             $("select[name='hospital_department_id']").change(function(){
                   var hospital_department_id = $(this).val();
                   var token = $("input[name='_token']").val();
@@ -199,6 +199,40 @@
                       }
                   });
               });
+
+              //select Department arrival
+              $("select[name='hospital_department_id_arrival']").change(function(){
+                    var hospital_department_id_arrival = $(this).val();
+                    var token = $("input[name='_token']").val();
+                    $.ajax({
+                        url: "<?php echo route('select-department-arrival') ?>",
+                        method: 'POST',
+                        data: {hospital_department_id_arrival:hospital_department_id_arrival, _token:token},
+                        success: function(data) {
+                          console.log('success');
+                          $("select[name='hospital_program_id_arrival'").html('');
+                          $("select[name='hospital_program_id_arrival'").html(data.options);
+                        }
+                    });
+                });
+                
+
+              //select Program Arrival
+              $("select[name='hospital_program_id_arrival']").change(function(){
+                    var hospital_program_id_arrival = $(this).val();
+                    var token = $("input[name='_token']").val();
+                    $.ajax({
+                        url: "<?php echo route('select-program-arrival') ?>",
+                        method: 'POST',
+                        data: {hospital_program_id_arrival:hospital_program_id_arrival, _token:token},
+                        success: function(data) {
+                          console.log('success');
+                          $("select[name='transfer_arrival_id'").html('');
+                          $("select[name='transfer_arrival_id'").html(data.options);
+                        }
+                    });
+                });
+
           </script>
     </body>
 

@@ -140,6 +140,10 @@ Route::prefix('merchant')->group(function() {
 
         Route::post('select-department', ['as'=>'select-department','uses'=>'MerchantAjaxController@selectDepartment']);
 
+        Route::post('select-department-arrival', ['as'=>'select-department-arrival','uses'=>'MerchantAjaxController@selectDepartmentArrival']);
+        Route::post('select-program-arrival', ['as'=>'select-program-arrival','uses'=>'MerchantAjaxController@selectProgramArrival']);
+        
+        Route::post('select-program-return', ['as'=>'select-program-return','uses'=>'MerchantAjaxController@selectProgramReturn']);
 
     });
 });

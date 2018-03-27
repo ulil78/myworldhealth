@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Merchant;
-use App\TransferArrival;
+use App\TransferArrivalType;
 use Carbon\Carbon;
 use DB;
-
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class MerchantTransferArrivalController extends Controller
+class MerchantTransferArrivalTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,13 +23,14 @@ class MerchantTransferArrivalController extends Controller
                             ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
                             ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
                             ->join('transfer_arrivals', 'transfer_arrivals.hospital_program_id', '=', 'hospital_programs.id')
-                            ->select('transfer_arrivals.*', 'hospitals.merchant_id as merchant_id')
+                            ->join('transfer_arrival_types', 'transfer_arrival_types.transfer_arrival_id', '=', 'transfer_arrivals.id')
+                            ->select('transfer_arrival_types.*', 'hospitals.merchant_id as merchant_id')
                             ->where('hospitals.merchant_id', \Auth::guard('merchant')->user()->id)
                             ->get();
 
-        return view('merchant/transfer-arrival/index')->with('transfers', $transfers)
+        return view('merchant/transfer-arrival-type/index')->with('transfers', $transfers)
                                                     ->with('hospital', $hospital)
-                                                    ->with('page_title', 'Transfer Arrival | Admin Center MyWorldHealth.Com');
+                                                    ->with('page_title', 'Transfer Arrival Type | Admin Center MyWorldHealth.Com');
     }
 
     /**
@@ -43,9 +43,9 @@ class MerchantTransferArrivalController extends Controller
         $hospital = \App\Hospital::where('merchant_id', \Auth::guard('merchant')->user()->id)->first();
         $departments = \App\HospitalDepartment::where('hospital_id', $hospital->id)->orderBy('name')->get();
 
-        return view('merchant/transfer-arrival/create')->with('hospital', $hospital)
+        return view('merchant/transfer-arrival-type/create')->with('hospital', $hospital)
                                               ->with('departments', $departments)
-                                              ->with('page_title', 'Add Transfer Arrival| Merchant Center MyWorldHealth.Com');
+                                              ->with('page_title', 'Add Transfer Arrival Type| Merchant Center MyWorldHealth.Com');
     }
 
     /**
@@ -57,20 +57,22 @@ class MerchantTransferArrivalController extends Controller
     public function store(Request $request)
     {
           $rules = array(
-                     'hospital_program_id'        => 'required',
+                     'transfer_arrival_id'        => 'required',
                      'name'                       => 'required',
+                     'price'                      => 'required',
 
              );
 
          $this->validate($request, $rules);
 
-         $transfer = new TransferArrival;
-         $transfer->hospital_program_id        = $request->get('hospital_program_id');
+         $transfer = new TransferArrivalType;
+         $transfer->transfer_arrival_id        = $request->get('transfer_arrival_id');
          $transfer->name                       = $request->get('name');
+         $transfer->price                      = $request->get('price');
          $transfer->save();
 
 
-        return redirect('merchant/transfer-arrivals');
+        return redirect('merchant/transfer-arrival-types');
     }
 
     /**
@@ -92,11 +94,11 @@ class MerchantTransferArrivalController extends Controller
      */
     public function edit($id)
     {
-        $transfer = TransferArrival::find($id);
+        $transfer = TransferArrivalType::find($id);
         $hospital = \App\Hospital::where('merchant_id', \Auth::guard('merchant')->user()->id)->first();
         $departments = \App\HospitalDepartment::where('hospital_id', $hospital->id)->orderBy('name')->get();
 
-        return view('merchant/transfer-arrival/edit')->with('transfer', $transfer)
+        return view('merchant/transfer-arrival-type/edit')->with('transfer', $transfer)
                                              ->with('hospital', $hospital)
                                              ->with('departments', $departments)
                                              ->with('page_title', 'Edit Hospital Depatments | Merchant Center MyWorldHealth.Com');
@@ -113,21 +115,23 @@ class MerchantTransferArrivalController extends Controller
     public function update(Request $request, $id)
     {
         $rules = array(
-              'hospital_program_id'        => 'required',
-              'name'                       => 'required',
+                'transfer_arrival_id'        => 'required',
+                'name'                       => 'required',
+                'price'                      => 'required',
 
            );
 
        $this->validate($request, $rules);
 
-       $transfer = TransferArrival::find($id);
-       $transfer->hospital_program_id        = $request->get('hospital_program_id');
+       $transfer = TransferArrivalType::find($id);
+       $transfer->transfer_arrival_id        = $request->get('transfer_arrival_id');
        $transfer->name                       = $request->get('name');
+       $transfer->price                      = $request->get('price');
        $transfer->updated_at                 = Carbon::now();
        $transfer->save();
 
 
-       return redirect('merchant/transfer-arrivals');
+       return redirect('merchant/transfer-arrival-types');
 
 
     }
@@ -140,9 +144,9 @@ class MerchantTransferArrivalController extends Controller
      */
     public function destroy($id)
     {
-        $transfer = TransferArrival::find($id);
+        $transfer = TransferArrivalType::find($id);
         $transfer->delete();
 
-        return redirect('merchant/transfer-arrivals');
+        return redirect('merchant/transfer-arrival-types');
     }
 }
