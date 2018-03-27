@@ -56,7 +56,7 @@
                                     <a href="{{url('merchant/transfer-arrival-types')}}" class="nav-link ">Type</a>
                                 </li>
                                 <li class=" ">
-                                    <a href="{{url('merchnat/transfer-arrival')}}" class="nav-link ">Arrival</a>
+                                    <a href="{{url('merchant/transfer-arrivals')}}" class="nav-link ">Arrival</a>
                                 </li>
                             </ul>
                         </li>

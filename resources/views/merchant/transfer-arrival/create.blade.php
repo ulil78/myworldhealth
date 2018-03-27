@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Add Additional Service</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Add Transfer Arrival</div>
 
                         </div>
                         <div class="portlet-body">
@@ -25,7 +25,7 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/merchant/additional-services/') }}" method="POST">
+                            <form action="{{ url('/merchant/transfer-arrivals/') }}" method="POST">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
 
                                 <div class="form-group">
@@ -52,20 +52,11 @@
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name">
                                 </div>
-                                <div class="form-group">
-                                    <label for="price">Price ($)</label>
-                                    <input type="number" class="form-control" id="price" name="price" step="any">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control" name="description" id="description"></textarea>
-                                </div>
 
 
 
                                  <button type="submit" class="btn btn-primary">Add</button>
-                                 <a href="{{ url('/merchant/additional-services') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/merchant/transfer-arrivals') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

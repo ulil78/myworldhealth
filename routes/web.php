@@ -133,10 +133,10 @@ Route::prefix('merchant')->group(function() {
         Route::resource('hospital-programs', 'HospitalProgramController');
         Route::resource('additional-services', 'AdditionalServiceController');
 
-        Route::resource('transfer-arrivals', 'TransferArrivalController');
-        Route::resource('transfer-arrival-types', 'TransferArrivalTypeController');
-        Route::resource('transfer-return', 'TransferReturnController');
-        Route::resource('transfer-return-types', 'TransferReturnTypeController');
+        Route::resource('transfer-arrivals', 'MerchantTransferArrivalController');
+        Route::resource('transfer-arrival-types', 'MerchantTransferArrivalTypeController');
+        Route::resource('transfer-return', 'MerchantTransferReturnController');
+        Route::resource('transfer-return-types', 'MerchantTransferReturnTypeController');
 
         Route::post('select-department', ['as'=>'select-department','uses'=>'MerchantAjaxController@selectDepartment']);
 
