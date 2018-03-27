@@ -18,7 +18,7 @@
                         </div> --}}
                         <div class="portlet-body">
                           <div class="panel">
-                            <a href="{{url('merchant/transfer-arrival-types/create')}}" class="btn btn-success">Transfer Arrival Type</a>
+                            <a href="{{url('merchant/transfer-return-types/create')}}" class="btn btn-success">Transfer Return Type</a>
                           </div>
                           <div class="panel-body">
                 						 <table class="table table-hover" id="sample_2">
@@ -28,7 +28,7 @@
                                           <th>Hospital</th>
                                           <th>Department</th>
                                           <th>Program</th>
-                                          <th>Transfer Arrival</th>
+                                          <th>Transfer Return</th>
                           								<th>Name</th>
                                           <th>Price ($)</th>
                                           <th>Action</th>
@@ -44,10 +44,10 @@
                                               @php
                                                   $department = \DB::table('hospital_departments')
                                                                     ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
-                                                                    ->join('transfer_arrivals', 'transfer_arrivals.hospital_program_id', '=', 'hospital_programs.id')
-                                                                    ->join('transfer_arrival_types', 'transfer_arrival_types.transfer_arrival_id', '=', 'transfer_arrivals.id')
-                                                                    ->select('hospital_departments.name as department_name', 'hospital_programs.name as program_name', 'transfer_arrivals.id as transfer_arrival_id')
-                                                                    ->where('transfer_arrivals.id', $item->transfer_arrival_id)
+                                                                    ->join('transfer_returns', 'transfer_returns.hospital_program_id', '=', 'hospital_programs.id')
+                                                                    ->join('transfer_return_types', 'transfer_return_types.transfer_return_id', '=', 'transfer_returns.id')
+                                                                    ->select('hospital_departments.name as department_name', 'hospital_programs.name as program_name', 'transfer_returns.id as transfer_return_id')
+                                                                    ->where('transfer_returns.id', $item->transfer_return_id)
                                                                     ->first();
                                               @endphp
                                                 {{$department->department_name}}
@@ -55,9 +55,9 @@
                                             <td>{{$department->program_name}}</td>
                                             <td>
                                                 @php
-                                                  $arrival = \App\TransferArrival::where('id', $item->transfer_arrival_id)->value('name');
+                                                  $return = \App\TransferReturn::where('id', $item->transfer_return_id)->value('name');
                                                 @endphp
-                                                {{$arrival}}
+                                                {{$return}}
                                             </td>
                             								<td>{{$item->name}}</td>
                                             <td>{{money_format('%.2n', $item->price) }}</td>
@@ -70,12 +70,12 @@
                                                 <ul class="dropdown-menu">
 
                                                     <li>
-                                                      <a href="{{ url('/merchant/transfer-arrival-types/'.$item->id.'/edit') }}">Edit</a>
+                                                      <a href="{{ url('/merchant/transfer-return-types/'.$item->id.'/edit') }}">Edit</a>
                                                     </li>
 
                                                   <form id="delete-form-{{$item->id}}"
                                                       method="post"
-                                                      action="{{url('merchant/transfer-arrival-types/'.$item->id) }}"
+                                                      action="{{url('merchant/transfer-return-types/'.$item->id) }}"
                                                       style="display: none;">
                                                       {{csrf_field()}}
                                                       {{method_field('DELETE')}}

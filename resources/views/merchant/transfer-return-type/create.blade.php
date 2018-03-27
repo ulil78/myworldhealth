@@ -11,7 +11,7 @@
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box green">
                         <div class="portlet-title">
-                            <div class="caption"><i class="fa fa-globe"></i>Add Transfer Arrival</div>
+                            <div class="caption"><i class="fa fa-globe"></i>Add Transfer Return</div>
 
                         </div>
                         <div class="portlet-body">
@@ -25,7 +25,7 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/merchant/transfer-arrival-types/') }}" method="POST">
+                            <form action="{{ url('/merchant/transfer-return-types/') }}" method="POST">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
 
                                 <div class="form-group">
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="hospital_department_id">Department</label>
-                                    <select name="hospital_department_id_arrival" class="form-control">
+                                    <select name="hospital_department_id_return" class="form-control">
                                         <option> --- Select Departments --- </option>
                                         @foreach($departments as $department)
                                           <option value="{{$department->id}}">{{$department->name}}</option>
@@ -42,14 +42,14 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="hospital_program_id_arrival">Program</label>
-                                    <select name="hospital_program_id_arrival" class="form-control">
+                                    <label for="hospital_program_id_return">Program</label>
+                                    <select name="hospital_program_id_return" class="form-control">
 
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="transfer_arrival_id">Transfer arrival</label>
-                                    <select name="transfer_arrival_id" class="form-control">
+                                    <label for="transfer_return_id">Transfer return</label>
+                                    <select name="transfer_return_id" class="form-control">
 
                                     </select>
                                 </div>
@@ -65,7 +65,7 @@
 
 
                                  <button type="submit" class="btn btn-primary">Add</button>
-                                 <a href="{{ url('/merchant/transfer-arrival-types') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/merchant/transfer-return-types') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

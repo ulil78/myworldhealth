@@ -142,8 +142,11 @@ Route::prefix('merchant')->group(function() {
 
         Route::post('select-department-arrival', ['as'=>'select-department-arrival','uses'=>'MerchantAjaxController@selectDepartmentArrival']);
         Route::post('select-program-arrival', ['as'=>'select-program-arrival','uses'=>'MerchantAjaxController@selectProgramArrival']);
-        
+
+        Route::post('select-department-return', ['as'=>'select-department-return','uses'=>'MerchantAjaxController@selectDepartmentReturn']);
         Route::post('select-program-return', ['as'=>'select-program-return','uses'=>'MerchantAjaxController@selectProgramReturn']);
+
+
 
     });
 });

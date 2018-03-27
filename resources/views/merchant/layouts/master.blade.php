@@ -215,7 +215,7 @@
                         }
                     });
                 });
-                
+
 
               //select Program Arrival
               $("select[name='hospital_program_id_arrival']").change(function(){
@@ -232,6 +232,38 @@
                         }
                     });
                 });
+
+                //select Department return
+                $("select[name='hospital_department_id_return']").change(function(){
+                      var hospital_department_id_return = $(this).val();
+                      var token = $("input[name='_token']").val();
+                      $.ajax({
+                          url: "<?php echo route('select-department-return') ?>",
+                          method: 'POST',
+                          data: {hospital_department_id_return:hospital_department_id_return, _token:token},
+                          success: function(data) {
+                            console.log('success');
+                            $("select[name='hospital_program_id_return'").html('');
+                            $("select[name='hospital_program_id_return'").html(data.options);
+                          }
+                      });
+                  });
+
+                  //select Program Return
+                  $("select[name='hospital_program_id_return']").change(function(){
+                        var hospital_program_id_return = $(this).val();
+                        var token = $("input[name='_token']").val();
+                        $.ajax({
+                            url: "<?php echo route('select-program-return') ?>",
+                            method: 'POST',
+                            data: {hospital_program_id_return:hospital_program_id_return, _token:token},
+                            success: function(data) {
+                              console.log('success');
+                              $("select[name='transfer_return_id'").html('');
+                              $("select[name='transfer_return_id'").html(data.options);
+                            }
+                        });
+                    });
 
           </script>
     </body>
