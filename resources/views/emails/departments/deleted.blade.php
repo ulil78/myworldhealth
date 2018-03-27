@@ -5,7 +5,7 @@ Hi Admin, your partner has deleted a Department
 
 
 Hospital Name			   : {{ $content['hospital_name'] }}<br />
-Deapartment Name		 : {{ $content['department'] }}<br />
+Department Name		 : {{ $content['department'] }}<br />
 
 
 @component('mail::button', ['url' => 'dev.myworldhealth.com/admin/login'])

@@ -130,8 +130,8 @@ Route::prefix('merchant')->group(function() {
         Route::post('add-image', 'HospitalMerchantController@postImage');
         Route::get('remove-image/{id}/{hospital}', 'HospitalMerchantController@getRemoveImage');
         Route::resource('hospital-departments', 'HospitalDepartmentController');
-        Route::resource('hospital-programs', 'ProgramController');
-        Route::resource('additional-services', 'ServiceController');
+        Route::resource('hospital-programs', 'HospitalProgramController');
+        Route::resource('additional-services', 'AdditionalServiceController');
 
         Route::resource('transfer-arrivals', 'TransferArrivalController');
         Route::resource('transfer-arrival-types', 'TransferArrivalTypeController');

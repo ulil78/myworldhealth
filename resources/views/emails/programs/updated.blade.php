@@ -1,11 +1,12 @@
 @component('mail::message')
 # {{ $content['title'] }}
 
-Hi Admin, your partner has updated a Department
+Hi Admin, your partner has updated a Program
 
 
 Hospital Name			   : {{ $content['hospital_name'] }}<br />
-Department Name		 : {{ $content['department'] }}<br />
+Department Name		   : {{ $content['department'] }}<br />
+Program  Name		     : {{ $content['program'] }}<br />
 
 
 @component('mail::button', ['url' => 'dev.myworldhealth.com/admin/login'])

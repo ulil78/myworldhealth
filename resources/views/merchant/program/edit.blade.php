@@ -1,4 +1,4 @@
-@extends('backend/layouts/master')
+@extends('merchant/layouts/master')
 @section('main-content')
 <div class="page-content-wrapper">
       <!-- BEGIN CONTENT BODY -->
@@ -25,60 +25,57 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/hospital-programs/'.$program->id) }}" method="POST">
+                            <form action="{{ url('/merchant/hospital-programs/'.$program->id) }}" method="POST">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                 <input type="hidden" name="_method" value="PUT">
                                 <div class="form-group">
                                     <label for="hospital">Hospital</label>
-                                    @php
-                                            $hospital = \DB::table('hospitals')
-                                                            ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
-                                                            ->select('hospital_departments.id as department_id', 'hospitals.name as hospital_name')
-                                                            ->where('hospital_departments.id', $program->hospital_department_id)
-                                                            ->first();
-                                    @endphp
-                                    <input type="text" class="form-control" id="hospital" name="hospital" value="{{$hospital->hospital_name}}" disabled>
+                                    <input type="text" class="form-control" id="hospital" name="hospital" value="{{$hospital->name}}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="department">Department</label>
-                                    @php
-                                        $department = \App\HospitalDepartment::where('id',$program->hospital_department_id )->value('name');
-                                    @endphp
-                                    <input type="text" class="form-control" id="department" name="department" value="{{$department}}" disabled>
+                                    <select name="hospital_department_id" class="form-control">
+                                        @php
+                                          $department_name = \App\HospitalDepartment::where('id', $program->hospital_department_id)->value('name');
+                                        @endphp
+                                        <option value="{{$program->hospital_department_id}}">{{$department_name}}</option>
+                                        @foreach($departments as $department)
+                                          <option value="{{$department->id}}">{{$department->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="category">Category</label>
-                                    @php
-                                        $category = \App\FourthCategory::where('id', $program->fourth_category_id)->value('name');
-                                    @endphp
-                                    <input type="text" class="form-control" id="category" name="category" value="{{$category}}" disabled>
+                                    <select name="fourth_category_id" class="form-control">
+                                        @php
+                                          $category_name = \App\FourthCategory::where('id', $program->fourth_category_id)->value('name');
+                                        @endphp
+                                        <option value="{{$program->fourth_category_id}}"> {{$category_name}} </option>
+                                        @foreach($categories as $category)
+                                          <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}" disabled>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Price ($)</label>
-                                    <input type="text" class="form-control" id="price" name="price" value="{{money_format('%.2n', $program->price) }}" disabled>
+                                    <input type="text" class="form-control" id="price" name="price" value="{{money_format('%.2n', $program->price) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="discount">Discount (%)</label>
-                                    <input type="text" class="form-control" id="discount" name="discount" value="{{money_format('%.2n', $program->discount) }}" disabled>
+                                    <input type="text" class="form-control" id="discount" name="discount" value="{{money_format('%.2n', $program->discount) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="duration">Duration (day)</label>
-                                    <input type="number" class="form-control" id="duration" name="duration" value="{{$program->duration}}" disabled>
+                                    <input type="number" class="form-control" id="duration" name="duration" value="{{$program->duration}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <div class="jumbotron" style="padding: 15px;">
-                                      {!! $program->description !!}
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="notices">Notices</label>
-                                    <textarea class="form-control" name="notices" id="notes">{!! $program->notices !!}</textarea>
+                                    <textarea class="form-control" name="description" id="description">{!! $program->description !!}</textarea>
                                 </div>
 
                                  <div class="form-group">
@@ -87,11 +84,10 @@
                                           <option value="{{$program->status}}">{{$program->status}}</option>
                                           <option value="true">True</option>
                                           <option value="false">False</option>
-                                          <option value="banned">Banned</option>
                                      </select>
                                  </div>
                                  <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/hospital-programs') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/merchant/hospital-programs') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>
