@@ -138,6 +138,8 @@ Route::prefix('merchant')->group(function() {
         Route::resource('transfer-return', 'TransferReturnController');
         Route::resource('transfer-return-types', 'TransferReturnTypeController');
 
+        Route::post('select-department', ['as'=>'select-department','uses'=>'MerchantAjaxController@selectDepartment']);
+
 
     });
 });

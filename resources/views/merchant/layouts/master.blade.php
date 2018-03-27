@@ -41,7 +41,7 @@
         <!-- END THEME LAYOUT STYLES -->
 
         <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css" />
-        
+
         <link rel="shortcut icon" href="favicon.ico" />
         {{-- @include('merchant/components/style_custom') --}}
 
@@ -138,6 +138,9 @@
             @include('merchant/components/footer')
         </div>
 
+
+
+
         <!-- BEGIN CORE PLUGINS -->
         <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
@@ -178,6 +181,25 @@
         <script src="{{asset('assets/layouts/layout3/scripts/demo.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
+
+        <!-- select Department -->
+        <script type="text/javascript">
+
+            $("select[name='hospital_department_id']").change(function(){
+                  var hospital_department_id = $(this).val();
+                  var token = $("input[name='_token']").val();
+                  $.ajax({
+                      url: "<?php echo route('select-department') ?>",
+                      method: 'POST',
+                      data: {hospital_department_id:hospital_department_id, _token:token},
+                      success: function(data) {
+                        console.log('success');
+                        $("select[name='hospital_program_id'").html('');
+                        $("select[name='hospital_program_id'").html(data.options);
+                      }
+                  });
+              });
+          </script>
     </body>
 
 </html>
