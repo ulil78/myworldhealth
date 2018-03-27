@@ -139,9 +139,21 @@
                       </a>
                   </li>
                   <li class="nav-item  ">
+                      <a href="{{url('admin/invoice/process')}}"  class="nav-link ">
+                          <i class="icon-check"></i>
+                          <span class="title">Process</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
                       <a href="{{url('admin/invoice/finish')}}"  class="nav-link ">
                           <i class="icon-check"></i>
                           <span class="title">Finish</span>
+                      </a>
+                  </li>
+                  <li class="nav-item  ">
+                      <a href="{{url('admin/invoice/complated')}}"  class="nav-link ">
+                          <i class="icon-check"></i>
+                          <span class="title">Complated</span>
                       </a>
                   </li>
                   <li class="nav-item  ">

@@ -31,7 +31,7 @@ class CreateInvoicesTable extends Migration
             $table->float('transfer_amount', 8, 2);
             $table->float('total_amount', 8, 2);
             $table->enum('payment_method', ['credit_card', 'bank_transfer'])->default('credit_card');
-            $table->enum('status', ['paid', 'unpaid', 'confirm', 'finish', 'cancel'])->default('unpaid');
+            $table->enum('status', ['paid', 'unpaid', 'confirm', 'finish', 'cancel', 'complated', 'process'])->default('unpaid');
             $table->text('notices')->nullable();
             $table->timestamps();
         });
