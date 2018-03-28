@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12">
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div class="portlet box green">
+                    <div class="portlet box default">
                         {{-- <div class="portlet-title">
                             <div class="caption"><i class="fa fa-globe"></i>Hospital Program</div>
                             <div class="tools"></div>
@@ -19,11 +19,11 @@
                         <div class="portlet-body">
 
                           <div class="panel">
-                             <a href="{{url('merchant/additional-services/create')}}" class="btn btn-success">Add Additional Service</a> 
+                             <a href="{{url('merchant/additional-services/create')}}" class="btn btn-default">Add Additional Service</a> 
                           </div>
                           <div class="panel-body">
 
-                           <table class="table table-striped table-hover" id="sample_2">
+                           <table class="table table-hover" id="sample_2">
                                  <thead>
                                       <tr>
                                         <th>No.</th>

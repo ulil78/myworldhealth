@@ -11,14 +11,14 @@
             <div class="row">
                 <div class="col-md-12">
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div class="portlet box green">
+                    <div class="portlet box default">
                        {{--  <div class="portlet-title">
                             <div class="caption"><i class="fa fa-globe"></i>Fourth Categories</div>
                             <div class="tools"></div>
                         </div> --}}
                         <div class="portlet-body">
                           <div class="panel">
-                            <a href="{{url('merchant/transfer-return-types/create')}}" class="btn btn-success">Transfer Return Type</a>
+                            <a href="{{url('merchant/transfer-return-types/create')}}" class="btn btn-default">Transfer Return Type</a>
                           </div>
                           <div class="panel-body">
                 						 <table class="table table-hover" id="sample_2">
