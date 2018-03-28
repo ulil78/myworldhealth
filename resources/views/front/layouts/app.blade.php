@@ -27,6 +27,8 @@
                 <!-- Jumbotron -->
                 @yield('jumbotron')
                 @yield('detail-jumbotron')
+                {{-- Right Button --}}
+                @include('front.partials.components.right-button')
                 <div class="container">
                     @yield('content')
                 </div>
@@ -39,6 +41,11 @@
 
     <!-- Scripts -->
     @include('front.partials.assets.js')
+    <script type="text/javascript">
+        $('.slide').on('click', function(){
+            $('#fade-in').toggleClass('show');
+        });
+    </script>
 
 </body>
 </html>

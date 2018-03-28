@@ -16,6 +16,13 @@
 */
 
 Route::get('/', 'Frontend\FrontController@beranda')->name('beranda');
+// Pages
+Route::get('/about', 'Frontend\FrontController@about')->name('about');
+Route::get('/why-myworldhealth', 'Frontend\FrontController@why_mwh')->name('why-mwh');
+Route::get('/question-answer', 'Frontend\FrontController@question_answer')->name('q-a');
+Route::get('/contact', 'Frontend\FrontController@contact')->name('contact');
+
+// Function
 Route::get('/search', 'Frontend\FrontController@search_result')->name('result');
 Route::get('/detail', 'Frontend\FrontController@detail')->name('detail');
 Route::get('/booked', 'Frontend\FrontController@booked')->name('booked');

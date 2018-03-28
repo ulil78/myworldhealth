@@ -8,11 +8,32 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
+// Pages 
 	public function beranda()
 	{
 		return view('front.pages.beranda.index');
 	}
 
+	public function about()
+	{
+		return view('front.pages.about.index');
+	}
+
+	public function why_mwh()
+	{
+		return view('front.pages.why_mwh.index');
+	}
+
+	public function question_answer()
+	{
+		return view('front.pages.question_answer.index');
+	}
+
+	public function contact()
+	{
+		return view('front.pages.contact.index');
+	}
+// Function
 	public function search_result()
 	{
 		return view('front.pages.beranda.show');
