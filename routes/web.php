@@ -161,5 +161,7 @@ Route::prefix('merchant')->group(function() {
         Route::resource('payables', 'PayableMerchantController');
         Route::get('payable/{status}', 'PayableMerchantController@getStatus');
 
+        Route::get('report-transactions', 'ReportMerchantController@getIndexTransaction');
+
     });
 });

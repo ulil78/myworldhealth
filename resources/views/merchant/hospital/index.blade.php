@@ -19,7 +19,7 @@
                         <div class="portlet-body">
 
                           <div class="panel">
-                             <a href="{{url('merchant/hospitals/create')}}" class="btn btn-default">Add Hospital</a> 
+                             <a href="#" class="btn btn-default">Hospital</a> 
                           </div>
             						 <table class="table table-hover" id="sample_2">
             						       <thead>
