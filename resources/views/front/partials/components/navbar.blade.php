@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light nav_metallic">
   <a href="#menu-toggle" id="menu-toggle"><i class="ion-navicon" style="font-size: 30px;color: #ffc326"></i></a>
-  <a class="navbar-brand ml-3 text-light align-center" href="#">
+  <a class="navbar-brand ml-3 text-light align-center" href="{{route('beranda')}}">
     <img class="img-fluid" src="{{url('img/myworldhealth-logo.png')}}" width="200px" height="200px" class="rounded float-left" alt="...">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" style="border:none;color: #ffc326"" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="ion-ios-keypad-outline" style="font-size: 30px;"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">

@@ -11,13 +11,17 @@
             <div class="row">
                 <div class="col-md-12">
                   <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div class="portlet box green">
-                        <div class="portlet-title">
+                    <div class="portlet box default">
+                        {{-- <div class="portlet-title">
                             <div class="caption"><i class="fa fa-globe"></i>Hospital Departments</div>
                             <div class="tools"></div>
-                        </div>
+                        </div> --}}
                         <div class="portlet-body">
-            						 <table class="table table-striped table-bordered table-hover" id="sample_2">
+
+                          <div class="panel">
+                             <a href="{{url('merchant/hospital-departments/create')}}" class="btn btn-default">Add Department</a> 
+                          </div>
+            						 <table class="table table-hover" id="sample_2">
             						       <thead>
             							          <tr>
                                       <th>No.</th>
@@ -26,7 +30,7 @@
                       								<th>Doctor</th>
                                       <th>Notices</th>
                                       <th>Status</th>
-                                      <th> <a href="{{url('merchant/hospital-departments/create')}}" class="btn btn-primary">Add Department</a> </th>
+                                      <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>

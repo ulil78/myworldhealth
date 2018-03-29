@@ -258,4 +258,87 @@
       }
     }
     /* END OF DEMO CSS */
+    /*FEEDBACK-RIGHT BUTTON */
+    #feedback-right a {
+      display: block;
+      height: 52px;
+      width: 155px; 
+      color: #fff;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #feedback-right {
+      height: 0px;
+      width: 85px;
+      position: fixed;
+      right: 0;
+      top: 70%;
+      z-index: 1000;
+      transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+    #feedback-right a {
+      display: block;
+      background:rgba(0,0,0,0.7);
+      height: 52px;
+      padding-top: 5px;
+      width: 155px;
+      text-align: center;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #feedback-right a:hover {
+      background:#3399ff;
+    }
+    /*END FEEDBACK-RIGHT BUTTON */
+
+    /*FEEDBACK-RIGHT BUTTON */
+    #feedback-right-up a {
+      display: block;
+      height: 52px;
+      width: 80px; 
+      color: #fff;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #feedback-right-up {
+      height: 0px;
+      width: 85px;
+      position: fixed;
+      right: 0;
+      top: 40%;
+      z-index: 1000;
+      transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+    #feedback-right-up a {
+      display: block;
+      background:rgba(0,0,0,0.7);
+      height: 52px;
+      padding-top: 5px;
+      width: 80px;
+      text-align: center;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #feedback-right-up a:hover {
+      background:#3399ff;
+    }
+    /*END FEEDBACK-RIGHT BUTTON */
 </style>

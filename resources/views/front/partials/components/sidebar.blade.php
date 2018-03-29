@@ -1,7 +1,7 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
-            <a href="#">
+            <a href="{{route('beranda')}}">
                 <img class="img-fluid float-left mt-3" src="{{url('img/myworldhealth-logo.png')}}" width="180px" height="180px" class="rounded float-left" alt="...">
             </a>
         </li>
@@ -9,19 +9,19 @@
             <a href="#">Quality Standard</a>
         </li>
         <li>
-            <a href="#">About Us</a>
+            <a href="{{route('about')}}">About Us</a>
         </li>
         <li>
-            <a href="#">Why MyWorldHealth</a>
+            <a href="{{route('why-mwh')}}">Why MyWorldHealth</a>
         </li>
         <li>
-            <a href="#">Questions & Answers</a>
+            <a href="{{route('q-a')}}">Questions & Answers</a>
         </li>
         <li>
             <a href="#">Job</a>
         </li>
         <li>
-            <a href="#">Contact</a>
+            <a href="{{route('contact')}}">Contact</a>
         </li>
         <div class="dropdown-divider"></div>
         <li>

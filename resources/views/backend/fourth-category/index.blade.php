@@ -18,6 +18,9 @@
                         </div> --}}
                         <div class="portlet-body">
                           
+                          <div class="panel">
+                             <a href="{{url('admin/fourth-categories/create')}}" class="btn btn-success">Add Category</a> 
+                          </div>
                           <div class="panel-body">
                 						 <table class="table table-hover" id="sample_2">
                 						       <thead>
