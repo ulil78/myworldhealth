@@ -88,16 +88,16 @@
                     </a>
                     <ul class="dropdown-menu pull-left">
                         <li class=" ">
-                            <a href="{{url('merchant/invices')}}" class="nav-link  "> <i class="icon-control-play"></i> Order New </a>
+                            <a href="{{url('merchant/invoices')}}" class="nav-link  "> <i class="icon-control-play"></i> Order New </a>
                         </li>
                         <li class=" ">
-                            <a href="{{url('merchant/invoice/prosess')}}" class="nav-link  "> <i class="icon-loop"></i> Running Process </a>
+                            <a href="{{url('merchant/invoice/process')}}" class="nav-link  "> <i class="icon-loop"></i> Running Process </a>
                         </li>
                         <li class=" ">
                             <a href="{{url('merchant/invoice/finish')}}" class="nav-link  "> <i class="icon-check"></i> Finish </a>
                         </li>
                         <li class=" ">
-                            <a href="{{url('merchant/incoice/cancel')}}" class="nav-link  "> <i class="icon-magnifier-remove"></i> Cancel </a>
+                            <a href="{{url('merchant/invoice/cancel')}}" class="nav-link  "> <i class="icon-magnifier-remove"></i> Cancel </a>
                         </li>
 
                     </ul>

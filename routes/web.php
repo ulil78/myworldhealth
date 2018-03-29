@@ -146,7 +146,9 @@ Route::prefix('merchant')->group(function() {
         Route::post('select-department-return', ['as'=>'select-department-return','uses'=>'MerchantAjaxController@selectDepartmentReturn']);
         Route::post('select-program-return', ['as'=>'select-program-return','uses'=>'MerchantAjaxController@selectProgramReturn']);
 
-
+        //Booking Order
+        Route::resource('invoices', 'InvoiceMerchantController');
+        Route::get('invoice/{status}', 'InvoiceMerchantController@getStatus');
 
     });
 });

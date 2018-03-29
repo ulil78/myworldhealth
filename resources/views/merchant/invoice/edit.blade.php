@@ -1,4 +1,4 @@
-@extends('backend/layouts/master')
+@extends('merchant/layouts/master')
 @section('main-content')
 <div class="page-content-wrapper">
       <!-- BEGIN CONTENT BODY -->
@@ -25,7 +25,7 @@
                                </div>
                             @endif
 
-                            <form action="{{ url('/admin/invoices/'.$invoice->id) }}" method="POST">
+                            <form action="{{ url('/merchant/invoices/'.$invoice->id) }}" method="POST">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                                 <input type="hidden" name="_method" value="PUT">
 
@@ -138,26 +138,27 @@
                                  <div class="form-group">
                                      <label for="status">Status</label>
                                      <select class="form-control" name="status" id="status">
-                                          <option value="{{$invoice->status}}">{{$invoice->status}}</option>
+                                          <option value="{{$invoice->status}}">
+                                            @if($invoice->status == 'confirm')
+                                              New
+                                            @else
+                                              {{$invoice->status}}
+                                            @endif
+                                          </option>
                                           @if($invoice->status == 'finish')
                                             <option value="cancel">Cancel</option>
                                           @else
-                                            <option value="unpaid">UnPaid</option>
-                                            <option value="paid">Paid</option>
-                                            <option value="confirm">Confirm</option>
-                                            <option value="complated">Complated</option>
+                                            <option value="process">Process</option>
+                                            <option value="finish">Finish</option>
                                             <option value="cancel">Cancel</option>
                                           @endif
 
 
                                      </select>
                                  </div>
-                                 <div class="form-group">
-                                     <label for="notices">Notices</label>
-                                     <textarea class="form-control" name="notices" id="notices">{!! $invoice->notices !!}</textarea>
-                                 </div>
+
                                  <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/admin/invoices') }}" class="btn btn-warning">Cancel</a>
+                                 <a href="{{ url('/merchant/invoices') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>
