@@ -122,7 +122,7 @@ class HospitalMerchantController extends Controller
           ];
 
          // $receiverAddress = $email_hospital;
-          $receiverAddress = 'rully.arfan@gmail.com';
+          $receiverAddress = 'admin@myworldhealth.com';
 
          Mail::to($receiverAddress)->send(new HospitalUpdated($content));
 

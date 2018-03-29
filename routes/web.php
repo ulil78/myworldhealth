@@ -157,5 +157,9 @@ Route::prefix('merchant')->group(function() {
         Route::resource('invoices', 'InvoiceMerchantController');
         Route::get('invoice/{status}', 'InvoiceMerchantController@getStatus');
 
+        //payment-merchants
+        Route::resource('payables', 'PayableMerchantController');
+        Route::get('payable/{status}', 'PayableMerchantController@getStatus');
+
     });
 });

@@ -1,18 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Merchant;
-use App\Invoice;
+use App\PaymentMerchant;
 use Carbon\Carbon;
 use DB;
 use Mail;
-use App\Mail\OrderProcessed;
-use App\Mail\OrderFinished;
-use App\Mail\OrderCanceled;
+use App\Mail\PaymentRequest;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class InvoiceMerchantController extends Controller
+class PayableMerchantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,19 +19,19 @@ class InvoiceMerchantController extends Controller
      */
     public function index()
     {
-        $invoices = DB::table('hospitals')
+        $payments = DB::table('hospitals')
                             ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
                             ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
                             ->join('invoices', 'invoices.hospital_program_id', '=', 'hospital_programs.id')
-                            ->select('invoices.*', 'hospitals.merchant_id as merchant_id')
+                            ->join('payment_merchants', 'payment_merchants.invoice_id', '=', 'invoices.id')
+                            ->select('payment_merchants.*', 'hospitals.merchant_id as merchant_id')
                             ->where('hospitals.merchant_id', \Auth::guard('merchant')->user()->id)
-                            ->whereIn('invoices.status', ['confirm', 'process', 'finish', 'cancel'])
+                            ->orderBy('id', 'desc')
                             ->get();
 
-        return view('merchant/invoice/index')->with('invoices', $invoices)
-                                            ->with('page_title', 'Invoice | Merchant Center MyWorldHealt.Com');
+        return view('merchant/payment-merchant/index')->with('payments', $payments)
+                                                     ->with('page_title', 'Payment Merchants | Merchant Center MyWorldhealth.Com');
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -75,9 +73,10 @@ class InvoiceMerchantController extends Controller
      */
     public function edit($id)
     {
-        $invoice = Invoice::find($id);
-        return view('merchant/invoice/edit')->with('invoice', $invoice)
-                                          ->with('page_title', 'Edit Invoice | Merchant Center MyWorldHealt.Com');
+        $payment = PaymentMerchant::find($id);
+        return view('merchant/payment-merchant/edit')->with('payment', $payment)
+                                                    ->with('page_title', 'Edit Payment Merchant | Merchant Center MyWorldhealth.Com');
+
     }
 
     /**
@@ -89,56 +88,42 @@ class InvoiceMerchantController extends Controller
      */
     public function update(Request $request, $id)
     {
-          $invoice = Invoice::find($id);
-          $invoice->status        = $request->get('status');
-          $invoice->updated_at    = Carbon::now();
-          $invoice->save();
+          $payment = PaymentMerchant::find($id);
+          $payment->status        = $request->get('status');
+          $payment->updated_at    = Carbon::now();
+          $payment->save();
 
-
-          $customer = \App\User::where('id', $invoice->user_id)->first();
           $hospital = DB::table('hospitals')
                       ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
                       ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
+                      ->join('invoices', 'invoices.hospital_program_id', '=', 'hospital_programs.id')
+                      ->join('payment_merchants', 'payment_merchants.invoice_id', '=', 'invoices.id')
                       ->select('hospitals.name as hospital_name',
                                 'hospital_programs.id as program_id',
                                 'hospital_departments.name as department_name',
                                 'hospital_programs.name as program_name')
-                      ->where('hospital_programs.id', $invoice->hospital_program_id)
+                      ->where('hospital_programs.id', $payment->hospital_program_id)
                       ->first();
+
+
           $content = [
-             'title'              => 'Process Order',
-             'order_number'       => $invoice->order_id,
+             'title'              => 'Payment Request',
+             'invoice_id'         => $payment->invoice_id,
              'program'            => $hospital->program_name,
-             'department'          => $hospital->department_name,
+             'department'         => $hospital->department_name,
              'hospital'           => $hospital->hospital_name,
-             'customer'           => $customer->name,
+             'total_amount'       => $payment->total_maount,
+
 
           ];
 
           // $receiverAddress = $email_hospital;
-           $receiverAddress = 'admin@myworldhealth.com';
-           $emailCustomer = $customer->email;
 
-          if($invoice->status == 'process')
-          {
+         $receiverAddress = 'billing@myworldhealth.com';
 
-             Mail::to($emailCustomer)
-                      ->cc($receiverAddress)
-                      ->send(new OrderProcessed($content));
+         Mail::to($receiverAddress)->send(new PaymentRequest($content));
 
-          }elseif($invoice->status == 'finish'){
-              Mail::to($emailCustomer)
-                       ->cc($receiverAddress)
-                       ->send(new OrderFinished($content));
-          }else{
-            Mail::to($emailCustomer)
-                     ->cc($receiverAddress)
-                     ->send(new OrderCanceled($content));
-          }
-
-
-          return redirect('merchant/invoices');
-
+         return redirect('merchant/payables');
     }
 
     /**
@@ -152,22 +137,23 @@ class InvoiceMerchantController extends Controller
         //
     }
 
-
     public function getStatus($status)
     {
 
-        $invoices = DB::table('hospitals')
+        $payments = DB::table('hospitals')
                             ->join('hospital_departments', 'hospital_departments.hospital_id', '=', 'hospitals.id')
                             ->join('hospital_programs', 'hospital_programs.hospital_department_id', '=', 'hospital_departments.id')
                             ->join('invoices', 'invoices.hospital_program_id', '=', 'hospital_programs.id')
-                            ->select('invoices.*', 'hospitals.merchant_id as merchant_id')
+                            ->join('payment_merchants', 'payment_merchants.invoice_id', '=', 'invoices.id')
+                            ->select('payment_merchants.*', 'hospitals.merchant_id as merchant_id')
                             ->where('hospitals.merchant_id', \Auth::guard('merchant')->user()->id)
-                            ->where('invoices.status', $status)
+                            ->where('payment_merchants.status', $status)
                             ->orderBy('id', 'desc')
                             ->get();
 
-        return view('merchant/invoice/status')->with('invoices', $invoices)
-                                            ->with('page_title', 'Invoice | Merchant Center MyWorldHealt.Com');
+        return view('merchant/payment-merchant/status')->with('payments', $payments)
+                                            ->with('page_title', 'Payment Merchant | Merchant Center MyWorldHealt.Com');
+
 
 
     }

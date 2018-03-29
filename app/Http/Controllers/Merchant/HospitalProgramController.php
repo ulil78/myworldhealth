@@ -101,7 +101,7 @@ class HospitalProgramController extends Controller
          ];
 
         // $receiverAddress = $email_hospital;
-         $receiverAddress = 'rully.arfan@gmail.com';
+         $receiverAddress = 'admin@myworldhealth.com';
 
         Mail::to($receiverAddress)->send(new ProgramCreated($content));
 
@@ -224,7 +224,7 @@ class HospitalProgramController extends Controller
 
         Mail::to($receiverAddress)->send(new ProgramDeleted($content));
         $program->delete();
-        
+
         return redirect('merchant/hospital-programs');
     }
 }

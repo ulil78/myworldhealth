@@ -1,10 +1,10 @@
 @component('mail::message')
 # {{ $content['title'] }}
 
-Hi Partner, we have received reservations for
+Hi Partner, we have received reservations for:<br />
 
 
-Order Number			   : {{ $content['order_number'] }}<br />
+Order Number			   : #{{ $content['order_number'] }}<br />
 Program			         : {{ $content['program'] }}<br />
 
 
