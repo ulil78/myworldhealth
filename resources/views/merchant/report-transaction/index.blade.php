@@ -20,13 +20,13 @@
                           <div class="panel">
                             <div class="caption"><b>Report Transaction</b></div>
                           </div>
-                          <form method="post" action="{{url('/sales/show')}}">
+                          <form method="post" action="{{url('merchant/report-transactions')}}">
                               <input type="hidden" name="_token" value="{{csrf_token()}}" />
 
                               <div class="form-group">
                                 <label for="department">Deapartment</label><br />
                                 <select name="department" class="form-control">
-                                    <option> --- Select Deaprtment --- </option>
+                                    <option value=""> --- Select Deaprtment --- </option>
                                     @php
                                       $departments = \App\HospitalDepartment::orderBy('name')->get();
                                     @endphp
@@ -43,6 +43,17 @@
                               <div class="form-group">
                                   <label for="end_date">End Date</label>
                                   <input type="text" class="form-control input-medium date-picker" id="end_date" name="end_date">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="status">Status</label>
+                                  <select class="form-control" name="status" id="status">
+                                         <option value=""> --- Select Status --- </option>
+                                         <option value="confirm">New</option>
+                                         <option value="process">Process</option>
+                                         <option value="finish">Finish</option>
+                                         <option value="cancel">Cancel</option>
+                                  </select>
                               </div>
 
                               <input type="submit" class="btn btn-success" name="submit" value="Search">
