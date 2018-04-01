@@ -156,9 +156,8 @@
 
                                      </select>
                                  </div>
-
-                                 <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/merchant/invoices') }}" class="btn btn-warning">Cancel</a>
+                                   <button type="submit" class="btn btn-primary">Update</button>
+                                 <a href="{{ url('/merchant/invoices') }}" class="btn btn-warning">Close</a>
                             </form>
 
                         </div>

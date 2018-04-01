@@ -18,9 +18,9 @@
                         </div> --}}
                         <div class="portlet-body">
                           <div class="panel">
-                            <div class="caption"><b>Report Transaction</b></div>
+                            <div class="caption"><b>Report Payable</b></div>
                           </div>
-                          <form method="post" action="{{url('merchant/report-transactions')}}">
+                          <form method="post" action="{{url('merchant/report-payables')}}">
                               <input type="hidden" name="_token" value="{{csrf_token()}}" />
 
                               <div class="form-group">
@@ -49,9 +49,9 @@
                                   <label for="status">Status</label>
                                   <select class="form-control" name="status" id="status">
                                          <option value=""> --- Select Status --- </option>
-                                         <option value="confirm">New</option>
-                                         <option value="process">Process</option>
-                                         <option value="finish">Finish</option>
+                                         <option value="new">New</option>
+                                         <option value="request">Request</option>
+                                         <option value="paid">Paid</option>
                                          <option value="cancel">Cancel</option>
                                   </select>
                               </div>

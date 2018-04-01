@@ -116,7 +116,9 @@
                         <li class=" ">
                             <a href="{{url('merchant/payable/paid')}}" class="nav-link  "> <i class="icon-diamond"></i>Paid </a>
                         </li>
-
+                        <li class=" ">
+                            <a href="{{url('merchant/payable/cancel')}}" class="nav-link  "> <i class="icon-magnifier-remove"></i>Cancel </a>
+                        </li>
 
                     </ul>
                 </li>

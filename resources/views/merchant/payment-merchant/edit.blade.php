@@ -82,14 +82,20 @@
                                 </div>
                                  <div class="form-group">
                                      <label for="status">Status</label>
-                                     <select class="form-control" name="status" id="status">
-                                          <option value="{{$payment->status}}">{{$payment->status}}</option>
-                                          <option value="request">Request</option>
-                                     </select>
+                                     @if($payment->status == 'paid')
+                                       <input type="text" class="form-control" id="status1" name="status1" value="Paid" disabled>
+                                       <input type="hidden" value="paid" name="status">
+                                     @else
+                                       <select class="form-control" name="status" id="status">
+                                            <option value="{{$payment->status}}">{{$payment->status}}</option>
+                                            <option value="request">Request</option>
+                                       </select>
+                                     @endif
                                  </div>
-
-                                 <button type="submit" class="btn btn-primary">Update</button>
-                                 <a href="{{ url('/merchant/payables') }}" class="btn btn-warning">Cancel</a>
+                                 @if($payment->status <> 'paid')
+                                   <button type="submit" class="btn btn-primary">Update</button>
+                                 @endif
+                                 <a href="{{ url('/merchant/payables') }}" class="btn btn-warning">Close</a>
                             </form>
 
                         </div>

@@ -18,7 +18,7 @@
                         </div> --}}
                         <div class="portlet-body">
                           <div class="panel">
-                            <div class="caption"><b>Invoice Transaction Beetween {{$start_date}} and {{$end_date}}
+                            <div class="caption"><b>Invoice Payable Beetween {{$start_date}} and {{$end_date}}
                               {{-- <br />Condition : {{$cek_condition}} --}}
 
                               @php
@@ -35,10 +35,8 @@
                                       <th>No.</th>
                                       <th>Date</th>
                                       <th>Invoice No.#</th>
-                                      <th>Order No.#</th>
                                       <th>Hospital</th>
                                       <th>Program</th>
-                                      <th>Customer</th>
                                       <th>Amount($)</th>
                       								<th>Status</th>
                                     </tr>
@@ -46,17 +44,16 @@
                                 <tbody>
                                      {{'', $n=1, $total=0}}
 
-                    							   @foreach ($invoices as $item)
+                    							   @foreach ($payments as $item)
 
                     							   <tr>
                                         <td>{{$n++}}</td>
                                         <td>{{Carbon\Carbon::parse($item->created_at)->format('m/d/Y')}}</td>
                                         <td>
                                           <div title="Clik to view Invoice Detail">
-                                            <a href="{{url('merchant/invoices/' .$item->id. '/edit')}}">{{$item->id}}</a>
+                                            <a href="{{url('merchant/payables/' .$item->id. '/edit')}}">{{$item->id}}</a>
                                           </div>
                                         </td>
-                                        <td>{{$item->order_id}}</td>
                                         <td>
                                           @php
                                             $hospital = \DB::table('hospitals')
@@ -74,21 +71,14 @@
                                           @endphp
                                           {{$program}}
                                         </td>
-
-                                        <td>
-                                          @php
-                                            $customer = \App\User::where('id', $item->user_id)->value('name');
-                                          @endphp
-                                          {{$customer}}
-                                        </td>
                                         <td>{{money_format('%.2n', $item->total_amount) }}</td>
                                         <td>
-                                        @if($item->status == 'confirm')
+                                        @if($item->status == 'new')
                                             <label class="label label-primary">New</label>
-                                        @elseif($item->status == 'process')
-                                            <label class="label label-warning">Process</label>
-                                        @elseif($item->status == 'finish')
-                                            <label class="label label-success">Finish</label>
+                                        @elseif($item->status == 'request')
+                                            <label class="label label-warning">Request</label>
+                                        @elseif($item->status == 'paid')
+                                            <label class="label label-success">Paid</label>
                                         @else
                                             <label class="label label-danger">Cancel</label>
                                         @endif
