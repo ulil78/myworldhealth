@@ -217,7 +217,7 @@
                  <script src="{{asset('assets/global/plugins/fullcalendar/fullcalendar.min.js')}}" type="text/javascript"></script>
                  <!-- end datepicker -->
 
-                 <script src="{{asset('js/chart.js')}}" type="text/javascript"></script>
+                 <script src="{{asset('js/chart-merchant.js')}}" type="text/javascript"></script>
 
 
                 <script type="text/javascript">
