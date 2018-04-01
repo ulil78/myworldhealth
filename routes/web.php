@@ -167,5 +167,7 @@ Route::prefix('merchant')->group(function() {
         Route::get('report-payables', 'ReportMerchantController@getPayable');
         Route::post('report-payables', 'ReportMerchantController@postPayable');
 
+        Route::resource('myprofiles', 'MyProfileController');
+
     });
 });

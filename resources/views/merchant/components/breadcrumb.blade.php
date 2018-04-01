@@ -1,6 +1,6 @@
 <ul class="page-breadcrumb breadcrumb">
     <li>
-        <a href="index.html">Home</a>
+        <a href="{{url('merchant')}}">Home</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
@@ -16,6 +16,18 @@
           <span>Transfer Arrival</span>
       @elseif(Request::is('merchant/transfer-return*'))
           <span>Transfer Return</span>
+      @elseif(Request::is('merchant/invoice*'))
+          <span>Booking Order</span>
+      @elseif(Request::is('merchant/payable*'))
+          <span>Order Payable</span>
+      @elseif(Request::is('merchant/report-transactions'))
+          <span>Report Transaction</span>
+      @elseif(Request::is('merchant/report-payables'))
+          <span>Report Payable</span>
+      @elseif(Request::is('merchant/myprofile'))
+          <span>My Profile</span>
+      @elseif(Request::is('merchant/change-password'))
+          <span>Change Password</span>
       @else
           <span>Dashboard</span>
       @endif

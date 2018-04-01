@@ -115,7 +115,7 @@
                         <div class="page-content-wrapper">
                             <!-- BEGIN CONTENT BODY -->
                             <!-- BEGIN PAGE HEAD-->
-                            @include('merchant/components/page_head')
+                            {{-- @include('merchant/components/page_head') --}}
                             <!-- END PAGE HEAD-->
                             <!-- BEGIN PAGE CONTENT BODY -->
                             <div class="page-content">
