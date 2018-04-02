@@ -10,13 +10,13 @@
             </div>
             <div class="card" style="background-color: transparent; border: none;">
                 <div class="card-body">
+                  @php
+                    $category = \App\SecondCategory::orderBy('name')->get();
+                  @endphp
                   <p class="text-light">Popular Search</p>
-                  <span class="badge badge-primary">Plastic Surgery</span>
-                  <span class="badge badge-primary">Acne</span>
-                  <span class="badge badge-primary">Cancer</span>
-                  <span class="badge badge-primary">Skin Care</span>
-                  <span class="badge badge-primary">Breast Cancer</span>
-                  <span class="badge badge-primary">Detox</span>
+                  @foreach ($category as $value)
+                    <a href="{{ url('hospitals/categories/'.$value->id.'') }}"><span class="badge badge-primary">{{$value->name}}</span></a>
+                  @endforeach
                 </div>
             </div>
         </div>

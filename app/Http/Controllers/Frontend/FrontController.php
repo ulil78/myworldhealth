@@ -24,6 +24,12 @@ class FrontController extends Controller
 		return view('front.pages.why_mwh.index', $data);
 	}
 // Function
+	public function show_category($id)
+	{
+        $data['category'] = SecondCategory::find($id);
+		return view('front.pages.beranda.show_category', $data);
+	}
+
 	public function search_result()
 	{
 		return view('front.pages.beranda.show');
