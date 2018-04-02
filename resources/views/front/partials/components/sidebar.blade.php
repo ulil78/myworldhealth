@@ -12,6 +12,9 @@
             <a href="{{route('about')}}">About Us</a>
         </li>
         <li>
+            <a href="{{route('our-teams')}}">Our Teams</a>
+        </li>
+        <li>
             <a href="{{route('how-itwork')}}">Why MyWorldHealth</a>
         </li>
         <li>

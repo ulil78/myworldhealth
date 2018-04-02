@@ -8,10 +8,6 @@
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-<<<<<<< HEAD
-|Route::get('/', function () {
-    return view('welcome');
-});
 
 */
 // Root Frontend Pages
@@ -24,6 +20,7 @@ Route::get('/about', 'Frontend\AboutController@index')->name('about');
 Route::get('/contact', 'Frontend\ContactController@index')->name('contact');
 Route::get('/why-myworldhealth', 'Frontend\HowItWorksController@index')->name('how-itwork');
 Route::get('/question-answer', 'Frontend\QuestAnswerController@index')->name('question-answer');
+Route::get('/our-teams', 'Frontend\OurTeamsController@index')->name('our-teams');
 // Booking Pages
 Route::get('/booked', 'Frontend\BookingController@booked')->name('booked');
 Route::get('/getbooked', 'Frontend\BookingController@getbooked')->name('getbooked');

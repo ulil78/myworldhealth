@@ -15,22 +15,16 @@
                     <p>We are partnering with various hospital and medical clinic across the world to give you the best Healty care & Treatment</p>
                 </div>
                 <div class="col-md-8 col-12">
-                    <div class="card-deck p-5">
-                      <div class="card">
+                    <div class="row card p-5">
+                    @forelse()
+                      <div class="col-3">
                         <img class="card-img-top" src="http://www.geg.ox.ac.uk/sites/geg/files/styles/large/public/who_logo_0.gif?itok=7gTTWFf7" alt="Card image cap">
                       </div>
-                      <div class="card">
-                        <img class="card-img-top" src="http://safelyfed.org/wp-content/uploads/2016/02/H_6d_s_p-300x300.jpg" alt="Card image cap">
+                    @empty
+                      <div class="col-md-12 col-12">
+                          <p>Not Found</p>
                       </div>
-                      <div class="card">
-                        <img class="card-img-top" src="https://placeholdit.co/i/300x300?bg=eeeeee&fc=577084" alt="Card image cap">
-                      </div>
-                      <div class="card">
-                        <img class="card-img-top" src="https://placeholdit.co/i/300x300?bg=eeeeee&fc=577084" alt="Card image cap">
-                      </div>
-                      <div class="card">
-                        <img class="card-img-top" src="https://placeholdit.co/i/300x300?bg=eeeeee&fc=577084" alt="Card image cap">
-                      </div>
+                    @endforelse
                     </div>
                 </div>
             </div>
