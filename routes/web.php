@@ -104,6 +104,7 @@ Route::prefix('admin')->group(function() {
         Route::resource('quality-standards', 'QualityStandardController');
         Route::resource('why-bookings', 'WhyBookingController');
         Route::resource('faqs', 'FaqController');
+        Route::resource('partners', 'PartnerController');
 
         //Patients
         Route::resource('patients', 'PatientController');

@@ -418,6 +418,12 @@
                             <span class="title">FAQ</span>
                         </a>
                     </li>
+                    <li class="nav-item  ">
+                        <a href="{{url('admin/partners')}}" class="nav-link nav-toggle">
+                            <i class="icon-question"></i>
+                            <span class="title">Partners</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             @if(Request::is('admin/users') || Request::is('admin/admins') || Request::is('admin/merchants'))
