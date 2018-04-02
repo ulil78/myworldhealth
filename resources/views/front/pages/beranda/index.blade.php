@@ -101,33 +101,26 @@
                     <h3 class="text-center text-dark">Why book with us?</h3>
                     <hr class="my-hr">
                 </div>
-                <div class="col-md-4 col-12">
-                     <img class="img-fluid" src="{{url('img/mwh-01.png')}}" class="rounded float-left" alt="...">
-                </div>
-                <div class="col-md-8 col-12">
-                    <legend class="text-dark">Secure Guaranted</legend>
-                    <p class="text-dark">Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid</p>
-                </div>
-                <div class="col-md-12">
-                    <br class="my-br">
-                </div>
-                <div class="col-md-4 col-12">
-                     <img class="img-fluid" src="{{url('img/mwh-02.png')}}" class="rounded float-left" alt="...">
-                </div>
-                <div class="col-md-8 col-12">
-                    <legend class="text-dark">Licensed Hospitals</legend>
-                    <p class="text-dark">Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid</p>
-                </div>
-                <div class="col-md-12">
-                    <br class="my-br">
-                </div>
-                <div class="col-md-4 col-12">
-                     <img class="img-fluid" src="{{url('img/mwh-03.png')}}" class="rounded float-left" alt="...">
-                </div>
-                <div class="col-md-8 col-12">
-                    <legend class="text-dark">Licensed Hospitals</legend>
-                    <p class="text-dark">Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid</p>
-                </div>
+                @forelse($why as $value)
+                    <div class="col-md-4 col-12">
+                         <img class="img-fluid" src="{{asset($value['path'].$value['filename'])}}" class="rounded float-left" alt="...">
+                    </div>
+                    <div class="col-md-8 col-12">
+                        <legend class="text-dark">{{$value['title']}}</legend>
+                        <p class="text-dark">{!!$value['description']!!}</p>
+                    </div>
+                    <div class="col-md-12">
+                        <br class="my-br">
+                    </div>
+                @empty
+                    <div class="col-md-12 col-12">
+                        <legend class="text-dark">Not Found</legend>
+                        <p class="text-dark">Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid</p>
+                    </div>
+                    <div class="col-md-12">
+                        <br class="my-br">
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>

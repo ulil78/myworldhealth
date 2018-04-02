@@ -9,11 +9,22 @@
     <div class="row">
         <div class="col-md-12 col-12">
             <div class="row p-4">
-                <div class="col-md-12 col-12">
-                    <legend>Questions and Answers</legend>
-                    <p class="lead text-secondary">Our hospital and travel partner all around the world</p>
-                    <p>What is Booking Health? Booking HealthTM is an information platform for the clinics and certified physicians to provide their services. The goals of the company are to eliminate additional links of the chain for providing services and to set a direct contact between a service consumer and health care facilities that provide these services.</p>
-                </div>
+                @forelse($faq as $value)
+                    <div class="col-md-12 col-12">
+                        <div class="media text-muted pt-3">
+                          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <strong class="d-block text-gray-dark">{{$value['question']}}</strong>
+                            {{$value['answer']}}
+                          </p>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-md-12 col-12">
+                        <legend>Not Found</legend>
+                        <p class="lead text-secondary">Lorem</p>
+                        <p>Not Found</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>

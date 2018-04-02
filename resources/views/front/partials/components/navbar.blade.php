@@ -35,13 +35,13 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-left">
       <li class="nav-item active">
         <a class="nav-link text-light" href="#">
-            <small>(021) 555 12345</small> <span class="sr-only">(current)</span></a>
+            <i class="ion-ios-telephone" style="font-size: 20px;"></i> + <small>(021) 555 12345</small> <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     @guest
       <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#login_modal">Login</button>
-        <button type="button" class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#register_modal">Register</button>
+        <button type="button" class="btn btn-sm btn-outline-warning text-light" data-toggle="modal" data-target="#login_modal">Login</button>
+        <button type="button" class="btn btn-sm btn-outline-warning text-light" data-toggle="modal" data-target="#register_modal">Register</button>
       </div>
     @else
       <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
@@ -63,7 +63,7 @@
       $first_category = \App\FirstCategory::all();
     @endphp
     {{-- {{dd($first_category)}} --}}
-    <ul class="nav nav-pills nav-fill" style="background-color: #ffc326">
+    <ul class="nav nav-pills nav-fill" style="background-color: #e8b42a"> <!-- Old Color ffc326 -->
       @foreach ($first_category as $cat)
       <li class="nav-item">
         <a class="nav-link text-light font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">

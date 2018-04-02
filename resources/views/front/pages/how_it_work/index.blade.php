@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12 col-12">
             <div class="row p-4">
-                @forelse($about as $value)
+                @forelse($howitwork as $value)
                     <div class="col-md-12 col-12">
                         <legend>{{$value['title']}}</legend>
                         <p>{!!$value['description']!!}</p>

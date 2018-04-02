@@ -14,20 +14,20 @@
 });
 
 */
-
+// Root Frontend Pages
 Route::get('/', 'Frontend\FrontController@beranda')->name('beranda');
-// Pages
-Route::get('/about', 'Frontend\FrontController@about')->name('about');
-Route::get('/why-myworldhealth', 'Frontend\FrontController@why_mwh')->name('why-mwh');
-Route::get('/question-answer', 'Frontend\FrontController@question_answer')->name('q-a');
-Route::get('/contact', 'Frontend\FrontController@contact')->name('contact');
-
-// Function
 Route::get('/search', 'Frontend\FrontController@search_result')->name('result');
 Route::get('/detail', 'Frontend\FrontController@detail')->name('detail');
-Route::get('/booked', 'Frontend\FrontController@booked')->name('booked');
-Route::get('/getbooked', 'Frontend\FrontController@getbooked')->name('getbooked');
-Route::get('/processbooked', 'Frontend\FrontController@processbooked')->name('processbooked');
+// Sub Pages
+Route::get('/quality-standard', 'Frontend\QualityStandardController@index')->name('quality-standard');
+Route::get('/about', 'Frontend\AboutController@index')->name('about');
+Route::get('/contact', 'Frontend\ContactController@index')->name('contact');
+Route::get('/why-myworldhealth', 'Frontend\HowItWorksController@index')->name('how-itwork');
+Route::get('/question-answer', 'Frontend\QuestAnswerController@index')->name('question-answer');
+// Booking Pages
+Route::get('/booked', 'Frontend\BookingController@booked')->name('booked');
+Route::get('/getbooked', 'Frontend\BookingController@getbooked')->name('getbooked');
+Route::get('/processbooked', 'Frontend\BookingController@processbooked')->name('processbooked');
 
 Auth::routes();
 

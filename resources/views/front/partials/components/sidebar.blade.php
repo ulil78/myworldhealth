@@ -6,16 +6,16 @@
             </a>
         </li>
         <li>
-            <a href="#">Quality Standard</a>
+            <a href="{{route('quality-standard')}}">Quality Standard</a>
         </li>
         <li>
             <a href="{{route('about')}}">About Us</a>
         </li>
         <li>
-            <a href="{{route('why-mwh')}}">Why MyWorldHealth</a>
+            <a href="{{route('how-itwork')}}">Why MyWorldHealth</a>
         </li>
         <li>
-            <a href="{{route('q-a')}}">Questions & Answers</a>
+            <a href="{{route('question-answer')}}">Questions & Answers</a>
         </li>
         <li>
             <a href="#">Job</a>
