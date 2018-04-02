@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 // First Category Modal
 use App\FirstCategory;
 use App\WhyBooking;
+use App\Partner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class FrontController extends Controller
 	public function beranda()
 	{
 		$data['why'] = WhyBooking::all();
+		$data['partner'] = Partner::where('status', 'true')->get();
 		return view('front.pages.beranda.index', $data);
 	}
 

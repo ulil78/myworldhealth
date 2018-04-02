@@ -15,11 +15,13 @@
                     <p>We are partnering with various hospital and medical clinic across the world to give you the best Healty care & Treatment</p>
                 </div>
                 <div class="col-md-8 col-12">
-                    <div class="row card p-5">
-                    @forelse()
+                    <div class="row p-5">
+                    @forelse($partner as $value)
+                    <a href="{{$value['url']}}" target="_blank">
                       <div class="col-3">
-                        <img class="card-img-top" src="http://www.geg.ox.ac.uk/sites/geg/files/styles/large/public/who_logo_0.gif?itok=7gTTWFf7" alt="Card image cap">
+                        <img class="img-fluid" width="400px" height="400px" src="{{asset($value['path'].$value['filename'])}}" alt="{{$value['name']}}">
                       </div>
+                    </a>
                     @empty
                       <div class="col-md-12 col-12">
                           <p>Not Found</p>
