@@ -19,7 +19,7 @@
                         <div class="portlet-body">
 
                           <div class="panel">
-                             <a href="{{url('merchant/hospital-programs/create')}}" class="btn btn-default">Add Hospital Program</a> 
+                             <a href="{{url('merchant/hospital-programs/create')}}" class="btn btn-default">Add Hospital Program</a>
                           </div>
                           <div class="panel-body">
 
@@ -52,7 +52,7 @@
                                           </td>
                                           <td>
                                               @php
-                                                $category = \App\FourthCategory::where('id', $item->fourth_category_id)->value('name');
+                                                $category = \App\ThridCategory::where('id', $item->thrid_category_id)->value('name');
                                               @endphp
                                               {{$category}}
                                           </td>

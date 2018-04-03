@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="category">Category</label>
                                     @php
-                                        $category = \App\FourthCategory::where('id', $program->fourth_category_id)->value('name');
+                                        $category = \App\ThridCategory::where('id', $program->thrid_category_id)->value('name');
                                     @endphp
                                     <input type="text" class="form-control" id="category" name="category" value="{{$category}}" disabled>
                                 </div>
