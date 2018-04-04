@@ -38,11 +38,11 @@
                 <div class="col-md-8 col-12">
                     <div class="row p-5">
                     @forelse($partner as $value)
-                    <a href="{{$value['url']}}" target="_blank">
                       <div class="col-3">
-                        <img class="img-fluid" width="400px" height="400px" src="{{asset($value['path'].$value['filename'])}}" alt="{{$value['name']}}">
+                        <a href="{{$value['url']}}" target="_blank">
+                            <img class="img-fluid" width="400px" height="400px" src="{{asset($value['path'].$value['filename'])}}" alt="{{$value['name']}}">
+                        </a>
                       </div>
-                    </a>
                     @empty
                       <div class="col-md-12 col-12">
                           <p>Not Found</p>
