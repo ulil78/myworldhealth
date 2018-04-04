@@ -17,9 +17,9 @@
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <div class="dropdown-menu">
-                        <option class="dropdown-item" value="1">City</option>
-                        <option class="dropdown-item" value="2">Hospital</option>
-                        <option class="dropdown-item" value="3">Service</option>
+                        <option class="dropdown-item" value="city">City</option>
+                        <option class="dropdown-item" value="hospital">Hospital</option>
+                        <option class="dropdown-item" value="service">Service</option>
                       </div>
                     </div>
                     <input type="text" class="form-control" name="x" placeholder="City, hospital, place to go">

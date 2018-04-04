@@ -32,29 +32,36 @@ class FrontController extends Controller
 		// Second Category
         $category = SecondCategory::where('slug', $slug)->first();
         // Third Category 
-        $third_category = \DB::table('first_categories')
-					->join('second_categories', 'second_categories.first_category_id', '=', 'first_categories.id')
-					->select('second_categories.id as second_category_id', 'first_categories.name as first_category_name')
+        $third_category = \DB::table('thrid_categories')
+					->join('second_categories', 'second_categories.id', '=', 'thrid_categories.second_category_id')
+					->select('thrid_categories.id as thrid_categories_id', 'thrid_categories.name as thrid_categories_name')
 					->where('second_categories.id', $category->id)
 					->first();
+					 // dd($third_category);
 	    // Hospital Program
-        $hospital_program = \DB::table('hospital_programs')
-					->join('hospital_departments', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
+        $hospital_program = \DB::table('hospitals')
+					->join('cities', 'cities.id', '=', 'hospitals.city_id')
+					->join('countries', 'countries.id', '=', 'cities.country_id')
+					->join('reviews', 'hospitals.id', '=', 'reviews.hospital_id')
+					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
+					->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
 					->join('first_categories', 'first_categories.id', '=', 'hospital_programs.first_category_id')
 					->join('second_categories', 'second_categories.id', '=', 'hospital_programs.second_category_id')
 					->join('thrid_categories', 'thrid_categories.id', '=', 'hospital_programs.thrid_category_id')
-					->select('hospital_programs.id as id',
-							 'hospital_programs.name as name',
-							 'hospital_programs.description as description',  
-							 'hospital_programs.price as price',  
-							 'hospital_programs.discount as discount',  
+					->select(// Hospital
+							 'hospitals.id as id',
+							 'hospitals.name as name',
+							 'hospitals.address as address',
+							 'hospitals.phone as phone',
+							 // Hospital Departments
 							 'hospital_departments.name as hospital_departments_name',
-							 'first_categories.name as first_categories_name',
-							 'second_categories.name as second_categories_name',
-							 'thrid_categories.name as thrid_categories_name')
+							 'hospital_departments.description as hospital_departments_description',
+							 'cities.name as cities_name',
+							 'countries.name as countries_name',
+							 'reviews.star as reviews_star')
 					->where([
 					    ['hospital_programs.status', '=', 'true'],
-					    ['second_categories.id', '=', $category->id],
+					    ['thrid_categories.id', '=', $third_category->thrid_categories_id],
 					])->get();
 					// dd($hospital_program);
 		// Return View
@@ -70,6 +77,29 @@ class FrontController extends Controller
 
 	public function detail()
 	{
+        $hospital_program = \DB::table('hospitals')
+					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
+					->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
+					->join('first_categories', 'first_categories.id', '=', 'hospital_programs.first_category_id')
+					->join('second_categories', 'second_categories.id', '=', 'hospital_programs.second_category_id')
+					->join('thrid_categories', 'thrid_categories.id', '=', 'hospital_programs.thrid_category_id')
+					->select(// Hospital
+							 'hospitals.id as id',
+							 'hospitals.name as name',
+							 'hospitals.address as address',
+							 'hospitals.phone as phone',
+							 // Hospital Departments
+							 'hospital_departments.name as hospital_departments_name',
+							 'hospital_departments.description as hospital_departments_description',
+							 // Hospital Program
+							 'hospital_programs.description as description',  
+							 'hospital_programs.price as price',  
+							 'hospital_programs.discount as discount',  
+							 'hospital_departments.name as hospital_departments_name')
+					->where([
+					    ['hospital_programs.status', '=', 'true'],
+					    ['thrid_categories.id', '=', $third_category->thrid_categories_id],
+					])->get();
 		return view('front.pages.beranda.detail');
 	}
 }
