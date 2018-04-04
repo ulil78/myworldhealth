@@ -8,23 +8,23 @@
             <div class="justify-content-center">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                      <div class="input-group-text" style="background-color: #fff!important;">
+                      <div class="input-group-text">
                         <i class="ion-ios-navigate-outline" style="font-size: 30px;"></i>
                       </div>
                     </div>
                     <div class="input-group-prepend">
-                      <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <div class="dropdown-menu">
-                        <option class="dropdown-item" value="city">City</option>
-                        <option class="dropdown-item" value="hospital">Hospital</option>
-                        <option class="dropdown-item" value="service">Service</option>
+                      <div class="input-group-text">
+                        <select class="form-control" required>
+                          <option selected disabled>Select</option>
+                          <option class="dropdown-item" value="city">City</option>
+                          <option class="dropdown-item" value="hospital">Hospital</option>
+                          <option class="dropdown-item" value="service">Service</option>
+                        </select>
                       </div>
                     </div>
                     <input type="text" class="form-control" name="x" placeholder="City, hospital, place to go">
                     <div class="input-group-append">
-                      <div class="input-group-text" style="background-color: #fff!important;">
+                      <div class="input-group-text">
                             <i class="ion-ios-search-strong" style="font-size: 20px;"></i>
                       </div>
                     </div>

@@ -2,11 +2,22 @@
     .h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
         font-family: Arial,sans-serif;
     }
+    div.input-group-text{
+      background-color: #fff!important;
+    }
+    /*SELECT*/
+    select.form-control{
+      border-color: #fff!important;
+    }
+    .form-control:focus{
+      border-color: #fff!important;
+      box-shadow: 0 0 0 0.2rem #fff!important;
+    }
+    /*END SELECT*?
     /*DROPDOWN*/
     .dropdown:hover>.dropdown-menu {
       display: block;
     }
-
     .dropdown>.dropdown-toggle:active {
       /*Without this, clicking will make it sticky*/
         pointer-events: none;
@@ -75,13 +86,16 @@
         color: #fff;
         background-color: #ffc326 !important;
     }
+    a.text-light:focus, a.text-light:hover {
+        color: #ffffff!important;
+    }
+    /*END NAVPILLS*/
     /* CSS Document */
     .navbar-edit {
         overflow: hidden;
         background-color: #333;
         font-family: Arial, Helvetica, sans-serif;
     }
-
     .navbar-edit a {
         float: left;
         font-size: 16px;
@@ -90,12 +104,10 @@
         padding: 14px 16px;
         text-decoration: none;
     }
-
     .dropdown {
         float: left;
         overflow: hidden;
     }
-
     .dropdown .dropbtn {
         font-size: 16px;    
         border: none;
@@ -106,11 +118,9 @@
         font: inherit;
         margin: 0;
     }
-
     .navbar-edit a:hover, .dropdown:hover .dropbtn {
         background-color: red;
     }
-
     .dropdown-content {
         display: none;
         position: absolute;
@@ -120,17 +130,14 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
     }
-
     .dropdown-content .header {
         background: red;
         padding: 16px;
         color: white;
     }
-
     .dropdown:hover .dropdown-content {
         display: block;
     }
-
     /* Create three equal columns that floats next to each other */
     .column {
         float: left;
@@ -139,7 +146,6 @@
         background-color: #ccc;
         height: 250px;
     }
-
     .column a {
         float: none;
         color: black;
@@ -148,18 +154,15 @@
         display: block;
         text-align: left;
     }
-
     .column a:hover {
         background-color: #ddd;
     }
-
     /* Clear floats after the columns */
     .row:after {
         content: "";
         display: table;
         clear: both;
     }
-
     /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
     @media (max-width: 600px) {
         .column {
@@ -278,12 +281,11 @@
       font-weight: bold;
       text-decoration: none;
     }
-
     #feedback-right {
       height: 0px;
       width: 85px;
       position: fixed;
-      right: 0;
+      left: -45px;
       top: 70%;
       z-index: 1000;
       transform: rotate(-90deg);
@@ -296,7 +298,7 @@
       display: block;
       background:rgba(0,0,0,0.7);
       height: 52px;
-      padding-top: 5px;
+      padding-top: 7px;
       width: 155px;
       text-align: center;
       color: #fff;
@@ -320,12 +322,11 @@
       font-weight: bold;
       text-decoration: none;
     }
-
     #feedback-right-up {
       height: 0px;
       width: 85px;
       position: fixed;
-      right: 0;
+      left: -45px;
       top: 40%;
       z-index: 1000;
       transform: rotate(-90deg);
@@ -338,7 +339,7 @@
       display: block;
       background:rgba(0,0,0,0.7);
       height: 52px;
-      padding-top: 5px;
+      padding-top: 7px;
       width: 80px;
       text-align: center;
       color: #fff;

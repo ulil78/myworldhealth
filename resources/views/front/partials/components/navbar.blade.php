@@ -63,7 +63,7 @@
       $first_category = \App\FirstCategory::all();
     @endphp
     {{-- {{dd($first_category)}} --}}
-    <ul class="nav nav-pills justify-content-center" style="background-color: #e8b42a"> <!-- Old Color ffc326 -->
+    <ul class="nav nav-pills justify-content-center" style="background-color: #ffc326"> <!-- Old Color ffc326 -->
       @foreach ($first_category as $cat)
       <li class="nav-item">
         <a class="nav-link text-light font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
