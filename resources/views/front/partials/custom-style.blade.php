@@ -285,7 +285,7 @@
       height: 0px;
       width: 85px;
       position: fixed;
-      left: -45px;
+      right: 0px;
       top: 70%;
       z-index: 1000;
       transform: rotate(-90deg);
@@ -326,7 +326,7 @@
       height: 0px;
       width: 85px;
       position: fixed;
-      left: -45px;
+      right: 0px;
       top: 40%;
       z-index: 1000;
       transform: rotate(-90deg);
