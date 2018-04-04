@@ -2,6 +2,16 @@
     .h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
         font-family: Arial,sans-serif;
     }
+    /*DROPDOWN*/
+    .dropdown:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+      /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+    /*END DROPDOWN*/
     /*JUMBOTRON*/
     #header {
         background: url(https://bookinghealth.info/i/img/bg1_5.jpeg) 0 0 no-repeat fixed; 

@@ -8,7 +8,28 @@
 <section>
     <div class="row">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
+                <div class="col-md-12 col-12">
+                    <legend>Last Hospital</legend>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <article class="card">
+                        <div class="card-block">
+                            <a href="#" class="btn btn-light btn-block text-light" style="background-color: #3399ff;">
+                                <i class="fa fa-eye"></i> See Now
+                            </a>
+                            <div class="img-card">
+                                <img src="//placehold.it/300x250" alt="Movie" class="w-100" />
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="row p-2">
                 <div class="col-md-4 col-12">
                     <legend>Our Partners</legend>
                     <p class="lead text-secondary">Our hospital and travel partner all around the world</p>
@@ -36,7 +57,7 @@
 <section>
     <div class="row">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
                 <div class="col-md-12 col-12">
                     <legend>Client Reviews</legend>
                 </div>
@@ -99,7 +120,7 @@
 <section>
     <div class="row" style="background-color: #e6e6e6;">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
                 <div class="col-md-12 col-12">
                     <h3 class="text-center text-dark">Why book with us?</h3>
                     <hr class="my-hr">
@@ -131,7 +152,7 @@
 <section>
     <div class="row">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
                 <div class="col-md-12 col-12 text-center">
                     <i class="ion-ios-chatboxes-outline d-flex justify-content-center" style="font-size: 60px;"></i>
                     <h5 class="text-center text-dark">Do you still have questions? Please contact us!</h5>
