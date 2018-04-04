@@ -6,7 +6,29 @@
         <div class="col-md-8 col-12">
             <hr class="my-4">
             <div class="justify-content-center">
-                <input class="form-control form-control-lg" type="text" placeholder="Type the service you looking for ...">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text" style="background-color: #fff!important;">
+                        <i class="ion-ios-navigate-outline" style="font-size: 30px;"></i>
+                      </div>
+                    </div>
+                    <div class="input-group-prepend">
+                      <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <div class="dropdown-menu">
+                        <option class="dropdown-item" value="1">City</option>
+                        <option class="dropdown-item" value="2">Hospital</option>
+                        <option class="dropdown-item" value="3">Service</option>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" name="x" placeholder="City, hospital, place to go">
+                    <div class="input-group-append">
+                      <div class="input-group-text" style="background-color: #fff!important;">
+                            <i class="ion-ios-search-strong" style="font-size: 20px;"></i>
+                      </div>
+                    </div>
+                </div> 
             </div>
             <div class="card" style="background-color: transparent; border: none;">
                 <div class="card-body">
@@ -15,7 +37,7 @@
                   @endphp
                   <p class="text-light">Popular Search</p>
                   @foreach ($category as $value)
-                    <a href="{{ url('hospitals/categories/'.$value->id.'') }}"><span class="badge badge-primary">{{$value->name}}</span></a>
+                    <a href="{{ url('hospitals/categories/'.$value->slug.'') }}"><span class="badge badge-primary">{{$value->name}}</span></a>
                   @endforeach
                 </div>
             </div>

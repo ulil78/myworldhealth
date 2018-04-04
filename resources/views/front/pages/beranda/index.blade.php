@@ -40,51 +40,58 @@
                 <div class="col-md-12 col-12">
                     <legend>Client Reviews</legend>
                 </div>
-                <div class="col-md-4 col-12">
+                @forelse($review as $value)
+                    <div class="col-md-4 col-12">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <div class="clearfix">
+                                <h5 class="card-title float-left">{{$value->users->name}}</h5>
+                                <h5 class="card-title float-right">{{$value->hospital->name}}</h5>
+                            </div>
+                            @if($value['star'] == 1)
+                            <div class="col-12">
+                                <i class="ion-ios-star text-warning"></i>
+                            </div>
+                            @elseif($value['star'] == 2)
+                            <div class="col-12">
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                            </div>
+                            @elseif($value['star'] == 3)
+                            <div class="col-12">
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                            </div>
+                            @elseif($value['star'] == 4)
+                            <div class="col-12">
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                            </div>
+                            @elseif($value['star'] == 5)
+                            <div class="col-12">
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                                <i class="ion-ios-star text-warning"></i>
+                            </div>
+                            @endif
+                            <p class="card-text">{{$value['description']}}</p>
+                          </div>
+                        </div>
+                    </div>
+                @empty
+                  <div class="col-md-12 col-12">
                     <div class="card" style="width: 18rem;">
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="col-12">
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <p>Not Found</p>
                       </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="card" style="width: 18rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="col-12">
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="card" style="width: 18rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <div class="col-12">
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                            <i class="ion-ios-star text-warning"></i>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                    </div>
-                </div>
+                  </div>
+                  </div>
+                @endforelse
             </div>
         </div>
     </div>

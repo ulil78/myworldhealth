@@ -13,4 +13,9 @@ class Review extends Model
     {
         return $this->belongsTo('App\Hospital');
     }
+
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
