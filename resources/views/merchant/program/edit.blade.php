@@ -44,19 +44,39 @@
                                         @endforeach
                                     </select>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select name="fourth_category_id" class="form-control">
-                                        @php
-                                          $category_name = \App\FourthCategory::where('id', $program->fourth_category_id)->value('name');
-                                        @endphp
-                                        <option value="{{$program->fourth_category_id}}"> {{$category_name}} </option>
-                                        @foreach($categories as $category)
-                                          <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <label for="first_category_id">First Category</label>
+                                    <select name="first_category_id" class="form-control">
+                                      @php
+                                      $first1 = \App\FirstCategory::where('id', $program->first_category_id)->first();
+                                      @endphp
+                                        <option value="{{$first1->id}}">{{$first1->name}}</option>
+                                        @foreach ($firsts as $first)
+                                            <option value="{{$first->id}}">{{$first->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label for="second_category_id">Second Category</label>
+                                    <select name="second_category_id" class="form-control">
+                                        @php
+                                          $second = \App\SecondCategory::where('id', $program->second_category_id)->first();
+                                        @endphp
+                                        <option value="{{$second->id}}">{{$second->name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="thrid_category_id">Thrid Category</label>
+                                    <select name="thrid_category_id" class="form-control">
+                                        @php
+                                          $thrid = \App\ThridCategory::where('id', $program->thrid_category_id)->value('name');
+                                        @endphp
+                                        <option value="{{$program->thrid_category_id}}">{{$thrid}}</option>
+                                    </select>
+                                </div>
 
+                                
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}">

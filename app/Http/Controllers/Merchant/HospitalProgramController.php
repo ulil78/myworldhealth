@@ -49,11 +49,12 @@ class HospitalProgramController extends Controller
                                                 ->orderBy('name')
                                                 ->get();
 
-        $categories = \App\FourthCategory::where('status', 'true')->orderBy('name')->get();
+        $firsts = \App\FirstCategory::orderBy('name')->get();
+
 
         return view('merchant/program/create')->with('hospital', $hospital)
                                               ->with('departments', $departments)
-                                              ->with('categories', $categories)
+                                              ->with('firsts', $firsts)
                                               ->with('page_title', 'Add Hospital Program | merchant Center MyWorldHealth.Com');
     }
 
@@ -67,7 +68,8 @@ class HospitalProgramController extends Controller
     {
           $rules = array(
                      'hospital_department_id'       => 'required',
-                     'fourth_category_id'           => 'required',
+                     'first_category_id'           => 'required',
+                     'second_category_id'           => 'required',
                      'name'                         => 'required',
                      'description'                  => 'required',
                      'price'                        => 'required',
@@ -81,7 +83,9 @@ class HospitalProgramController extends Controller
 
          $program = new HospitalProgram;
          $program->hospital_department_id      = $request->get('hospital_department_id');
-         $program->fourth_category_id          = $request->get('fourth_category_id');
+         $program->first_category_id           = $request->get('first_category_id');
+         $program->second_category_id          = $request->get('second_category_id');
+         $program->thrid_category_id          = $request->get('thrid_category_id');
          $program->name                        = $request->get('name');
          $program->description                 = $request->get('description');
          $program->price                       = $request->get('price');
@@ -133,12 +137,12 @@ class HospitalProgramController extends Controller
                                                 ->where('status', 'true')
                                                 ->orderBy('name')
                                                 ->get();
-        $categories = \App\FourthCategory::where('status', 'true')->orderBy('name')->get();
+        $firsts = \App\FirstCategory::orderBy('name')->get();
 
         return view('merchant/program/edit')->with('program', $program)
                                             ->with('hospital', $hospital)
                                             ->with('departments', $departments)
-                                            ->with('categories', $categories)
+                                            ->with('firsts', $firsts)
                                             ->with('page_title', 'Edit Hospital Depatments | merchant Center MyWorldHealth.Com');
 
     }
@@ -154,7 +158,8 @@ class HospitalProgramController extends Controller
     {
         $rules = array(
               'hospital_department_id'       => 'required',
-              'fourth_category_id'           => 'required',
+              'first_category_id'            => 'required',
+              'second_category_id'           => 'required',
               'name'                         => 'required',
               'description'                  => 'required',
               'price'                        => 'required',
@@ -167,7 +172,9 @@ class HospitalProgramController extends Controller
 
        $program = HospitalProgram::find($id);
        $program->hospital_department_id      = $request->get('hospital_department_id');
-       $program->fourth_category_id          = $request->get('fourth_category_id');
+       $program->first_category_id           = $request->get('first_category_id');
+       $program->second_category_id          = $request->get('second_category_id');
+       $program->thrid_category_id          = $request->get('thrid_category_id');
        $program->name                        = $request->get('name');
        $program->description                 = $request->get('description');
        $program->price                       = $request->get('price');

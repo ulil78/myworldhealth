@@ -25,8 +25,13 @@ Route::get('/our-teams', 'Frontend\OurTeamsController@index')->name('our-teams')
 Route::get('/booked', 'Frontend\BookingController@booked')->name('booked');
 Route::get('/getbooked', 'Frontend\BookingController@getbooked')->name('getbooked');
 Route::get('/processbooked', 'Frontend\BookingController@processbooked')->name('processbooked');
+<<<<<<< HEAD
 // 
 Route::get('/hospitals/categories/{slug}', 'Frontend\FrontController@show_category')->name('show-category');
+=======
+//
+Route::get('/hospitals/categories/{id}', 'Frontend\FrontController@show_category')->name('show-category');
+>>>>>>> e83f0d141cfb039e6378e15e6557783c98e09df7
 
 Auth::routes();
 
@@ -152,6 +157,9 @@ Route::prefix('merchant')->group(function() {
 
         Route::post('select-department-return', ['as'=>'select-department-return','uses'=>'MerchantAjaxController@selectDepartmentReturn']);
         Route::post('select-program-return', ['as'=>'select-program-return','uses'=>'MerchantAjaxController@selectProgramReturn']);
+
+        Route::post('merchant-select-first-cat', ['as'=>'merchant-select-first-cat','uses'=>'MerchantAjaxController@selectFirstCat']);
+        Route::post('merchant-select-second-cat', ['as'=>'merchant-select-second-cat','uses'=>'MerchantAjaxController@selectSecondCat']);
 
         //Booking Order
         Route::resource('invoices', 'InvoiceMerchantController');

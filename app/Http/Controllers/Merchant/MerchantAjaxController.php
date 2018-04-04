@@ -27,6 +27,8 @@ class MerchantAjaxController extends Controller
     }
 
 
+
+
     public function selectProgramArrival(Request $request)
     {
         if($request->ajax()){
@@ -56,6 +58,25 @@ class MerchantAjaxController extends Controller
         }
     }
 
+
+    //categories
+    public function selectFirstCat(Request $request)
+    {
+        if($request->ajax()){
+            $seconds = DB::table('second_categories')->where('first_category_id',$request->first_category_id)->get();
+            $data = view('merchant/program/first-cat-select',compact('seconds'))->render();
+            return response()->json(['options'=>$data]);
+        }
+    }
+
+    public function selectSecondCat(Request $request)
+    {
+        if($request->ajax()){
+            $thrids = DB::table('thrid_categories')->where('second_category_id',$request->second_category_id)->get();
+            $data = view('merchant/program/second-cat-select',compact('thrids'))->render();
+            return response()->json(['options'=>$data]);
+        }
+    }
 
 
 }

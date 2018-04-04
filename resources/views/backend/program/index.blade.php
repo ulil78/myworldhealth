@@ -62,7 +62,7 @@
                                           </td>
                                           <td>
                                               @php
-                                                $category = \App\FourthCategory::where('id', $item->fourth_category_id)->value('name');
+                                                $category = \App\ThridCategory::where('id', $item->thrid_category_id)->value('name');
                                               @endphp
                                               {{$category}}
                                           </td>
@@ -90,8 +90,8 @@
                                                 <li>
                                                   <a href="{{ url('/admin/hospital-programs/'.$item->id.'/edit') }}">Edit</a>
                                                 </li>
-                                                <form id="delete-form-{{$item->id}}" 
-                                                    method="post" 
+                                                <form id="delete-form-{{$item->id}}"
+                                                    method="post"
                                                     action="{{url('admin/hospital-programs/'.$item->id) }}"
                                                     style="display: none;">
                                                     {{csrf_field()}}

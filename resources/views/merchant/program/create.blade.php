@@ -42,12 +42,25 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select name="fourth_category_id" class="form-control">
-                                        <option> --- Select Category --- </option>
-                                        @foreach($categories as $category)
-                                          <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <label for="first_category_id">First Category</label>
+                                    <select name="first_category_id" class="form-control">
+                                        <option> --- Select First Category --- </option>
+                                        @foreach ($firsts as $first)
+                                            <option value="{{$first->id}}">{{$first->name}}</option>
                                         @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="second_category_id">Second Category</label>
+                                    <select name="second_category_id" class="form-control">
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="thrid_category_id">Thrid Category</label>
+                                    <select name="thrid_category_id" class="form-control">
+
                                     </select>
                                 </div>
 

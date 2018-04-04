@@ -17,7 +17,9 @@ class CreateHospitalProgramsTable extends Migration
             $table->increments('id');
             $table->integer('hospital_department_id')->unsigned();
             $table->foreign('hospital_department_id')->references('id')->on('hospital_departments');
-            $table->integer('fourth_category_id')->unsigned();
+            $table->integer('first_category_id')->unsigned();
+            $table->integer('second_category_id')->unsigned();
+            $table->integer('thrid_category_id')->unsigned()->nullable();
             $table->string('name');
             $table->string('slug');
             $table->text('description');
