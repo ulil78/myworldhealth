@@ -30,14 +30,13 @@ class FrontController extends Controller
 	public function show_category($slug)
 	{
 		// Second Category
-        $category = SecondCategory::where('slug', $slug)
-        			->first();
+        $category = SecondCategory::where('slug', $slug)->first();
         // Third Category 
         $third_category = \DB::table('first_categories')
-	                      ->join('second_categories', 'second_categories.first_category_id', '=', 'first_categories.id')
-	                      ->select('second_categories.id as second_category_id', 'first_categories.name as first_category_name')
-	                      ->where('second_categories.id', $category->id)
-	                      ->first();
+					->join('second_categories', 'second_categories.first_category_id', '=', 'first_categories.id')
+					->select('second_categories.id as second_category_id', 'first_categories.name as first_category_name')
+					->where('second_categories.id', $category->id)
+					->first();
 	    // Hospital Program
         $hospital_program = \DB::table('hospital_programs')
 					->join('hospital_departments', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
@@ -56,7 +55,8 @@ class FrontController extends Controller
 					->where([
 					    ['hospital_programs.status', '=', 'true'],
 					    ['second_categories.id', '=', $category->id],
-					])->first();
+					])->get();
+					// dd($hospital_program);
 		// Return View
 		return view('front.pages.beranda.show_category')->with('category', $category)
 														->with('third_category', $third_category)

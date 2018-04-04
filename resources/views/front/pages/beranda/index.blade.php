@@ -45,7 +45,7 @@
                         <div class="card" style="width: 18rem;">
                           <div class="card-body">
                             <div class="clearfix">
-                                <h5 class="card-title float-left">{{$value->users->name}}</h5>
+                                {{-- <h5 class="card-title float-left">{{$value->users->name}}</h5> --}}
                                 <h5 class="card-title float-right">{{$value->hospital->name}}</h5>
                             </div>
                             @if($value['star'] == 1)
