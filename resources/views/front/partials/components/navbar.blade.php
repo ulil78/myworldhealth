@@ -63,27 +63,20 @@
       $first_category = \App\FirstCategory::all();
     @endphp
     {{-- {{dd($first_category)}} --}}
-    <ul class="nav nav-pills nav-fill" style="background-color: #e8b42a"> <!-- Old Color ffc326 -->
+    <ul class="nav nav-pills justify-content-center" style="background-color: #e8b42a"> <!-- Old Color ffc326 -->
       @foreach ($first_category as $cat)
       <li class="nav-item">
         <a class="nav-link text-light font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
           {{$cat->name}}
         </a>
-        <div class="dropdown-menu" style="width:100%">
-          <div class="px-0 container">
-              <div class="row">
-                  @php
-                    $second_category = \App\SecondCategory::orderBy('name')->where('first_category_id', $cat->id)->get();
-                  @endphp
-                  @foreach($second_category as $item)
-                  <div class="col-md-4">
-                      <a class="dropdown-item" href="#">{{$item->name}}</a>
-                  </div>
-                  @endforeach
-              </div>
-          </div>
+        @php
+          $second_category = \App\SecondCategory::orderBy('name')->where('first_category_id', $cat->id)->get();
+        @endphp
+        <div class="dropdown-menu">
+          @foreach($second_category as $item)
+              <a class="dropdown-item" href="#">{{$item->name}}</a>
+          @endforeach
         </div>
-
       </li>
       @endforeach
     </ul>
