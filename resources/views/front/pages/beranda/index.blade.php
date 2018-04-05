@@ -15,9 +15,6 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <article class="card">
                         <div class="card-block">
-                            <a href="#" class="btn btn-light btn-block text-light" style="background-color: #3399ff;">
-                                <i class="fa fa-eye"></i> See Now
-                            </a>
                             <div class="img-card">
                                 <img src="//placehold.it/300x250" alt="Movie" class="w-100" />
                             </div>
