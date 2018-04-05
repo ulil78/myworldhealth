@@ -2,7 +2,7 @@
     .h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
         font-family: Arial,sans-serif;
     }
-    div.input-group-text{
+    div.input-group-text-front{
       background-color: #fff!important;
     }
     /*SELECT*/

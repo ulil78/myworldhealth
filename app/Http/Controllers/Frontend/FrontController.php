@@ -64,7 +64,7 @@ class FrontController extends Controller
 							 'reviews.star as reviews_star')
 					->where([
 					    ['hospital_programs.status', '=', 'true'],
-					    ['thrid_categories.id', '=', $third_category->thrid_categories_id],
+					    ['thrid_categories.id', '=', $third_category->id],
 					])->get();
 					// dd($hospital_program);
 		// Return View

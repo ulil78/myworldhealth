@@ -8,12 +8,12 @@
             <div class="justify-content-center">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                      <div class="input-group-text">
+                      <div class="input-group-text input-group-text-front">
                         <i class="ion-ios-navigate-outline" style="font-size: 30px;"></i>
                       </div>
                     </div>
                     <div class="input-group-prepend">
-                      <div class="input-group-text">
+                      <div class="input-group-text input-group-text-front">
                         <select class="form-control" required>
                           <option selected disabled>Select</option>
                           <option class="dropdown-item" value="city">City</option>
@@ -24,7 +24,7 @@
                     </div>
                     <input type="text" class="form-control" name="x" placeholder="City, hospital, place to go">
                     <div class="input-group-append">
-                      <div class="input-group-text">
+                      <div class="input-group-text input-group-text-front">
                             <i class="ion-ios-search-strong" style="font-size: 20px;"></i>
                       </div>
                     </div>
