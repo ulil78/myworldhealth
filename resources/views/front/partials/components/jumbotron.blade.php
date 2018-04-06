@@ -6,29 +6,32 @@
         <div class="col-md-8 col-12">
             <hr class="my-4">
             <div class="justify-content-center">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text input-group-text-front">
-                        <i class="ion-ios-navigate-outline" style="font-size: 30px;"></i>
+              <form action="{{route('search-category')}}" method="GET">
+                  {{csrf_field()}}
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text input-group-text-front">
+                          <i class="ion-ios-navigate-outline" style="font-size: 30px;"></i>
+                        </div>
                       </div>
-                    </div>
-                    <div class="input-group-prepend">
-                      <div class="input-group-text input-group-text-front">
-                        <select class="form-control" required>
-                          <option selected disabled>Select</option>
-                          <option class="dropdown-item" value="city">City</option>
-                          <option class="dropdown-item" value="hospital">Hospital</option>
-                          <option class="dropdown-item" value="service">Service</option>
-                        </select>
+                      <div class="input-group-prepend">
+                        <div class="input-group-text input-group-text-front">
+                          <select class="form-control" name="category" required>
+                            <option selected disabled>Select</option>
+                            <option class="dropdown-item" value="city">City</option>
+                            <option class="dropdown-item" value="hospital">Hospital</option>
+                            <option class="dropdown-item" value="service">Service</option>
+                          </select>
+                        </div>
                       </div>
-                    </div>
-                    <input type="text" class="form-control" name="x" placeholder="City, hospital, place to go">
-                    <div class="input-group-append">
-                      <div class="input-group-text input-group-text-front">
-                            <i class="ion-ios-search-strong" style="font-size: 20px;"></i>
+                      <input type="text" class="form-control" name="x" placeholder="City, hospital, place to go">
+                      <div class="input-group-append">
+                        <button class="btn btn-light" type="submit">
+                          <i class="ion-ios-search-strong" style="font-size: 20px;"></i>
+                        </button>
                       </div>
-                    </div>
-                </div> 
+                  </div> 
+              </form>
             </div>
             <div class="card" style="background-color: transparent; border: none;">
                 <div class="card-body">

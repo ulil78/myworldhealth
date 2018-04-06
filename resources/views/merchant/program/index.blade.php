@@ -57,8 +57,8 @@
                                               {{$category}}
                                           </td>
                                           <td>{{$item->name}}</td>
-                                          <td>{{money_format('%.2n', $item->price) }}</td>
-                                          <td>{{money_format('%.2n', $item->discount) }}</td>
+                                          <td>{{$item->price}}</td>
+                                          <td>{{$item->discount}}</td>
                                           <td>{!! $item->notices !!}</td>
                                           <td>
                                           @if($item->status == 'true')

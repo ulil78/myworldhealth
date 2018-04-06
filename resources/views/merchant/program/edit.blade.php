@@ -83,11 +83,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Price ($)</label>
-                                    <input type="text" class="form-control" id="price" name="price" value="{{money_format('%.2n', $program->price) }}">
+                                    <input type="text" class="form-control" id="price" name="price" value="{{$program->price}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="discount">Discount (%)</label>
-                                    <input type="text" class="form-control" id="discount" name="discount" value="{{money_format('%.2n', $program->discount) }}">
+                                    <input type="text" class="form-control" id="discount" name="discount" value="{{$program->discount}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="duration">Duration (day)</label>

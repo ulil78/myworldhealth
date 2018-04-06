@@ -10,7 +10,8 @@
         <div class="col-md-12 col-12">
             <div class="row p-2">
                 <div class="col-md-12 col-12">
-                    <legend>Last Hospital</legend>
+                    <h3 class="display-6">Last Hospital</h3>
+                    {{-- <hr class="bg-dark w-25 ml-0"> --}}
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <article class="card">

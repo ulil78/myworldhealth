@@ -74,7 +74,7 @@
         @endphp
         <div class="dropdown-menu">
           @foreach($second_category as $item)
-              <a class="dropdown-item" href="#">{{$item->name}}</a>
+              <a class="dropdown-item" href="{{ url('hospitals/categories/'.$item->slug.'') }}">{{$item->name}}</a>
           @endforeach
         </div>
       </li>
