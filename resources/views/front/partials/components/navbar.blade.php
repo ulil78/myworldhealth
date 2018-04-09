@@ -45,7 +45,7 @@
       </div>
     @else
       <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
-        <a href="#" class="btn btn-sm btn-outline-light">{{ Auth::user()->email }}</a>
+        <a href="#" class="btn btn-sm btn-outline-light">{{ Auth::user()->name }}</a>
         <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-light"
           onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">

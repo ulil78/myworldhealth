@@ -3,7 +3,9 @@
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #3399ff;color: #fff">
-        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <h5 class="modal-title" id="exampleModalLabel">
+          <img class="img-fluid" src="{{url('img/myworldhealth-logo-one.png')}}" width="60px" height="60px" class="rounded float-left" alt="..."><b>Login</b>
+        </h5>
         <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,9 +19,9 @@
                   <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                   @if ($errors->has('email'))
-                      <span class="help-block">
-                          <strong>{{ $errors->first('email') }}</strong>
-                      </span>
+                      <small class="text-danger">
+                          <b>{{ $errors->first('email') }}</b>
+                      </small>
                   @endif
               </div>
           </div>
@@ -31,9 +33,9 @@
                   <input id="password" type="password" class="form-control" name="password" required>
 
                   @if ($errors->has('password'))
-                      <span class="help-block">
-                          <strong>{{ $errors->first('password') }}</strong>
-                      </span>
+                      <small class="text-danger">
+                          <b>{{ $errors->first('password') }}</b>
+                      </small>
                   @endif
               </div>
           </div>

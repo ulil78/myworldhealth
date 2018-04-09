@@ -104,6 +104,7 @@ class FrontController extends Controller
 				 'thrid_categories.name as thrid_categories_name',
 				 // Hospital Image
 				 // Program
+				 'hospital_programs.id as hospital_programs_id',
 				 'hospital_programs.name as hospital_programs_name',
 				 'hospital_programs.price as hospital_programs_price',
 				 // Dept
@@ -124,20 +125,15 @@ class FrontController extends Controller
 
 	public function search_result(Request $request)
 	{
-        $search = $request->get('category');
-        if($search = 'city')
-        {
-        	dd('Kota');
+        $this->validate(request(), [
+            'search'   => 'required|string',
+        ]);
+        $category = $request->get('category');
+        $search = $request->get('search');
+        // dd($category);
+        if($category = 'service'){
+        	return "service";
+			return view('front.pages.beranda.show_result');
         }
-        if($search = 'hospital')
-        {
-        	dd('hospital');
-        }
-        if($search = 'service')
-        {
-        	dd('service');
-        }
-  //       dd($search);
-		// return view('front.pages.beranda.show');
 	}
 }

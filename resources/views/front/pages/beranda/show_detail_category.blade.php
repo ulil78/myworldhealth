@@ -67,100 +67,162 @@
                     <div class="col-md-6 col-12">
                         <from>
                           <div class="form-group">
-                            <label for="exampleFormControlSelect1">Select Date :</label>
                               <div class="row">
                                 <div class="col">
-                                  <input type="text" class="form-control" placeholder="Date Start">
+                                  <small for="exampleFormControlSelect1">Date Form :</small>
+                                  <input type="date" class="form-control" placeholder="Date Start">
                                 </div>
                                 <div class="col">
-                                  <input type="text" class="form-control" placeholder="Date Finish">
+                                  <small for="exampleFormControlSelect1">To :</small>
+                                  <input type="date" class="form-control" placeholder="Date Finish">
                                 </div>
                               </div>
                           </div>
                           <div class="form-group">
-                            <label for="exampleFormControlSelect1">You may also book :</label>
+                            <label for="exampleFormControlSelect1">You may also book :</label><hr>
                               <div class="row">
                                 <div class="col-12">
-                                    <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                      <label class="custom-control-label" for="customCheck1">Interpreter / hour $10</label>
+                                <small>Additional services :</small>
+                                  <div class="row mt-2">
+                                    <div class="col-md-6">
+                                      <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check_in" value="1">
+                                        <label class="custom-control-label" for="check_in">Interpreter / hour $10</label>
+                                      </div>
                                     </div>
+                                    <div class="col-md-6">
+                                      <input type="number" class="form-control" min="0" name="interpreter_qty" id="interpreter_qty">
+                                    </div>
+                                  </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                      <label class="custom-control-label" for="customCheck1">
-                                        Translations of Medical Document / page $ 2
-                                      </label>
+                                  <div class="row mt-2">
+                                    <div class="col-md-6">
+                                      <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="check_doc" value="1">
+                                        <label class="custom-control-label" for="check_doc">
+                                          Translations of Medical Document / page $ 2
+                                        </label>
+                                      </div>
                                     </div>
+                                    <div class="col-md-6">
+                                      <input type="number" class="form-control" min="0" name="translation_med_document_qty" id="translation_med_document_qty">
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                           </div>
                           <div class="form-group">
-                            <label for="exampleFormControlSelect1">Travel :</label>
+                            <label for="exampleFormControlSelect1">Transfer :</label><hr>
                               <div class="row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                      <label class="custom-control-label" for="customCheck1">
-                                        Hospital to Airport
+                                      <input type="checkbox" class="custom-control-input" id="hos_air" value="1">
+                                      <label class="custom-control-label" for="hos_air">
+                                        Airport to Hospital
                                       </label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="row">
+                                    <div class="row mt-2">
                                         <div class="col">
-                                          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                          @php
+                                              $transfer_arrivals = \DB::table('hospital_programs')
+                                              ->join('transfer_arrivals', 'transfer_arrivals.hospital_program_id', '=', 'hospital_programs.id')
+                                              ->join('transfer_arrival_types', 'transfer_arrival_types.transfer_arrival_id', '=', 'transfer_arrivals.id')
+                                              ->select('hospital_programs.name as program_name', 
+                                                        'transfer_arrivals.id as transfer_arrival_id',
+                                                        'transfer_arrivals.name as transfer_arrival_name')
+                                              ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
+                                              ->get();
+                                          @endphp
+                                          <select class="custom-select mr-sm-2" name="transfer_arrival_id" id="transfer_arrival_id" id="inlineFormCustomSelect">
                                             <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            @foreach($transfer_arrivals as $value)
+                                              <option value="{{$value->transfer_arrival_id}}">{{$value->transfer_arrival_name}}</option>
+                                            @endforeach
                                           </select>
                                         </div>
                                         <div class="col">
-                                          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                          @php
+                                              $transfer_arrival_types = \DB::table('hospital_programs')
+                                              ->join('transfer_arrivals', 'transfer_arrivals.hospital_program_id', '=', 'hospital_programs.id')
+                                              ->join('transfer_arrival_types', 'transfer_arrival_types.transfer_arrival_id', '=', 'transfer_arrivals.id')
+                                              ->select('hospital_programs.name as program_name', 
+                                                        'transfer_arrival_types.id as transfer_arrival_types_id',
+                                                        'transfer_arrival_types.name as transfer_arrival_types_name')
+                                              ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
+                                              ->get();
+                                          @endphp
+                                          <select class="custom-select mr-sm-2" name="transfer_arrival_type_id" id="transfer_arrival_type_id" id="inlineFormCustomSelect">
                                             <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            @foreach($transfer_arrival_types as $value)
+                                              <option value="{{$value->transfer_arrival_types_id}}">{{$value->transfer_arrival_types_name}}</option>
+                                            @endforeach
                                           </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mt-2">
                                     <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                      <label class="custom-control-label" for="customCheck1">Airport to Hospital</label>
+                                      <input type="checkbox" class="custom-control-input" id="air_hos" value="1">
+                                      <label class="custom-control-label" for="air_hos">Hospital to Airport</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="row">
+                                    <div class="row mt-2">
                                         <div class="col">
-                                          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                          @php
+                                              $transfer_returns = \DB::table('hospital_programs')
+                                              ->join('transfer_returns', 'transfer_returns.hospital_program_id', '=', 'hospital_programs.id')
+                                              ->join('transfer_return_types', 'transfer_return_types.transfer_return_id', '=', 'transfer_returns.id')
+                                              ->select('hospital_programs.name as program_name', 
+                                                        'transfer_returns.id as transfer_returns_id',
+                                                        'transfer_returns.name as transfer_returns_name')
+                                              ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
+                                              ->get();
+                                          @endphp
+                                          <select class="custom-select mr-sm-2" name="transfer_return_id" id="transfer_return_id" id="inlineFormCustomSelect">
                                             <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            @foreach($transfer_returns as $value)
+                                              <option value="{{$value->transfer_returns_id}}">{{$value->transfer_returns_name}}</option>
+                                            @endforeach
                                           </select>
                                         </div>
                                         <div class="col">
-                                          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                          @php
+                                              $transfer_return_types = \DB::table('hospital_programs')
+                                              ->join('transfer_returns', 'transfer_returns.hospital_program_id', '=', 'hospital_programs.id')
+                                              ->join('transfer_return_types', 'transfer_return_types.transfer_return_id', '=', 'transfer_returns.id')
+                                              ->select('hospital_programs.name as program_name', 
+                                                        'transfer_return_types.id as transfer_return_types_id',
+                                                        'transfer_return_types.name as transfer_return_types_name')
+                                              ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
+                                              ->get();
+                                          @endphp
+                                          <select class="custom-select mr-sm-2" name="transfer_return_type_id" id="transfer_return_type_id" id="inlineFormCustomSelect">
                                             <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            @foreach($transfer_return_types as $value)
+                                              <option value="{{$value->transfer_return_types_id}}">{{$value->transfer_return_types_name}}</option>
+                                            @endforeach
                                           </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12"><br>
-                                    <h3 class="float-right font-weight-bold">Total Cost : ${{number_format($hospital_detail->hospital_programs_price,2,",",".")}}</h3><br>
-                                    <p class="float-right">i : The prices may vary depending on the stage of disease</p>
+                                    <h3 class="float-left font-weight-bold">Total Cost : ${{number_format($hospital_detail->hospital_programs_price,2,",",".")}}</h3><br>
+                                    <p class="float-left">i : The prices may vary depending on the stage of disease</p>
                                 </div>
                               </div>
                           </div>
                           <div class="form-group">
-                            <button class="btn btn-block btn-lg btn-outline-success">Book Now</button>
+                            @guest
+                              <button class="btn btn-block btn-lg btn-outline-primary" data-toggle="modal" data-target="#register_modal">
+                                Register Now!
+                              </button>
+                            @else
+                              <button type="submit" class="btn btn-block btn-lg btn-outline-success">Book Now</button>
+                            @endguest
                           </div>
                         </from>
                     </div>

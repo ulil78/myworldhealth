@@ -3,7 +3,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #3399ff;color: #fff">
-        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <h5 class="modal-title" id="exampleModalLabel">
+          <img class="img-fluid" src="{{url('img/myworldhealth-logo-one.png')}}" width="60px" height="60px" class="rounded float-left" alt="..."><b>Register</b>
+        </h5>
         <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

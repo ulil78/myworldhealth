@@ -60,7 +60,7 @@
                                                 {{$return}}
                                             </td>
                             								<td>{{$item->name}}</td>
-                                            <td>{{money_format('%.2n', $item->price) }}</td>
+                                            <td>{{$item->price}}</td>
                                             <td>
                                               <!-- Action button -->
                                               <div class="btn-group">

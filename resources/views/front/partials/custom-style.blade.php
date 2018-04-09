@@ -9,7 +9,7 @@
     select.form-control{
       border-color: #fff!important;
     }
-    .form-control:focus{
+    .form-control-edit:focus{
       border-color: #fff!important;
       box-shadow: 0 0 0 0.2rem #fff!important;
     }

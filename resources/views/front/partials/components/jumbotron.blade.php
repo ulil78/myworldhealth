@@ -16,7 +16,7 @@
                       </div>
                       <div class="input-group-prepend">
                         <div class="input-group-text input-group-text-front">
-                          <select class="form-control" name="category" required>
+                          <select class="form-control form-control-edit" name="category" required>
                             <option selected disabled>Select</option>
                             <option class="dropdown-item" value="city">City</option>
                             <option class="dropdown-item" value="hospital">Hospital</option>
@@ -24,7 +24,7 @@
                           </select>
                         </div>
                       </div>
-                      <input type="text" class="form-control" name="x" placeholder="City, hospital, place to go">
+                      <input type="text" class="form-control" name="search" id="search" placeholder="City, hospital, place to go">
                       <div class="input-group-append">
                         <button class="btn btn-light" type="submit">
                           <i class="ion-ios-search-strong" style="font-size: 20px;"></i>
@@ -49,3 +49,7 @@
     </div>
   </div>
 </header>
+
+@section('javascript')
+
+@endsection
