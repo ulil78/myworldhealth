@@ -46,6 +46,7 @@
             $('#fade-in').toggleClass('show');
         });
     </script>
+    @yield('javascript')
 
     <!-- BEGIN JIVOSITE CODE {literal} -->
 <script type='text/javascript'>

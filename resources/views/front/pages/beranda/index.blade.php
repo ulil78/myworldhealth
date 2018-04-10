@@ -8,7 +8,26 @@
 <section>
     <div class="row">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
+                <div class="col-md-12 col-12">
+                    <h3 class="display-6">Last Hospital</h3>
+                    {{-- <hr class="bg-dark w-25 ml-0"> --}}
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <article class="card">
+                        <div class="card-block">
+                            <div class="img-card">
+                                <img src="//placehold.it/300x250" alt="Movie" class="w-100" />
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="row p-2">
                 <div class="col-md-4 col-12">
                     <legend>Our Partners</legend>
                     <p class="lead text-secondary">Our hospital and travel partner all around the world</p>
@@ -17,11 +36,11 @@
                 <div class="col-md-8 col-12">
                     <div class="row p-5">
                     @forelse($partner as $value)
-                    <a href="{{$value['url']}}" target="_blank">
                       <div class="col-3">
-                        <img class="img-fluid" width="400px" height="400px" src="{{asset($value['path'].$value['filename'])}}" alt="{{$value['name']}}">
+                        <a href="{{$value['url']}}" target="_blank">
+                            <img class="img-fluid" width="400px" height="400px" src="{{asset($value['path'].$value['filename'])}}" alt="{{$value['name']}}">
+                        </a>
                       </div>
-                    </a>
                     @empty
                       <div class="col-md-12 col-12">
                           <p>Not Found</p>
@@ -36,7 +55,7 @@
 <section>
     <div class="row">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
                 <div class="col-md-12 col-12">
                     <legend>Client Reviews</legend>
                 </div>
@@ -99,7 +118,7 @@
 <section>
     <div class="row" style="background-color: #e6e6e6;">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
                 <div class="col-md-12 col-12">
                     <h3 class="text-center text-dark">Why book with us?</h3>
                     <hr class="my-hr">
@@ -131,7 +150,7 @@
 <section>
     <div class="row">
         <div class="col-md-12 col-12">
-            <div class="row p-4">
+            <div class="row p-2">
                 <div class="col-md-12 col-12 text-center">
                     <i class="ion-ios-chatboxes-outline d-flex justify-content-center" style="font-size: 60px;"></i>
                     <h5 class="text-center text-dark">Do you still have questions? Please contact us!</h5>

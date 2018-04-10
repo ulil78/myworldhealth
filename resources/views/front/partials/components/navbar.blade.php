@@ -45,7 +45,7 @@
       </div>
     @else
       <div class="btn-group my-2 my-lg-0 float-right" role="group" aria-label="Basic example">
-        <a href="#" class="btn btn-sm btn-outline-light">{{ Auth::user()->email }}</a>
+        <a href="#" class="btn btn-sm btn-outline-light">{{ Auth::user()->name }}</a>
         <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-light"
           onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
@@ -63,7 +63,7 @@
       $first_category = \App\FirstCategory::all();
     @endphp
     {{-- {{dd($first_category)}} --}}
-    <ul class="nav nav-pills justify-content-center" style="background-color: #e8b42a"> <!-- Old Color ffc326 -->
+    <ul class="nav nav-pills justify-content-center" style="background-color: #ffc326"> <!-- Old Color ffc326 -->
       @foreach ($first_category as $cat)
       <li class="nav-item">
         <a class="nav-link text-light font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
@@ -74,7 +74,7 @@
         @endphp
         <div class="dropdown-menu">
           @foreach($second_category as $item)
-              <a class="dropdown-item" href="#">{{$item->name}}</a>
+              <a class="dropdown-item" href="{{ url('hospitals/categories/'.$item->slug.'') }}">{{$item->name}}</a>
           @endforeach
         </div>
       </li>

@@ -196,9 +196,9 @@ class HospitalProgramController extends Controller
        ];
 
       // $receiverAddress = $email_hospital;
-       $receiverAddress = 'rully.arfan@gmail.com';
+       // $receiverAddress = 'rully.arfan@gmail.com';
 
-       Mail::to($receiverAddress)->send(new ProgramUpdated($content));
+       // Mail::to($receiverAddress)->send(new ProgramUpdated($content));
 
        return redirect('merchant/hospital-programs');
 

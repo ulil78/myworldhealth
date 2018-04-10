@@ -17,7 +17,10 @@ class FrontController extends Controller
 	{
 		$data['why'] = WhyBooking::all();
 		$data['partner'] = Partner::where('status', 'true')->get();
-		$data['review'] = Review::with('users')->with('hospital')->where('status', 'true')->get();
+		$data['review'] = Review::with('users')
+		                        ->with('hospital')->where('status', 'true')
+                                ->limit(3)
+                                ->get();
 		return view('front.pages.beranda.index', $data);
 	}
 
@@ -26,7 +29,7 @@ class FrontController extends Controller
 		$data['why'] = WhyBooking::all();
 		return view('front.pages.why_mwh.index', $data);
 	}
-// Function
+// Function Show
 	public function show_category($slug)
 	{
 		// Second Category
@@ -38,68 +41,99 @@ class FrontController extends Controller
 					->where('second_categories.id', $category->id)
 					->first();
 					 // dd($third_category);
+		if($third_category) {
+		    // Hospital Program
+	        $hospital_program = \DB::table('hospitals')
+			->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
+			->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
+			->join('cities', 'cities.id', '=', 'hospitals.city_id')
+			->join('countries', 'countries.id', '=', 'cities.country_id')
+			->select(// Hospital
+					 'hospitals.id as id',
+					 'hospitals.name as name',
+				 	 'hospitals.slug as hospitals_slug',
+					 'hospitals.address as address',
+					 'hospitals.description as description',
+					 'hospitals.phone as phone',
+					 // Program
+					 'hospital_programs.name as hospital_programs_name',
+					 'hospital_programs.price as hospital_programs_price',
+					 // Dept
+					 'hospital_departments.name as hospital_departments_name',
+					 // 'hospital_departments.description as hospital_departments_description ',
+					 // City & Country
+					 'cities.name as cities_name',
+					 'countries.name as countries_name')
+			->where([
+			    ['hospital_programs.status', '=', 'true'],
+			    ['hospital_programs.thrid_category_id', '=', $third_category->thrid_categories_id],
+			])
+			->get();
+			// dd($hospital_program);
+			// Return View
+			return view('front.pages.beranda.show_category')->with('category', $category)
+															->with('third_category', $third_category)
+															->with('hospital_program', $hospital_program);
+		}else{
+			// Return View
+			return view('front.pages.beranda.error.error_show_category');
+		}
+	}
+// Function Detail
+	public function show_detail_category($slug)
+	{
 	    // Hospital Program
-        $hospital_program = \DB::table('hospitals')
-					->join('cities', 'cities.id', '=', 'hospitals.city_id')
-					->join('countries', 'countries.id', '=', 'cities.country_id')
-					->join('reviews', 'hospitals.id', '=', 'reviews.hospital_id')
-					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
-					->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
-					->join('first_categories', 'first_categories.id', '=', 'hospital_programs.first_category_id')
-					->join('second_categories', 'second_categories.id', '=', 'hospital_programs.second_category_id')
-					->join('thrid_categories', 'thrid_categories.id', '=', 'hospital_programs.thrid_category_id')
-					->select(// Hospital
-							 'hospitals.id as id',
-							 'hospitals.name as name',
-							 'hospitals.address as address',
-							 'hospitals.phone as phone',
-							 // Hospital Departments
-							 'hospital_departments.name as hospital_departments_name',
-							 'hospital_departments.description as hospital_departments_description',
-							 'cities.name as cities_name',
-							 'countries.name as countries_name',
-							 'reviews.star as reviews_star')
-					->where([
-					    ['hospital_programs.status', '=', 'true'],
-					    ['thrid_categories.id', '=', $third_category->thrid_categories_id],
-					])->get();
-					// dd($hospital_program);
+        $hospital_detail = \DB::table('hospitals')
+		->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
+		->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
+		->join('first_categories', 'hospital_programs.first_category_id', '=', 'first_categories.id')
+		->join('second_categories', 'hospital_programs.second_category_id', '=', 'second_categories.id')
+		->join('thrid_categories', 'hospital_programs.thrid_category_id', '=', 'thrid_categories.id')
+		->join('cities', 'cities.id', '=', 'hospitals.city_id')
+		->join('countries', 'countries.id', '=', 'cities.country_id')
+		->select(// Hospital
+				 'hospitals.id as id',
+				 'hospitals.name as name',
+				 'hospitals.address as address',
+				 'hospitals.description as description',
+				 'hospitals.phone as phone',
+				 'hospitals.pic as pic',
+				 'first_categories.name as first_categories_name',
+				 'second_categories.name as second_categories_name',
+				 'second_categories.slug as second_categories_slug',
+				 'thrid_categories.name as thrid_categories_name',
+				 // Hospital Image
+				 // Program
+				 'hospital_programs.id as hospital_programs_id',
+				 'hospital_programs.name as hospital_programs_name',
+				 'hospital_programs.price as hospital_programs_price',
+				 // Dept
+				 'hospital_departments.name as hospital_departments_name',
+				 // 'hospital_departments.description as hospital_departments_description ',
+				 // City & Country
+				 'cities.name as cities_name',
+				 'countries.name as countries_name')
+		->where([
+		    ['hospital_programs.status', '=', 'true'],
+		    ['hospitals.slug', '=', $slug],
+		])
+		->first();
+		// dd($hospital_detail);
 		// Return View
-		return view('front.pages.beranda.show_category')->with('category', $category)
-														->with('third_category', $third_category)
-														->with('hospital_program', $hospital_program);
+		return view('front.pages.beranda.show_detail_category')->with('hospital_detail', $hospital_detail);
 	}
 
-	public function search_result()
+	public function search_result(Request $request)
 	{
-		return view('front.pages.beranda.show');
-	}
-
-	public function detail()
-	{
-        $hospital_program = \DB::table('hospitals')
-					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
-					->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
-					->join('first_categories', 'first_categories.id', '=', 'hospital_programs.first_category_id')
-					->join('second_categories', 'second_categories.id', '=', 'hospital_programs.second_category_id')
-					->join('thrid_categories', 'thrid_categories.id', '=', 'hospital_programs.thrid_category_id')
-					->select(// Hospital
-							 'hospitals.id as id',
-							 'hospitals.name as name',
-							 'hospitals.address as address',
-							 'hospitals.phone as phone',
-							 // Hospital Departments
-							 'hospital_departments.name as hospital_departments_name',
-							 'hospital_departments.description as hospital_departments_description',
-							 // Hospital Program
-							 'hospital_programs.description as description',  
-							 'hospital_programs.price as price',  
-							 'hospital_programs.discount as discount',  
-							 'hospital_departments.name as hospital_departments_name')
-					->where([
-					    ['hospital_programs.status', '=', 'true'],
-					    ['thrid_categories.id', '=', $third_category->thrid_categories_id],
-					])->get();
-		return view('front.pages.beranda.detail');
+        $this->validate(request(), [
+            'search'   => 'required|string',
+        ]);
+        $category = $request->get('category');
+        $search = $request->get('search');
+        // dd($category);
+        if($category = 'service'){
+        	return "service";
+			return view('front.pages.beranda.show_result');
+        }
 	}
 }
