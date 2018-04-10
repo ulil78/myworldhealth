@@ -182,6 +182,9 @@ return [
 
         //dompdf
         Barryvdh\DomPDF\ServiceProvider::class,
+
+        //braintree
+        Oureastudios\Laravel\BraintreeServiceProvider::class,
     ],
 
     /*
