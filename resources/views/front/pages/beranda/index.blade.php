@@ -13,6 +13,17 @@
                     <h3 class="display-6">Last Hospital</h3>
                     {{-- <hr class="bg-dark w-25 ml-0"> --}}
                 </div>
+                @forelse($hospital as $value)
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <article class="card">
+                        <div class="card-block">                            
+                            <div class="img-card">
+                                <img src="{{asset($value->path.$value->filename)}}" alt="{{$value->name}}" class="w-100" />
+                            </div>                            
+                        </div>
+                    </article>
+                </div>
+                @empty
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <article class="card">
                         <div class="card-block">
@@ -22,6 +33,7 @@
                         </div>
                     </article>
                 </div>
+                @endforelse
             </div>
         </div>
     </div>
