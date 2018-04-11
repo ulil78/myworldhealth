@@ -6,11 +6,11 @@
 
 @section('content')
 <section>
-    <div class="row" style="background-color: #e9ecef;">
+    <div class="row">
       <div class="p-2">
         <div class="col-md-12 col-12">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb bg-light">
               <li class="breadcrumb-item" aria-current="page">
                 <i class="ion-ios-bookmarks-outline"></i>
               </li>
@@ -33,12 +33,18 @@
             <div class="col-md-12 col-12">
                 <div class="row p-4">
                     <div class="col-md-12 col-12">
-                        <div class="text-center">
-                            <h2>Book Treatment Details</h2>
+                        <div class="clearfix">
+                          <div class="float-left">
+                            <h3 class="float-left">{{$hospital_detail->name}}</h3><br>
+                            <h6 class="float-left">{!!$hospital_detail->address!!}</h6>
+                          </div>
+                          <div class="float-right">
+                            <small class="font-weight-bold">Book Treatment Details</small>
+                          </div>
                         </div>
                         <hr class="my-hr">
                     </div>
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-3 col-12">
                         <legend>{{$hospital_detail->thrid_categories_name}}</legend>
                         <p>
                             Type of program : <b>{{$hospital_detail->hospital_programs_name}}</b> <br>
@@ -46,7 +52,10 @@
                             Service Fees : <b>${{number_format($hospital_detail->hospital_programs_price,2,",",".")}}</b>
                         </p>
                         <legend>Program Include :</legend>
-                        <ul class="list-unstyled">
+                        <p>
+                          {!!$hospital_detail->hospital_programs_description!!}
+                        </p>
+                        {{-- <ul class="list-unstyled">
                           <li>Lorem ipsum dolor sit amet</li>
                           <li>Consectetur adipiscing elit</li>
                           <li>Integer molestie lorem at massa</li>
@@ -62,19 +71,18 @@
                           <li>Faucibus porta lacus fringilla vel</li>
                           <li>Aenean sit amet erat nunc</li>
                           <li>Eget porttitor lorem</li>
-                        </ul>
+                        </ul> --}}
                     </div>
-                    <div class="col-md-6 col-12">
-                        <from>
+                    <div class="col-md-5 col-12">
+                        <form action="{{route('process-booked')}}" method="POST">
+                          {{ csrf_field() }}
                           <div class="form-group">
                               <div class="row">
                                 <div class="col">
-                                  <small for="exampleFormControlSelect1">Date Form :</small>
-                                  <input type="date" class="form-control" placeholder="Date Start">
-                                </div>
-                                <div class="col">
-                                  <small for="exampleFormControlSelect1">To :</small>
-                                  <input type="date" class="form-control" placeholder="Date Finish">
+                                  <small for="exampleFormControlSelect1">Date :</small>
+                                  <input type="hidden" name="hospital_program_id" id="hospital_program_id" value="{{$hospital_detail->hospital_programs_id}}">
+                                  <input type="date" class="form-control" placeholder="Date Start" name="start_date" id="start_date">
+                                  <i class="ion-ios-information-outline"></i> <small>Default counted 3 days</small>
                                 </div>
                               </div>
                           </div>
@@ -117,8 +125,10 @@
                               <div class="row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="hos_air" value="1">
-                                      <label class="custom-control-label" for="hos_air">
+                                      <input type="checkbox" class="custom-control-input"
+                                             onchange="document.getElementById('transfer_arrival_id').disabled = !this.checked;" 
+                                             id="air_hos" value="1">
+                                      <label class="custom-control-label" for="air_hos">
                                         Airport to Hospital
                                       </label>
                                     </div>
@@ -136,7 +146,7 @@
                                               ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
                                               ->get();
                                           @endphp
-                                          <select class="custom-select mr-sm-2" name="transfer_arrival_id" id="transfer_arrival_id" id="inlineFormCustomSelect">
+                                          <select class="custom-select mr-sm-2" name="transfer_arrival_id" id="transfer_arrival_id" disabled>
                                             <option selected>Choose...</option>
                                             @foreach($transfer_arrivals as $value)
                                               <option value="{{$value->transfer_arrival_id}}">{{$value->transfer_arrival_name}}</option>
@@ -154,7 +164,8 @@
                                               ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
                                               ->get();
                                           @endphp
-                                          <select class="custom-select mr-sm-2" name="transfer_arrival_type_id" id="transfer_arrival_type_id" id="inlineFormCustomSelect">
+                                          <select class="custom-select mr-sm-2" name="transfer_arrival_type_id" 
+                                                  id="transfer_arrival_type_id">
                                             <option selected>Choose...</option>
                                             @foreach($transfer_arrival_types as $value)
                                               <option value="{{$value->transfer_arrival_types_id}}">{{$value->transfer_arrival_types_name}}</option>
@@ -165,8 +176,8 @@
                                 </div>
                                 <div class="col-12 mt-2">
                                     <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="air_hos" value="1">
-                                      <label class="custom-control-label" for="air_hos">Hospital to Airport</label>
+                                      <input type="checkbox" class="custom-control-input" id="hos_air" value="1">
+                                      <label class="custom-control-label" for="hos_air">Hospital to Airport</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -210,8 +221,12 @@
                                     </div>
                                 </div>
                                 <div class="col-12"><br>
-                                    <h3 class="float-left font-weight-bold">Total Cost : ${{number_format($hospital_detail->hospital_programs_price,2,",",".")}}</h3><br>
-                                    <p class="float-left">i : The prices may vary depending on the stage of disease</p>
+                                  <div class="clearfix">
+                                    <p class="float-left">Total Cost :</p>
+                                    <h3 class="float-right font-weight-bold">${{number_format($hospital_detail->hospital_programs_price,2,",",".")}}</h3>
+                                  </div><br>
+                                    <i class="ion-ios-information-outline float-left"></i>
+                                    <small class="float-left mt-1">&nbsp;The prices may vary depending on the stage of disease</small>
                                 </div>
                               </div>
                           </div>
@@ -224,7 +239,27 @@
                               <button type="submit" class="btn btn-block btn-lg btn-outline-success">Book Now</button>
                             @endguest
                           </div>
-                        </from>
+                        </form>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card border-primary mb-3">
+                        <div class="card-body">
+                          <small>All Program : {{$hospital_detail->second_categories_name}}</small>
+                          <hr>
+                          <h4 class="text-left text-dark">{{$hospital_detail->name}}</h4>
+                          <small class="text-right">{!!$hospital_detail->address!!}</small>
+                          <div class="list-group border-0">
+                            @foreach($hospital_program_all as $value)
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="clearfix">
+                                <h5 class="float-left mb-1">{{$value->hospital_programs_name}}</h5>
+                                <small class="float-right text-warning">${{number_format($value->hospital_programs_price,2,",",".")}}</small><br>
+                              </div>
+                            </a>
+                            @endforeach
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -235,4 +270,19 @@
       </div>
     </div>
 </section>
+@endsection
+
+@section('javascript')
+<script>
+$(document).ready(function(){
+  // Transfer_arrivals
+  $('#transfer_arrival_id').attr('disabled', true);
+  $('#air_hos').click(function(){
+    if($(this).is(':checked'))
+    { $('#transfer_arrival_id').attr('disabled',false); }
+    else
+    { $('#transfer_arrival_id').attr('disabled',true); }
+  });
+});
+</script>
 @endsection

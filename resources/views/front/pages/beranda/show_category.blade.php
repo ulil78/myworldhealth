@@ -6,11 +6,11 @@
 
 @section('content')
 <section>
-    <div class="row" style="background-color: #e9ecef;">
+    <div class="row">
       <div class="p-2">
         <div class="col-md-12 col-12">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb bg-light">
               <li class="breadcrumb-item" aria-current="page">
                 <i class="ion-ios-bookmarks-outline"></i>
               </li>
@@ -24,7 +24,7 @@
           </nav>
         </div>
         <div class="col-md-12 col-12">
-          <div class="clearfix">
+          <div class="clearfix p-1">
             <div class="float-left">
               Filter
             </div>
@@ -94,11 +94,11 @@
                                             ${{number_format($value->hospital_programs_price,2,",",".")}}
                                           </h3>
                                         </div>
-                                        <div class="float-right">
-                                          <a href="{{route('show-detail-category', $value->hospitals_slug)}}">
-                                            <button class="btn btn-block btn-outline-primary">More</button>
-                                          </a>
-                                        </div>
+                                        <a href="{{route('show-detail-category', $value->hospitals_slug)}}">
+                                          <div class="float-right">
+                                              <button class="btn btn-block btn-outline-primary">More</button>
+                                          </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
