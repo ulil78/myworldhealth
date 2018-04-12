@@ -7,8 +7,8 @@
 @section('content')
 <section>
     <div class="row">
-        <div class="col-md-12 col-12">
-            <div class="row p-2">
+        <div class="col-md-12 col-12 p-4">
+            <div class="row">
                 <div class="col-md-12 col-12">
                     <h3 class="display-6">Last Hospital</h3>
                     {{-- <hr class="bg-dark w-25 ml-0"> --}}
@@ -26,8 +26,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 col-12">
-            <div class="row p-2">
+        <div class="col-md-12 col-12 p-4">
+            <div class="row">
                 <div class="col-md-4 col-12">
                     <legend>Our Partners</legend>
                     <p class="lead text-secondary">Our hospital and travel partner all around the world</p>
@@ -54,8 +54,8 @@
 </section>
 <section>
     <div class="row">
-        <div class="col-md-12 col-12">
-            <div class="row p-2">
+        <div class="col-md-12 col-12 p-4">
+            <div class="row">
                 <div class="col-md-12 col-12">
                     <legend>Client Reviews</legend>
                 </div>
@@ -117,8 +117,8 @@
 </section>
 <section>
     <div class="row" style="background-color: #e6e6e6;">
-        <div class="col-md-12 col-12">
-            <div class="row p-2">
+        <div class="col-md-12 col-12 p-4">
+            <div class="row">
                 <div class="col-md-12 col-12">
                     <h3 class="text-center text-dark">Why book with us?</h3>
                     <hr class="my-hr">
@@ -149,8 +149,8 @@
 </section>
 <section>
     <div class="row">
-        <div class="col-md-12 col-12">
-            <div class="row p-2">
+        <div class="col-md-12 col-12 p-4">
+            <div class="row">
                 <div class="col-md-12 col-12 text-center">
                     <i class="ion-ios-chatboxes-outline d-flex justify-content-center" style="font-size: 60px;"></i>
                     <h5 class="text-center text-dark">Do you still have questions? Please contact us!</h5>

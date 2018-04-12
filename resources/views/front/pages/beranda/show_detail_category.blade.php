@@ -10,7 +10,7 @@
       <div class="p-2">
         <div class="col-md-12 col-12">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-light">
+            <ol class="breadcrumb justify-content-center" style="background-color: #e9ecef00!important;">
               <li class="breadcrumb-item" aria-current="page">
                 <i class="ion-ios-bookmarks-outline"></i>
               </li>
@@ -39,7 +39,7 @@
                             <h6 class="float-left">{!!$hospital_detail->address!!}</h6>
                           </div>
                           <div class="float-right">
-                            <small class="font-weight-bold">Book Treatment Details</small>
+                            <small class="font-weight-bold text-primary">Book Treatment Details</small>
                           </div>
                         </div>
                         <hr class="my-hr">
@@ -48,30 +48,13 @@
                         <legend>{{$hospital_detail->thrid_categories_name}}</legend>
                         <p>
                             Type of program : <b>{{$hospital_detail->hospital_programs_name}}</b> <br>
-                            Expected Duration : <b>3 Days</b> <br>
+                            Expected Duration : <b>{{$hospital_detail->hospital_programs_duration}} Days</b> <br>
                             Service Fees : <b>${{number_format($hospital_detail->hospital_programs_price,2,",",".")}}</b>
                         </p>
                         <legend>Program Include :</legend>
                         <p>
                           {!!$hospital_detail->hospital_programs_description!!}
                         </p>
-                        {{-- <ul class="list-unstyled">
-                          <li>Lorem ipsum dolor sit amet</li>
-                          <li>Consectetur adipiscing elit</li>
-                          <li>Integer molestie lorem at massa</li>
-                          <li>Facilisis in pretium nisl aliquet</li>
-                          <li>Nulla volutpat aliquam velit
-                            <ul>
-                              <li>Phasellus iaculis neque</li>
-                              <li>Purus sodales ultricies</li>
-                              <li>Vestibulum laoreet porttitor sem</li>
-                              <li>Ac tristique libero volutpat at</li>
-                            </ul>
-                          </li>
-                          <li>Faucibus porta lacus fringilla vel</li>
-                          <li>Aenean sit amet erat nunc</li>
-                          <li>Eget porttitor lorem</li>
-                        </ul> --}}
                     </div>
                     <div class="col-md-5 col-12">
                         <form action="{{route('process-booked')}}" method="POST">
@@ -82,7 +65,7 @@
                                   <small for="exampleFormControlSelect1">Date :</small>
                                   <input type="hidden" name="hospital_program_id" id="hospital_program_id" value="{{$hospital_detail->hospital_programs_id}}">
                                   <input type="date" class="form-control" placeholder="Date Start" name="start_date" id="start_date">
-                                  <i class="ion-ios-information-outline"></i> <small>Default counted 3 days</small>
+                                  <i class="ion-ios-information-outline"></i> <small>Default counted {{$hospital_detail->hospital_programs_duration}} days</small>
                                 </div>
                               </div>
                           </div>
@@ -94,12 +77,13 @@
                                   <div class="row mt-2">
                                     <div class="col-md-6">
                                       <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="check_in" value="1">
+                                        <input type="checkbox" class="custom-control-input"
+                                             onchange="document.getElementById('interpreter_qty').disabled = !this.checked;"  id="check_in" value="1">
                                         <label class="custom-control-label" for="check_in">Interpreter / hour $10</label>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
-                                      <input type="number" class="form-control" min="0" name="interpreter_qty" id="interpreter_qty">
+                                      <input type="number" class="form-control" min="0" name="interpreter_qty" id="interpreter_qty" disabled>
                                     </div>
                                   </div>
                                 </div>
@@ -107,14 +91,15 @@
                                   <div class="row mt-2">
                                     <div class="col-md-6">
                                       <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="check_doc" value="1">
+                                        <input type="checkbox" class="custom-control-input"
+                                             onchange="document.getElementById('translation_med_document_qty').disabled = !this.checked;"  id="check_doc" value="1">
                                         <label class="custom-control-label" for="check_doc">
                                           Translations of Medical Document / page $ 2
                                         </label>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
-                                      <input type="number" class="form-control" min="0" name="translation_med_document_qty" id="translation_med_document_qty">
+                                      <input type="number" class="form-control" min="0" name="translation_med_document_qty" id="translation_med_document_qty" disabled>
                                     </div>
                                   </div>
                                 </div>
@@ -233,10 +218,10 @@
                           <div class="form-group">
                             @guest
                               <button class="btn btn-block btn-lg btn-outline-primary" data-toggle="modal" data-target="#register_modal">
-                                Register Now!
+                                Register now!
                               </button>
                             @else
-                              <button type="submit" class="btn btn-block btn-lg btn-outline-success">Book Now</button>
+                              <button type="submit" class="btn btn-block btn-lg btn-outline-success">Book now</button>
                             @endguest
                           </div>
                         </form>
@@ -250,12 +235,14 @@
                           <small class="text-right">{!!$hospital_detail->address!!}</small>
                           <div class="list-group border-0">
                             @foreach($hospital_program_all as $value)
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                              <div class="clearfix">
-                                <h5 class="float-left mb-1">{{$value->hospital_programs_name}}</h5>
-                                <small class="float-right text-warning">${{number_format($value->hospital_programs_price,2,",",".")}}</small><br>
-                              </div>
-                            </a>
+                                @if($value->hospital_programs_id != $hospital_detail->hospital_programs_id)
+                                <a href="{{route('show-detail-category', $value->hospital_programs_id)}}" target="_blank" class="list-group-item list-group-item-action flex-column align-items-start">
+                                  <div class="clearfix">
+                                    <h6 class="float-left mb-1">{{$value->hospital_programs_name}}</h6>
+                                    <small class="float-right text-warning">${{number_format($value->hospital_programs_price,2,",",".")}}</small><br>
+                                  </div>
+                                </a>
+                                @endif
                             @endforeach
                           </div>
                         </div>

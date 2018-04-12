@@ -49,6 +49,7 @@ class FrontController extends Controller
 	        $hospital_program = \DB::table('hospitals')
 			->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
 			->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
+			->join('thrid_categories', 'hospital_programs.thrid_category_id', '=', 'thrid_categories.id')
 			->join('cities', 'cities.id', '=', 'hospitals.city_id')
 			->join('countries', 'countries.id', '=', 'cities.country_id')
 			->select(// Hospital
@@ -58,8 +59,13 @@ class FrontController extends Controller
 					 'hospitals.address as address',
 					 'hospitals.description as description',
 					 'hospitals.phone as phone',
+					 // Category 3
+					 'thrid_categories.name as thrid_categories_name',
+					 'thrid_categories.slug as thrid_categories_slug',
 					 // Program
+					 'hospital_programs.id as hospital_programs_id',
 					 'hospital_programs.name as hospital_programs_name',
+					 'hospital_programs.slug as hospital_programs_slug',
 					 'hospital_programs.price as hospital_programs_price',
 					 // Dept
 					 'hospital_departments.name as hospital_departments_name',
@@ -83,7 +89,7 @@ class FrontController extends Controller
 		}
 	}
 // Function Detail
-	public function show_detail_category($slug)
+	public function show_detail_category($id)
 	{
 	    // Hospital Program First
         $hospital_detail = \DB::table('hospitals')
@@ -101,15 +107,20 @@ class FrontController extends Controller
 				 'hospitals.description as description',
 				 'hospitals.phone as phone',
 				 'hospitals.pic as pic',
+				 // Category
 				 'first_categories.name as first_categories_name',
 				 'second_categories.name as second_categories_name',
 				 'second_categories.slug as second_categories_slug',
+				 'thrid_categories.id as thrid_categories_id',
 				 'thrid_categories.name as thrid_categories_name',
+				 'thrid_categories.slug as thrid_categories_slug',
 				 // Hospital Image
 				 // Program
 				 'hospital_programs.id as hospital_programs_id',
 				 'hospital_programs.name as hospital_programs_name',
+				 'hospital_programs.slug as hospital_programs_slug',
 				 'hospital_programs.price as hospital_programs_price',
+				 'hospital_programs.duration as hospital_programs_duration',
 				 'hospital_programs.description as hospital_programs_description',
 				 // Dept
 				 'hospital_departments.name as hospital_departments_name',
@@ -119,10 +130,9 @@ class FrontController extends Controller
 				 'countries.name as countries_name')
 		->where([
 		    ['hospital_programs.status', '=', 'true'],
-		    ['hospitals.slug', '=', $slug],
+		    ['hospital_programs.id', '=', $id],
 		])
 		->first();
-
 	    // Hospital Program All
         $hospital_program_all = \DB::table('hospitals')
 		->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
@@ -134,12 +144,15 @@ class FrontController extends Controller
 		->join('countries', 'countries.id', '=', 'cities.country_id')
 		->select(// Hospital
 				 'hospitals.id as id',
+				 'hospitals.slug as slug',
 				 'hospitals.name as name',
 				 'hospitals.address as address',
 				 // Program
 				 'hospital_programs.id as hospital_programs_id',
 				 'hospital_programs.name as hospital_programs_name',
 				 'hospital_programs.price as hospital_programs_price',
+				 // Category
+				 'thrid_categories.slug as thrid_categories_slug',
 				 // Dept
 				 'hospital_departments.name as hospital_departments_name',
 				 // 'hospital_departments.description as hospital_departments_description ',
@@ -148,7 +161,7 @@ class FrontController extends Controller
 				 'countries.name as countries_name')
 		->where([
 		    ['hospital_programs.status', '=', 'true'],
-		    ['hospitals.slug', '=', $slug],
+			['hospital_programs.thrid_category_id', '=', $hospital_detail->thrid_categories_id],
 		])
 		->get();
 		// dd($hospital_detail);

@@ -7,10 +7,9 @@
 @section('content')
 <section>
     <div class="row">
-      <div class="p-2">
-        <div class="col-md-12 col-12">
+        <div class="col-md-12 col-12 p-2">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-light">
+            <ol class="breadcrumb justify-content-center" style="background-color: #e9ecef00!important;">
               <li class="breadcrumb-item" aria-current="page">
                 <i class="ion-ios-bookmarks-outline"></i>
               </li>
@@ -23,8 +22,8 @@
             </ol>
           </nav>
         </div>
-        <div class="col-md-12 col-12">
-          <div class="clearfix p-1">
+        <div class="col-md-12 col-12 p-1">
+          <div class="clearfix">
             <div class="float-left">
               Filter
             </div>
@@ -47,7 +46,7 @@
           <div class="row">
           @forelse($hospital_program as $value)
             <div class="col-md-12 col-12">
-                <div class="card" style="width: 70rem;">
+                <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 col-12">
@@ -94,7 +93,7 @@
                                             ${{number_format($value->hospital_programs_price,2,",",".")}}
                                           </h3>
                                         </div>
-                                        <a href="{{route('show-detail-category', $value->hospitals_slug)}}">
+                                        <a href="{{route('show-detail-category', $value->hospital_programs_id)}}">
                                           <div class="float-right">
                                               <button class="btn btn-block btn-outline-primary">More</button>
                                           </div>
@@ -104,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><br>
             </div>
             @empty
             <div class="col-md-12 col-12">
@@ -121,7 +120,6 @@
           </div>
             
           </div>
-      </div>
     </div>
 </section>
 @endsection
