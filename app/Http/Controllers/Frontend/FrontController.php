@@ -333,8 +333,7 @@ class FrontController extends Controller
 							 'cities.name as cities_name',
 							 'countries.name as countries_name')
 					->where([
-					    ['hospital_programs.status', '=', 'true'],
-					    ['cities.name', '=', $search],					    
+					    ['hospital_programs.status', '=', 'true'],	    
 					])
 					->orWhere('cities.name', 'like', $search.'%')
 					->orWhere('hospitals.name', 'like', $search.'%')
@@ -347,6 +346,58 @@ class FrontController extends Controller
 			->with('query', $query)
 			->with('search_result', $result);
         }
+	}
+	public function search_filter(Request $request)
+	{
+        $this->validate(request(), [
+            'search_city'   => 'required',
+            'search_country'   => 'required',
+        ]);
+        $search_city = $request->get('search_city');
+        $search_country = $request->get('search_country');
+        // dd($search_city);
+    	$query = DB::table('hospitals')
+				->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
+				->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
+				->join('first_categories', 'hospital_programs.first_category_id', '=', 'first_categories.id')
+				->join('second_categories', 'hospital_programs.second_category_id', '=', 'second_categories.id')
+				->join('thrid_categories', 'hospital_programs.thrid_category_id', '=', 'thrid_categories.id')
+				->join('cities', 'cities.id', '=', 'hospitals.city_id')
+				->join('countries', 'countries.id', '=', 'cities.country_id')
+				->select(// Hospital
+						 'hospitals.id as id',
+						 'hospitals.name as name',
+						 'hospitals.address as address',
+						 // Program
+						 'hospital_programs.id as hospital_programs_id',
+						 'hospital_programs.name as hospital_programs_name',
+						 'hospital_programs.description as hospital_programs_description',
+						 'hospital_programs.price as hospital_programs_price',
+						 // Dept
+						 'hospital_departments.name as hospital_departments_name',
+						 // 'hospital_departments.description as hospital_departments_description ',
+						 // Category
+			 			 'second_categories.name as second_categories_name',
+			 			 'second_categories.description as second_categories_description',
+						 // City & Country
+						 'cities.name as cities_name',
+						 'countries.name as countries_name')
+				->where([
+				    ['hospital_programs.status', '=', 'true'],		    
+				])
+				->orWhere('cities.name', 'like', $search_city.'%')
+				->orWhere('countries.name', 'like', $search_country.'%')
+				->get();
+				// Set session
+				$request->session()->put('search_city', $search_city);
+				$request->session()->put('search_country', $search_country);
+				// Get session
+				$search_city = $request->session()->get('search_city');
+				$search_country = $request->session()->get('search_country');
+		return view('front.pages.beranda.show_filter_result')
+		->with('search_city', $search_city)
+		->with('search_country', $search_country)
+		->with('query', $query);
 	}
 
 	public function process_booked(Request $request)

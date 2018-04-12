@@ -13,7 +13,11 @@
                     <div class="clearfix">
                         <p class="float-left">
                             <i class="ion-ios-search-strong" style="font-size: 20px"></i> 
-                            Your search result in :<b>{{$search_result}}</b>
+                            @if (session()->has('search_city'))
+                            Your search city result in :<b>{{$search_city}}</b>
+                            @else
+                            Your search country result in :<b>{{$search_country}}</b>
+                            @endif
                         </p>
                         <div class="col-md-2 float-right">
                             <select class="form-control form-control-sm col-12" id="exampleFormControlSelect1">
