@@ -13,6 +13,7 @@ use Session;
 use Auth;
 use DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -72,6 +73,7 @@ class FrontController extends Controller
 					 // Program
 					 'hospital_programs.id as hospital_programs_id',
 					 'hospital_programs.name as hospital_programs_name',
+					 'hospital_programs.description as hospital_programs_description',
 					 'hospital_programs.slug as hospital_programs_slug',
 					 'hospital_programs.price as hospital_programs_price',
 					 // Dept
@@ -92,7 +94,7 @@ class FrontController extends Controller
 															->with('hospital_program', $hospital_program);
 		}else{
 			// Return View
-			return view('front.pages.beranda.error.error_show_category');
+			return view('front.pages.beranda.components.error.error_show_category');
 		}
 	}
 // Function Detail
@@ -186,7 +188,6 @@ class FrontController extends Controller
         $category = $request->get('category');
         $search = $request->get('search');
         // dd($category);
-
         if($category == 'service'){
         	$query = DB::table('hospitals')
 					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
@@ -203,10 +204,14 @@ class FrontController extends Controller
 							 // Program
 							 'hospital_programs.id as hospital_programs_id',
 							 'hospital_programs.name as hospital_programs_name',
+							 'hospital_programs.description as hospital_programs_description',
 							 'hospital_programs.price as hospital_programs_price',
 							 // Dept
 							 'hospital_departments.name as hospital_departments_name',
 							 // 'hospital_departments.description as hospital_departments_description ',
+							 // Category
+				 			 'second_categories.name as second_categories_name',
+				 			 'second_categories.description as second_categories_description',
 							 // City & Country
 							 'cities.name as cities_name',
 							 'countries.name as countries_name')
@@ -215,10 +220,13 @@ class FrontController extends Controller
 					    ['hospital_programs.name', 'like', $search.'%'],					   
 					])
 					->get();
-
-        	dd($query);
-
-			// return view('front.pages.beranda.show_result');
+					// Set session
+					$request->session()->put('search_result', $search);
+					// Get session
+					$result = $request->session()->get('search_result');
+			return view('front.pages.beranda.show_result')
+			->with('query', $query)
+			->with('search_result', $result);
         }elseif($category == 'hospital'){
         	$query = DB::table('hospitals')
 					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
@@ -235,10 +243,14 @@ class FrontController extends Controller
 							 // Program
 							 'hospital_programs.id as hospital_programs_id',
 							 'hospital_programs.name as hospital_programs_name',
+							 'hospital_programs.description as hospital_programs_description',
 							 'hospital_programs.price as hospital_programs_price',
 							 // Dept
 							 'hospital_departments.name as hospital_departments_name',
 							 // 'hospital_departments.description as hospital_departments_description ',
+							 // Category
+				 			 'second_categories.name as second_categories_name',
+				 			 'second_categories.description as second_categories_description',
 							 // City & Country
 							 'cities.name as cities_name',
 							 'countries.name as countries_name')
@@ -247,8 +259,13 @@ class FrontController extends Controller
 					    ['hospitals.name',  'like', $search.'%' ],
 					])
 					->get();
-
-        	dd($query);
+					// Set session
+					$request->session()->put('search_result', $search);
+					// Get session
+					$result = $request->session()->get('search_result');
+			return view('front.pages.beranda.show_result')
+			->with('query', $query)
+			->with('search_result', $result);
         }elseif($category == 'city'){
         	$query = DB::table('hospitals')
 					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
@@ -265,10 +282,14 @@ class FrontController extends Controller
 							 // Program
 							 'hospital_programs.id as hospital_programs_id',
 							 'hospital_programs.name as hospital_programs_name',
+							 'hospital_programs.description as hospital_programs_description',
 							 'hospital_programs.price as hospital_programs_price',
 							 // Dept
 							 'hospital_departments.name as hospital_departments_name',
 							 // 'hospital_departments.description as hospital_departments_description ',
+							 // Category
+				 			 'second_categories.name as second_categories_name',
+				 			 'second_categories.description as second_categories_description',
 							 // City & Country
 							 'cities.name as cities_name',
 							 'countries.name as countries_name')
@@ -277,8 +298,13 @@ class FrontController extends Controller
 					    ['cities.name', 'like', $search.'%'],
 					 ])
 					->get();
-
-        	dd($query);
+					// Set session
+					$request->session()->put('search_result', $search);
+					// Get session
+					$result = $request->session()->get('search_result');
+			return view('front.pages.beranda.show_result')
+			->with('query', $query)
+			->with('search_result', $result);
         }else{
         	$query = DB::table('hospitals')
 					->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
@@ -295,10 +321,14 @@ class FrontController extends Controller
 							 // Program
 							 'hospital_programs.id as hospital_programs_id',
 							 'hospital_programs.name as hospital_programs_name',
+							 'hospital_programs.description as hospital_programs_description',
 							 'hospital_programs.price as hospital_programs_price',
 							 // Dept
 							 'hospital_departments.name as hospital_departments_name',
 							 // 'hospital_departments.description as hospital_departments_description ',
+							 // Category
+				 			 'second_categories.name as second_categories_name',
+				 			 'second_categories.description as second_categories_description',
 							 // City & Country
 							 'cities.name as cities_name',
 							 'countries.name as countries_name')
@@ -309,8 +339,13 @@ class FrontController extends Controller
 					->orWhere('cities.name', 'like', $search.'%')
 					->orWhere('hospitals.name', 'like', $search.'%')
 					->get();
-
-        	dd($query);
+					// Set session
+					$request->session()->put('search_result', $search);
+					// Get session
+					$result = $request->session()->get('search_result');
+			return view('front.pages.beranda.show_result')
+			->with('query', $query)
+			->with('search_result', $result);
         }
 	}
 
@@ -325,16 +360,11 @@ class FrontController extends Controller
             'transfer_return_id'   => 'required',
             'transfer_return_type_id'   => 'required',
         ]);
-        $hospital_program_id = $request->input('hospital_program_id');
-        $start_date = $request->input('start_date');
-        $interpreter_qty = $request->input('interpreter_qty');
-        $translation_med_document_qty = $request->input('translation_med_document_qty');
-        $transfer_arrival_id = $request->input('transfer_arrival_id');
-        $transfer_arrival_type_id = $request->input('transfer_arrival_type_id');
-        $transfer_return_id = $request->input('transfer_return_id');
-        $transfer_return_type_id = $request->input('transfer_return_type_id');
-        $all_data = $request->session()->all();
-		// dd(session()->all());
+
+      	$input = Input::all();
+        // Session
+        \Session::put('data', $input);
+		dd($input);
         $user = User::where('email', Auth::user()->email)->first();
         // dd($user);
         if(count($user) > 0){ // Cek

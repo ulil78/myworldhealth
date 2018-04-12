@@ -13,33 +13,36 @@
       <form action="{{route('login')}}" method="post">
         <div class="modal-body">
           {{ csrf_field() }}
-          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-              <label for="email" class="col-md-12 control-label">E-Mail Address</label>
-              <div class="col-md-12">
-                  <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+          <div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color: #fff!important;">
+                <i class="ion-ios-email-outline" style="font-size: 20px;"></i>
+              </span>
+            </div>
+            <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
 
-                  @if ($errors->has('email'))
-                      <small class="text-danger">
-                          <b>{{ $errors->first('email') }}</b>
-                      </small>
-                  @endif
-              </div>
+            @if ($errors->has('email'))
+                <small class="text-danger">
+                    <b>{{ $errors->first('email') }}</b>
+                </small>
+            @endif
           </div>
+          <br>
+          <div class="input-group{{ $errors->has('password') ? ' has-error' : '' }}">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color: #fff!important;">
+                <i class="ion-ios-locked-outline" style="font-size: 20px;"></i>
+              </span>
+            </div>
+            <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
 
-          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-              <label for="password" class="col-md-12 control-label">Password</label>
-
-              <div class="col-md-12">
-                  <input id="password" type="password" class="form-control" name="password" required>
-
-                  @if ($errors->has('password'))
-                      <small class="text-danger">
-                          <b>{{ $errors->first('password') }}</b>
-                      </small>
-                  @endif
-              </div>
+            @if ($errors->has('password'))
+                <small class="text-danger">
+                    <b>{{ $errors->first('password') }}</b>
+                </small>
+            @endif
           </div>
-
+          <br>
           <div class="form-group">
               <div class="col-md-12 col-md-offset-4">
                   <div class="checkbox">
@@ -49,9 +52,11 @@
                   </div>
               </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-warning btn-block text-light">Login</button>
+          <div class="form-group">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-warning btn-block text-light">Login</button>
+              </div>
+          </div>
         </div>
       </form>
     </div>

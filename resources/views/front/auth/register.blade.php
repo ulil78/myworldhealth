@@ -62,9 +62,12 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-warning btn-block text-light">Register</button>
+          <hr>
+          <div class="form-group">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-warning btn-block text-light">Register</button>
+              </div>
+          </div>
         </div>
       </form>
     </div>

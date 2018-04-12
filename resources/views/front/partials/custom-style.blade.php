@@ -48,15 +48,31 @@
         background: url('https://bookinghealth.info/i/img/bg1_5.jpeg') no-repeat;*/
     }
     #banner-promo {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: url("https://www.bannerhealth.com/-/media/images/hero-images/careers/femaledoctorchildpatientd.jpg") 0 0 no-repeat fixed;
+/*        background-size: cover;
         background: url(https://www.bannerhealth.com/-/media/images/hero-images/careers/femaledoctorchildpatientd.jpg) 0 0 no-repeat fixed; 
         background-position: center top;
         max-width: 100%;
         width: 100%;
         height: auto;
-        /*height: 100%;*/
+        /*height: 100%;
         overflow: hidden;
-        color: #FFFFFF; 
+        color: #FFFFFF; */
+        color: #ffffff;
      }
+     #banner-promo:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(to bottom right, #1d1d1d, #9da4c7);
+        opacity: .6;
+      }
     .nav_metallic{
       color: #3399ff;
       background-color: #3399ff;

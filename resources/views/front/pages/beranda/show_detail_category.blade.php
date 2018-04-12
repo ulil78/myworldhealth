@@ -8,26 +8,9 @@
 <section>
     <div class="row">
       <div class="p-2">
-        <div class="col-md-12 col-12">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb justify-content-center" style="background-color: #e9ecef00!important;">
-              <li class="breadcrumb-item" aria-current="page">
-                <i class="ion-ios-bookmarks-outline"></i>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a class="text-dark" href="{{route('beranda')}}">Home</a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                <a class="text-dark" href="{{ url('hospitals/categories/'.$hospital_detail->second_categories_slug.'') }}">
-                  {{$hospital_detail->second_categories_name}}
-                </a>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                {{$hospital_detail->thrid_categories_name}}
-              </li>
-            </ol>
-          </nav>
-        </div>
+        {{-- Breadcrumb Components Pages --}}
+        @include('front.pages.beranda.components.breadcrumb-show_detail_category')
+        {{-- End Breadcrumb Components Pages --}}
         <div class="d-flex justify-content-center">
           <div class="row">
             <div class="col-md-12 col-12">
@@ -132,7 +115,7 @@
                                               ->get();
                                           @endphp
                                           <select class="custom-select mr-sm-2" name="transfer_arrival_id" id="transfer_arrival_id" disabled>
-                                            <option selected>Choose...</option>
+                                            <option selected disabled>Choose...</option>
                                             @foreach($transfer_arrivals as $value)
                                               <option value="{{$value->transfer_arrival_id}}">{{$value->transfer_arrival_name}}</option>
                                             @endforeach
@@ -151,7 +134,7 @@
                                           @endphp
                                           <select class="custom-select mr-sm-2" name="transfer_arrival_type_id" 
                                                   id="transfer_arrival_type_id">
-                                            <option selected>Choose...</option>
+                                            <option selected disabled>Choose...</option>
                                             @foreach($transfer_arrival_types as $value)
                                               <option value="{{$value->transfer_arrival_types_id}}">{{$value->transfer_arrival_types_name}}</option>
                                             @endforeach
@@ -179,7 +162,7 @@
                                               ->get();
                                           @endphp
                                           <select class="custom-select mr-sm-2" name="transfer_return_id" id="transfer_return_id" id="inlineFormCustomSelect">
-                                            <option selected>Choose...</option>
+                                            <option selected disabled>Choose...</option>
                                             @foreach($transfer_returns as $value)
                                               <option value="{{$value->transfer_returns_id}}">{{$value->transfer_returns_name}}</option>
                                             @endforeach
@@ -197,7 +180,7 @@
                                               ->get();
                                           @endphp
                                           <select class="custom-select mr-sm-2" name="transfer_return_type_id" id="transfer_return_type_id" id="inlineFormCustomSelect">
-                                            <option selected>Choose...</option>
+                                            <option selected disabled>Choose...</option>
                                             @foreach($transfer_return_types as $value)
                                               <option value="{{$value->transfer_return_types_id}}">{{$value->transfer_return_types_name}}</option>
                                             @endforeach

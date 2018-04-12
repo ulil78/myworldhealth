@@ -79,7 +79,6 @@
                                   <div class="col">
                                     <small for="exampleFormControlSelect1">Date :</small>
                                     <input type="text" class="form-control" placeholder="Card Number" name="" id="">
-                                    <i class="ion-ios-information-outline"></i> <small>Default counted 3 days</small>
                                   </div>
                                 </div>
                             </div>
