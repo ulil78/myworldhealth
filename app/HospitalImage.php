@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class HospitalImage extends Model
 {
     protected $table='hospital_images';
-    protected $fillable = ['name', 'hospital_id'];
+    protected $fillable = ['hospital_id', 'path', 'filename', 'description', 'status'];
 
     public function hospital()
     {

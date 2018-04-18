@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 // First Category Modal
+use App\AdditionalService;
 use App\FirstCategory;
 use App\SecondCategory;
 use App\WhyBooking;
 use App\Partner;
+use App\Hospital;
 use App\HospitalImage;
 use App\Review;
 use App\User;
@@ -23,10 +25,10 @@ class FrontController extends Controller
 	{
 		$data['why'] = WhyBooking::all();
 		$data['partner'] = Partner::where('status', 'true')->get();
-		$data['review'] = Review::with('users')
-		                        ->with('hospital')->where('status', 'true')
-                                ->limit(3)
-                                ->get();
+		// $data['review'] = Review::with('users')
+		//                         ->with('hospital')->where('status', 'true')
+  //                               ->limit(4)
+  //                               ->get();
         $data['hospital'] = HospitalImage::with('hospital')->where('status', 'true')
         							  ->orderBy('id', 'desc')
         							  ->take(4)
@@ -39,6 +41,17 @@ class FrontController extends Controller
 	{
 		$data['why'] = WhyBooking::all();
 		return view('front.pages.why_mwh.index', $data);
+	}
+
+	public function show_hospital($slug)
+	{   // Hospital Program First
+        $hospital_detail = Hospital::with('images')
+							->where([
+							    ['status', '=', 'true'],
+							    ['slug', '=', $slug],
+							])->first();
+		// dd($hospital_detail);
+		return view('front.pages.beranda.show_hospital')->with('hospital_detail', $hospital_detail);
 	}
 // Function Show
 	public function show_category($slug)
@@ -142,6 +155,8 @@ class FrontController extends Controller
 		    ['hospital_programs.id', '=', $id],
 		])
 		->first();
+	    // Additional Service
+	    // 
 	    // Hospital Program All
         $hospital_program_all = \DB::table('hospitals')
 		->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
@@ -173,7 +188,6 @@ class FrontController extends Controller
 			['hospital_programs.thrid_category_id', '=', $hospital_detail->thrid_categories_id],
 		])
 		->get();
-		// dd($hospital_detail);
 		// Return View
 		return view('front.pages.beranda.show_detail_category')
 		->with('hospital_detail', $hospital_detail)
@@ -349,13 +363,12 @@ class FrontController extends Controller
 	}
 	public function search_filter(Request $request)
 	{
-        $this->validate(request(), [
-            'search_city'   => 'required',
-            'search_country'   => 'required',
-        ]);
+        // $this->validate(request(), [
+        //     'search_city'   => 'required',
+        //     'search_country'   => 'required',
+        // ]);
         $search_city = $request->get('search_city');
         $search_country = $request->get('search_country');
-        // dd($search_city);
     	$query = DB::table('hospitals')
 				->join('hospital_departments', 'hospitals.id', '=', 'hospital_departments.hospital_id')
 				->join('hospital_programs', 'hospital_departments.id', '=', 'hospital_programs.hospital_department_id')
@@ -388,6 +401,7 @@ class FrontController extends Controller
 				->orWhere('cities.name', 'like', $search_city.'%')
 				->orWhere('countries.name', 'like', $search_country.'%')
 				->get();
+				$request->session()->flush();
 				// Set session
 				$request->session()->put('search_city', $search_city);
 				$request->session()->put('search_country', $search_country);
@@ -414,7 +428,7 @@ class FrontController extends Controller
 
       	$input = Input::all();
         // Session
-        \Session::put('data', $input);
+        \Session::pull('data', $input);
 		dd($input);
         $user = User::where('email', Auth::user()->email)->first();
         // dd($user);
@@ -461,5 +475,10 @@ class FrontController extends Controller
         else {
         	return redirect()->route('beranda')->with('alert','Email not registered!');
         }
+	}
+
+	public function process_detail_booked(Request $request)
+	{
+
 	}
 }

@@ -20,4 +20,9 @@ class Hospital extends Model
     {
         return $this->belongsTo('App\Merchant');
     }
+
+    public function city()
+    {
+        return $this->belongsTo('App\City');
+    }
 }

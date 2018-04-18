@@ -48,7 +48,8 @@
                                   <small for="exampleFormControlSelect1">Date :</small>
                                   <input type="hidden" name="hospital_program_id" id="hospital_program_id" value="{{$hospital_detail->hospital_programs_id}}">
                                   <input type="date" class="form-control" placeholder="Date Start" name="start_date" id="start_date">
-                                  <i class="ion-ios-information-outline"></i> <small>Default counted {{$hospital_detail->hospital_programs_duration}} days</small>
+                                  <i class="ion-ios-information-outline"></i> 
+                                  <small>Duration counted {{$hospital_detail->hospital_programs_duration}} days</small>
                                 </div>
                               </div>
                           </div>
@@ -56,36 +57,35 @@
                             <label for="exampleFormControlSelect1">You may also book :</label><hr>
                               <div class="row">
                                 <div class="col-12">
-                                <small>Additional services :</small>
-                                  <div class="row mt-2">
-                                    <div class="col-md-6">
-                                      <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                             onchange="document.getElementById('interpreter_qty').disabled = !this.checked;"  id="check_in" value="1">
-                                        <label class="custom-control-label" for="check_in">Interpreter / hour $10</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <input type="number" class="form-control" min="0" name="interpreter_qty" id="interpreter_qty" disabled>
-                                    </div>
-                                  </div>
+                                  <small>Additional services :</small>
                                 </div>
+                                @php
+                                  $additional_service = DB::table('additional_services')->where([
+                                                          ['status', '=', 'true'],
+                                                          ['hospital_program_id', '=', $hospital_detail->hospital_programs_id],
+                                                        ])->get();
+                                @endphp
+                                @forelse($additional_service as $value)
                                 <div class="col-12">
                                   <div class="row mt-2">
                                     <div class="col-md-6">
                                       <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input"
-                                             onchange="document.getElementById('translation_med_document_qty').disabled = !this.checked;"  id="check_doc" value="1">
-                                        <label class="custom-control-label" for="check_doc">
-                                          Translations of Medical Document / page $ 2
-                                        </label>
+                                             onchange="document.getElementById('interpreter_qty').disabled = !this.checked;"  id="check_in" value="{{$value->id}}">
+                                        <label class="custom-control-label" for="check_in">{{$value->name}} / hour ${{$value->price}}</label>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
-                                      <input type="number" class="form-control" min="0" name="translation_med_document_qty" id="translation_med_document_qty" disabled>
+                                      <input type="number" class="form-control" min="0" name="interpreter_qty" id="interpreter_qty" disabled="true"
+                                      onchange="javascript: if (this.options[this.selectedIndex].value == '') {document.getElementById('interpreter_qty').disabled=true;} else { document.getElementById('interpreter_qty').disabled=false;}">
                                     </div>
                                   </div>
                                 </div>
+                                @empty
+                                <div class="col-12">
+                                  <small for="exampleFormControlSelect1" class="text-danger">No Service Yet</small><hr>
+                                </div>
+                                @endforelse
                               </div>
                           </div>
                           <div class="form-group">
@@ -94,7 +94,14 @@
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
                                       <input type="checkbox" class="custom-control-input"
-                                             onchange="document.getElementById('transfer_arrival_id').disabled = !this.checked;" 
+                                             onchange="javascript:
+                                              if($(this).is(':checked')){
+                                                document.getElementById('transfer_arrival_id').disabled = false;
+                                                document.getElementById('transfer_arrival_type_id').disabled = false;
+                                              } else {
+                                                document.getElementById('transfer_arrival_id').disabled=true;
+                                                document.getElementById('transfer_arrival_type_id').disabled=true;
+                                              }" 
                                              id="air_hos" value="1">
                                       <label class="custom-control-label" for="air_hos">
                                         Airport to Hospital
@@ -132,7 +139,7 @@
                                               ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
                                               ->get();
                                           @endphp
-                                          <select class="custom-select mr-sm-2" name="transfer_arrival_type_id" 
+                                          <select class="custom-select mr-sm-2" name="transfer_arrival_type_id" disabled 
                                                   id="transfer_arrival_type_id">
                                             <option selected disabled>Choose...</option>
                                             @foreach($transfer_arrival_types as $value)
@@ -144,7 +151,15 @@
                                 </div>
                                 <div class="col-12 mt-2">
                                     <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="hos_air" value="1">
+                                      <input type="checkbox" class="custom-control-input" id="hos_air" value="1"
+                                             onchange="javascript:
+                                              if($(this).is(':checked')){
+                                                document.getElementById('transfer_return_id').disabled = false;
+                                                document.getElementById('transfer_return_type_id').disabled = false;
+                                              } else {
+                                                document.getElementById('transfer_return_id').disabled=true;
+                                                document.getElementById('transfer_return_type_id').disabled=true;
+                                              }">
                                       <label class="custom-control-label" for="hos_air">Hospital to Airport</label>
                                     </div>
                                 </div>
@@ -161,7 +176,7 @@
                                               ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
                                               ->get();
                                           @endphp
-                                          <select class="custom-select mr-sm-2" name="transfer_return_id" id="transfer_return_id" id="inlineFormCustomSelect">
+                                          <select class="custom-select mr-sm-2" name="transfer_return_id" id="transfer_return_id" disabled>
                                             <option selected disabled>Choose...</option>
                                             @foreach($transfer_returns as $value)
                                               <option value="{{$value->transfer_returns_id}}">{{$value->transfer_returns_name}}</option>
@@ -179,7 +194,7 @@
                                               ->where('hospital_programs.id', $hospital_detail->hospital_programs_id)
                                               ->get();
                                           @endphp
-                                          <select class="custom-select mr-sm-2" name="transfer_return_type_id" id="transfer_return_type_id" id="inlineFormCustomSelect">
+                                          <select class="custom-select mr-sm-2" name="transfer_return_type_id" id="transfer_return_type_id" disabled>
                                             <option selected disabled>Choose...</option>
                                             @foreach($transfer_return_types as $value)
                                               <option value="{{$value->transfer_return_types_id}}">{{$value->transfer_return_types_name}}</option>
@@ -189,10 +204,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12"><br>
-                                  <div class="clearfix">
+                                  {{-- <div class="clearfix">
                                     <p class="float-left">Total Cost :</p>
                                     <h3 class="float-right font-weight-bold">${{number_format($hospital_detail->hospital_programs_price,2,",",".")}}</h3>
-                                  </div><br>
+                                  </div><br> --}}
                                     <i class="ion-ios-information-outline float-left"></i>
                                     <small class="float-left mt-1">&nbsp;The prices may vary depending on the stage of disease</small>
                                 </div>
@@ -244,15 +259,14 @@
 
 @section('javascript')
 <script>
-$(document).ready(function(){
-  // Transfer_arrivals
-  $('#transfer_arrival_id').attr('disabled', true);
-  $('#air_hos').click(function(){
-    if($(this).is(':checked'))
-    { $('#transfer_arrival_id').attr('disabled',false); }
-    else
-    { $('#transfer_arrival_id').attr('disabled',true); }
-  });
-});
+// function eval()
+// {
+//   if (document.getElementById('transfer_arrival_id').checked) 
+//   {document.getElementById('transfer_arrival_id').disabled =false;
+//    document.getElementById('transfer_arrival_type_id').disabled=false;} 
+//   else 
+//   {document.getElementById('transfer_arrival_id').disabled=true;
+//   document.getElementById('transfer_arrival_type_id').disabled=true;}
+// }
 </script>
 @endsection

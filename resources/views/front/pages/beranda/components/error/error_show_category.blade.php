@@ -7,34 +7,25 @@
 @section('content')
 <section>
     <div class="row">
-      <div class="p-2" style="background-color: #e9ecef;">
-        <div class="col-md-12 col-12">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item" aria-current="page">
-                <i class="ion-ios-bookmarks-outline"></i>
-              </li>
-              <li class="breadcrumb-item" aria-current="page">Home
-              </li>
-              <li class="breadcrumb-item" aria-current="page">
-                Error
-              </li>
-            </ol>
-          </nav>
-        </div>
         <div class="d-flex justify-content-center">
-          <div class="col-md-12 col-12">
-              <div class="card">
-                  <div class="card-body">
-                    Not Found<hr>
-                    <small class="text-danger">Sorry your don't have a category 3 please fill the hospital using category id 3</small>
-                    <h2 class="text-center text-secondary">Not Found :(</h2>
+          <div class="col-md-12 p-2 mb-2">
+              <div class="error-template">
+                  <h1>
+                      Oops!</h1>
+                  <h2>
+                      404 Not Found</h2>
+                  <div class="error-details">
+                      Sorry, an error has occured, Requested data not found!<br>
+                      <small class="text-danger font-weight-bold">Sorry your don't have a category, please fill the hospital using third category</small>
+                  </div><br>
+                  <div class="error-actions">
+                    <a href="{{route('beranda')}}" class="btn btn-light btn-sm">
+                      <span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
                   </div>
               </div>
           </div>
             
         </div>
-      </div>
     </div>
 </section>
 @endsection

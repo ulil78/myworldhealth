@@ -53,7 +53,7 @@
                                           $program = \App\HospitalProgram::where('id', $item->hospital_program_id)->value('name');
                                         @endphp
                                         <td> {{$program}} </td>
-                                        <td> {{money_format('%.2n', $item->total_amount) }}</td>
+                                        <td> {{$item->total_amount}}</td>
                                         <td>
                                             <a href="{{url('admin/invoice/' .$item->id. '/edit')}}" class="btn btn-sm btn-default">
                                                 <i class="fa fa-search"></i> View </a>
@@ -87,7 +87,7 @@
                                           <td>
                                             {{$top_program->program_name}}
                                           </td>
-                                          <td> {{money_format('%.2n', $top_program->stotal_amount) }}</td>
+                                          <td> {{$top_program->stotal_amount}}</td>
                                           <td> {{$top_program->count_invoice}} </td>
                                           <td>
                                               <a href="{{url('admin/hospital-programs/' .$top_program->program_id. '/edit' )}}" class="btn btn-sm btn-default">
@@ -122,7 +122,7 @@
                                         <td>
                                           {{$top_program_amount->program_name}}
                                         </td>
-                                        <td> {{money_format('%.2n', $top_program_amount->stotal_amount) }}</td>
+                                        <td> {{$top_program_amount->stotal_amount}}</td>
                                         <td> {{$top_program_amount->count_invoice}} </td>
                                         <td>
                                             <a href="{{url('admin/hospital-program/' .$top_program_amount->program_id. '/edit')}}" class="btn btn-sm btn-default">

@@ -12,8 +12,8 @@ class MerchantsTableSeeder extends Seeder
     public function run()
     {
       DB::table('merchants')->insert([
-          'name' => 'marchant',
-          'email' => 'marchant@gmail.com',
+          'name' => 'Merchant',
+          'email' => 'merchant@gmail.com',
           'password' => bcrypt('1234567890'),
           'created_at' => date('Y-m-d H:i:s'),
           'updated_at' => date('Y-m-d H:i:s')

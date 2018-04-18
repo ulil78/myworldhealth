@@ -20,9 +20,9 @@
                     </div>
                 @empty
                     <div class="col-md-12 col-12">
-                        <legend>Not Found</legend>
-                        <p class="lead text-secondary">Lorem</p>
-                        <p>Not Found</p>
+                    {{-- Not Found Page --}}
+                        @include('front.partials.components.not-found-page')
+                    {{-- End Not Found Page --}}
                     </div>
                 @endforelse
             </div>

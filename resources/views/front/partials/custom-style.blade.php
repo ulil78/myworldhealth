@@ -2,6 +2,13 @@
     .h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
         font-family: Arial,sans-serif;
     }
+    /*FIXED POSITION RIGHT*/
+    #right-card {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+    /*END FIXED POSITION RIGHT*/
     div.input-group-text-front{
       background-color: #fff!important;
     }
@@ -70,7 +77,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background-image: linear-gradient(to bottom right, #1d1d1d, #9da4c7);
+        background-image: linear-gradient(to bottom right, #545454, #545454);
         opacity: .6;
       }
     .nav_metallic{
@@ -368,4 +375,96 @@
       background:#3399ff;
     }
     /*END FEEDBACK-RIGHT BUTTON */
+    /*ERROR PAGE CSS*/
+    .error-main{
+      background-color: #fff;
+      box-shadow: 0px 10px 10px -10px #5D6572;
+    }
+    .error-main h1{
+      font-weight: bold;
+      color: #444444;
+      font-size: 100px;
+      text-shadow: 2px 4px 5px #6E6E6E;
+    }
+    .error-main h6{
+      color: #42494F;
+    }
+    .error-main p{
+      color: #9897A0;
+      font-size: 14px; 
+    }
+    /*END ERROR PAGE CSS*/
+    /*BREADCRUMB CUSTOM*/
+/*    .main-section{
+        width:70%;
+        margin:0 auto;
+        margin-top:10px;
+        padding:5px;
+    }
+    .breadcrumb{
+        display: inline-block;
+        box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);
+        margin-bottom:20px;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+    .breadcrumb-second{
+        display: inline-block;
+        box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);
+        margin-bottom:20px;
+    }
+    .breadcrumb a,.breadcrumb-second a{
+        text-decoration: none;
+        float: left;
+        font-size:15px;
+        line-height: 36px;
+        padding: 0px 20px 0 40px;
+        position: relative;
+    }
+    .breadcrumb a.active, .breadcrumb a:hover,
+    .breadcrumb-second a.active, .breadcrumb-second a:hover{
+        color:#fff;
+    }
+    .breadcrumb a:after{
+        content: '';
+        position: absolute;
+        right:-16px; 
+        width: 34px; 
+        height: 34px;
+        top:1px;
+        transform: scale(0.707) rotate(45deg);
+        z-index: 1;
+        background: #666;
+        background: linear-gradient(135deg, #666, #333);
+        box-shadow: 
+            2px -2px 0 2px rgba(0, 0, 0, 0.4), 
+            3px -3px 0 2px rgba(255, 255, 255, 0.1);
+        border-radius: 0 5px 0 50px;
+    }
+    .breadcrumb-second a:after{
+        content: '';
+        position: absolute;
+        right:-16px; 
+        width: 34px; 
+        height: 34px;
+        top:1px;
+        transform: scale(0.707) rotate(45deg);
+        z-index: 1;
+        background: #666;
+        background: linear-gradient(135deg, #666, #333);
+        box-shadow: 
+            2px -2px 0 2px rgba(0, 0, 0, 0.4), 
+            3px -3px 0 2px rgba(255, 255, 255, 0.1);
+        border-radius: 0 5px 0 50px;
+    }
+    .flat a, .flat a:after {
+        background: white;
+        color: black;
+        transition: all 0.5s;
+    }
+    .flat a:hover, .flat a.active, 
+    .flat a:hover:after, .flat a.active:after{
+        background: #3399ff;
+    }*/
+    /*END BREADCRUMB CUSTOM*/
 </style>

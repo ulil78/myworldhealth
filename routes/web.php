@@ -26,6 +26,8 @@ Route::get('/booked', 'Frontend\BookingController@booked')->name('booked');
 Route::get('/getbooked', 'Frontend\BookingController@getbooked')->name('getbooked');
 Route::get('/processbooked', 'Frontend\BookingController@processbooked')->name('processbooked');
 
+Route::get('/hospitals/{slug}/detail', 'Frontend\FrontController@show_hospital')->name('show-hospital');
+
 Route::get('/hospitals/categories/{slug}', 'Frontend\FrontController@show_category')->name('show-category');
 Route::get('/hospitals/categories/{slug}/detail', 'Frontend\FrontController@show_detail_category')->name('show-detail-category');
 

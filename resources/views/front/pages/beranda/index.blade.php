@@ -10,18 +10,20 @@
         <div class="col-md-12 col-12 p-4">
             <div class="row">
                 <div class="col-md-12 col-12">
-                    <h3 class="display-6">Last Hospital</h3>
+                    <h3 class="display-6">Last Hospital</h3><br>
                     {{-- <hr class="bg-dark w-25 ml-0"> --}}
                 </div>
                 @forelse($hospital as $value)
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                    <article class="card">
-                        <div class="card-block">                            
-                            <div class="img-card">
-                                <img src="{{asset($value->path.$value->filename)}}" alt="{{$value->name}}" class="w-100" />
-                            </div>                            
-                        </div>
-                    </article>
+                    <a href="{{route('show-hospital', $value->hospital->slug)}}">
+                        <article class="card">
+                            <div class="card-block">                            
+                                <div class="img-card">
+                                    <img src="{{asset($value->path.$value->filename)}}" alt="{{$value->name}}" class="w-100" />
+                                </div>                            
+                            </div>
+                        </article>
+                    </a>
                 </div>
                 @empty
                 <div class="col-lg-3 col-md-4 col-sm-6">
@@ -64,7 +66,7 @@
         </div>
     </div>
 </section>
-<section>
+{{-- <section>
     <div class="row">
         <div class="col-md-12 col-12 p-4">
             <div class="row">
@@ -72,37 +74,33 @@
                     <legend>Client Reviews</legend>
                 </div>
                 @forelse($review as $value)
-                    <div class="col-md-4 col-12">
-                        <div class="card" style="width: 18rem;">
+                    <div class="col-md-3 col-12">
+                        <div class="card border-0">
                           <div class="card-body">
-                            <div class="clearfix">
-                                {{-- <h5 class="card-title float-left">{{$value->users->name}}</h5> --}}
-                                <h5 class="card-title float-right">{{$value->hospital->name}}</h5>
-                            </div>
                             @if($value['star'] == 1)
-                            <div class="col-12">
+                            <div class="col-12 float-left">
                                 <i class="ion-ios-star text-warning"></i>
                             </div>
                             @elseif($value['star'] == 2)
-                            <div class="col-12">
+                            <div class="col-12 float-left">
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
                             </div>
                             @elseif($value['star'] == 3)
-                            <div class="col-12">
+                            <div class="col-12 float-left">
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
                             </div>
                             @elseif($value['star'] == 4)
-                            <div class="col-12">
+                            <div class="col-12 float-left">
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
                             </div>
                             @elseif($value['star'] == 5)
-                            <div class="col-12">
+                            <div class="col-12 float-left">
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
                                 <i class="ion-ios-star text-warning"></i>
@@ -110,7 +108,17 @@
                                 <i class="ion-ios-star text-warning"></i>
                             </div>
                             @endif
-                            <p class="card-text">{{$value['description']}}</p>
+                            <div class="clearfix">
+                                <p style="font-size: 12px;"><em>{{$value->users->name}}</em></p>
+                            </div>
+                            <p class="lead">
+                                <small class="h6" style="font-size: 14px;">
+                                    {{$value['description']}}
+                                </small>
+                                <a href="" class="{{route('show-hospital', $value->slug)}}text-secondary">
+                                    <footer class="blockquote-footer"><small>{{$value->hospital->name}}</small></footer>
+                                </a>
+                            </p>
                           </div>
                         </div>
                     </div>
@@ -126,9 +134,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <section>
-    <div class="row" style="background-color: #e6e6e6;">
+    <div class="row">
         <div class="col-md-12 col-12 p-4">
             <div class="row">
                 <div class="col-md-12 col-12">
