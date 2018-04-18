@@ -26,13 +26,14 @@ class FrontController extends Controller
 		$data['why'] = WhyBooking::all();
 		$data['partner'] = Partner::where('status', 'true')->get();
 		// $data['review'] = Review::with('users')
-		//                         ->with('hospital')->where('status', 'true')
-  //                               ->limit(4)
-  //                               ->get();
-        $data['hospital'] = HospitalImage::with('hospital')->where('status', 'true')
-        							  ->orderBy('id', 'desc')
-        							  ->take(4)
-        							  ->get();
+		// 				  ->with('hospital')->where('status', 'true')
+		// 			      ->limit(4)
+		// 				  ->get();
+        $data['hospital'] = HospitalImage::with('hospital')
+        					->where('status', 'true')
+							->orderBy('id', 'desc')
+							->take(4)
+							->get();
 
 		return view('front.pages.beranda.index', $data);
 	}

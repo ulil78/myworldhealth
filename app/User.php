@@ -27,9 +27,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function reviews()
+    public function review()
     {
-        return $this->hasOne('App\Review');
+        return $this->belongsTo('App\Review');
     }
     
 }

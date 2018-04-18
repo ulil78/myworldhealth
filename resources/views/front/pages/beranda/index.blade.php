@@ -66,6 +66,7 @@
         </div>
     </div>
 </section>
+{{-- Review Section --}}
 {{-- <section>
     <div class="row">
         <div class="col-md-12 col-12 p-4">
@@ -73,7 +74,7 @@
                 <div class="col-md-12 col-12">
                     <legend>Client Reviews</legend>
                 </div>
-                @forelse($review as $value)
+                @forelse($reviews as $value)
                     <div class="col-md-3 col-12">
                         <div class="card border-0">
                           <div class="card-body">
